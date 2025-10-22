@@ -34,7 +34,9 @@ const page = usePage();
         <Collapsible
           v-if="item.items?.length"
           as-child
-          :default-open="item.items.filter((i) => urlIsActive(i.href, page.url)).length > 0"
+          :default-open="
+            item.items.filter((i) => urlIsActive(i.href, page.url)).length > 0
+          "
           class="group/collapsible"
         >
           <SidebarMenuItem>

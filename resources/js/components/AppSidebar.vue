@@ -11,10 +11,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, newPage } from '@/routes';
+import { dashboard } from '@/routes';
+import { history } from '@/routes/invoice';
+import verification from '@/routes/invoice/verification';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid, ReceiptText, Scale } from 'lucide-vue-next';
+import {
+  BookOpen,
+  Folder,
+  LayoutGrid,
+  ReceiptText,
+  Scale,
+} from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
@@ -24,16 +32,16 @@ const mainNavItems: NavItem[] = [
     icon: LayoutGrid,
   },
   {
-    title: 'Invoices',
+    title: 'Invoice',
     icon: ReceiptText,
     items: [
       {
         title: 'Verification',
-        href: newPage(),
+        href: verification.index().url,
       },
       {
         title: 'History',
-        href: newPage(),
+        href: history(),
       },
     ],
   },
