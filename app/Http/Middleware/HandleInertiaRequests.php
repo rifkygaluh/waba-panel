@@ -2,11 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Carbon\Carbon;
+use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
-use Tighten\Ziggy\Ziggy;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -38,23 +36,16 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        $user = [];
+        [$message, $author] = str(Inspiring::quotes()->random())->explode('-');
 
-        if (Auth::check()) {
-            $user = auth()->user();
-        }
-        
         return [
             ...parent::share($request),
+            'name' => config('app.name'),
+            'quote' => ['message' => trim($message), 'author' => trim($author)],
             'auth' => [
-                'user' => $user,
+                'user' => $request->user(),
             ],
-            'ziggy' => function () use ($request) {
-                return array_merge((new Ziggy())->toArray(), [
-                    'location' => $request->url(),
-                ]);
-            },
-            'flash' => ['message' => fn () => $request->session()->get('message')],
+            'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];
     }
 }
