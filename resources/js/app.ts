@@ -1,7 +1,9 @@
+import 'viewerjs/dist/viewer.css'; // Import the CSS
 import '../css/app.css';
 
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import viewer from 'v-viewer';
 import type { DefineComponent } from 'vue';
 import { createApp, h } from 'vue';
 import { initializeTheme } from './composables/useAppearance';
@@ -18,6 +20,7 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
+      .use(viewer)
       .mount(el);
   },
   progress: {

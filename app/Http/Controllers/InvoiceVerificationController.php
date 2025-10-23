@@ -15,6 +15,9 @@ class InvoiceVerificationController extends Controller
     {
         $invoice = [
             'id' => $id,
+            'name' => explode(' ', fake()->name())[1],
+            'uploadDate' => now()->subDays(7)->toDateString(),
+            'items' => [],
         ];
         
         return inertia('invoice/verification/Detail', compact('invoice'));
