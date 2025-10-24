@@ -10,6 +10,11 @@ export function urlIsActive(
   urlToCheck: NonNullable<InertiaLinkProps['href']>,
   currentUrl: string,
 ) {
+  const endpoints = currentUrl.split('/');
+  if (typeof parseInt(endpoints[endpoints.length - 1]) === 'number') {
+    endpoints.pop();
+    return toUrl(urlToCheck) === endpoints.join('/');
+  }
   return toUrl(urlToCheck) === currentUrl;
 }
 
