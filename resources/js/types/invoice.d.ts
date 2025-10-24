@@ -9,8 +9,13 @@ export interface InvoiceItem {
 
 export interface Invoice {
   id: number;
+  storeName: string;
+  storeOwner: string;
+  storePhone: string;
+  storeAddress: string;
   totalPieces: number;
   totalPrice: number;
+  image: string;
   uploadDate: string;
   date: string;
   name?: string;

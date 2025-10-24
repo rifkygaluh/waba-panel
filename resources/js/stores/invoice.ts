@@ -12,12 +12,23 @@ const itemTemplate: InvoiceItem = {
 
 export const useInvoiceStore = defineStore('invoice', {
   state: () => ({
+    id: undefined as number | undefined,
+    storeName: undefined as string | undefined,
+    storeOwner: undefined as string | undefined,
+    storePhone: undefined as string | undefined,
+    storeAddress: undefined as string | undefined,
+    image: undefined as string | undefined,
     totalPieces: 0,
     totalPrice: 0,
     uploadDate: '',
     date: '',
     name: '',
     items: [{ ...itemTemplate }],
+    checkDuplicate: {
+      open: false,
+      loading: false,
+      search: undefined,
+    },
   }),
   getters: {
     pieces: (state) =>
@@ -28,7 +39,7 @@ export const useInvoiceStore = defineStore('invoice', {
     total: (state) =>
       state.items.reduce((sum, item) => sum + item.totalPrice, 0),
     disabledRemoveItem: (state) => state.items.length === 1,
-    disabledCheckDuplicates: (state) => {
+    disabledVerifying: (state) => {
       if (state.totalPrice <= 0) return true;
       if (state.date === '' || !state.date) return true;
       if (state.name.trim() === '' || state.name.trim() === '-') return true;
@@ -37,6 +48,12 @@ export const useInvoiceStore = defineStore('invoice', {
   },
   actions: {
     setInvoice(data: Invoice) {
+      this.id = data.id;
+      this.storeName = data.storeName;
+      this.storeOwner = data.storeOwner;
+      this.storePhone = data.storePhone;
+      this.storeAddress = data.storeAddress;
+      this.image = data.image;
       this.totalPieces = data.totalPieces || this.totalPieces;
       this.totalPrice = data.totalPrice || this.totalPrice;
       this.uploadDate = data.uploadDate || this.uploadDate;
@@ -50,6 +67,16 @@ export const useInvoiceStore = defineStore('invoice', {
     removeItem(index: number) {
       this.items.splice(index, 1);
     },
+    openCheckDuplicate() {
+      this.checkDuplicate.open = true;
+    },
+    resetCheckDuplicate() {
+      this.checkDuplicate = {
+        open: false,
+        loading: false,
+        search: undefined,
+      };
+    },
     calculate() {
       this.totalPrice = this.total;
       this.totalPieces = this.pieces;
@@ -59,6 +86,7 @@ export const useInvoiceStore = defineStore('invoice', {
         this.items[index].price !== undefined &&
         this.items[index].quantity !== undefined
       ) {
+        this.resetCheckDuplicate();
         const totalPrice = this.items[index].price * this.items[index].quantity;
         const discount =
           this.items[index].discountType === 'percentage'

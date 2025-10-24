@@ -15,8 +15,13 @@ class InvoiceVerificationController extends Controller
     {
         $invoice = [
             'id' => $id,
-            'name' => explode(' ', fake()->name())[1],
+            'storeName' => fake()->company(),
+            'storeOwner' => fake()->name(),
+            'storePhone' => fake()->phoneNumber(),
+            'storeAddress' => fake()->address(),
+            'image' => 'https://picsum.photos/200/300',
             'uploadDate' => now()->subDays(7)->toDateString(),
+            'name' => explode(' ', fake()->name())[1],
             'items' => [],
         ];
         
