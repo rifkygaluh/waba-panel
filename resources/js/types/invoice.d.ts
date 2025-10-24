@@ -1,9 +1,9 @@
 export interface InvoiceItem {
-  productId: number | string;
-  quantity: number;
-  price: number;
-  discount?: number;
-  discountType?: 'percentage' | 'fixed';
+  productId: number | string | undefined;
+  quantity: number | undefined;
+  discount: number | undefined;
+  discountType: 'percentage' | 'fixed';
+  price: number | undefined;
   totalPrice: number;
 }
 

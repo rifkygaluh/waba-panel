@@ -3,12 +3,14 @@ import '../css/app.css';
 
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import { createPinia } from 'pinia';
 import viewer from 'v-viewer';
 import type { DefineComponent } from 'vue';
 import { createApp, h } from 'vue';
 import { initializeTheme } from './composables/useAppearance';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Admin';
+const pinia = createPinia();
 
 createInertiaApp({
   title: (title) => (title ? `${title} - ${appName}` : appName),
@@ -21,6 +23,7 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(viewer)
+      .use(pinia)
       .mount(el);
   },
   progress: {
