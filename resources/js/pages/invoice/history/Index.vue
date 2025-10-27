@@ -4,9 +4,7 @@ import Card from '@/components/ui/card/Card.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { history } from '@/routes/invoice';
 import { type BreadcrumbItem } from '@/types';
-import { Head, Link } from '@inertiajs/vue3';
-import { Button } from 'ant-design-vue';
-import { FileSearch2 } from 'lucide-vue-next';
+import { Head } from '@inertiajs/vue3';
 import { columns, queryData } from './api/Index';
 
 const breadcrumbs: BreadcrumbItem[] = [
