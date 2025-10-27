@@ -1,17 +1,23 @@
 <script setup lang="ts">
-import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
+import Card from '@/components/ui/card/Card.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import verification from '@/routes/invoice/verification';
+import { useInvoiceStore } from '@/stores/invoice';
 import { type BreadcrumbItem } from '@/types';
+import { Invoice } from '@/types/invoice';
 import { Head } from '@inertiajs/vue3';
+import CheckDuplicate from './components/CheckDuplicate.vue';
+import InvoiceInformation from './components/InvoiceInformation.vue';
+import VerificationForm from './components/VerificationForm.vue';
 
 type Props = {
-  invoice: {
-    id: number;
-  };
+  invoice: Invoice;
 };
 
 const props = defineProps<Props>();
+
+const invoice = useInvoiceStore();
+invoice.setInvoice(props.invoice);
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -34,28 +40,16 @@ const breadcrumbs: BreadcrumbItem[] = [
     <div
       class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
     >
-      <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-        <div
-          class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
-        >
-          <PlaceholderPattern />
-        </div>
-        <div
-          class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
-        >
-          <PlaceholderPattern />
-        </div>
-        <div
-          class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
-        >
-          <PlaceholderPattern />
-        </div>
-      </div>
-      <div
-        class="relative min-h-[100vh] flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border"
-      >
-        <PlaceholderPattern />
-      </div>
+      <Card class="px-6">
+        <!-- <h1 class="text-2xl">Invoice Verification Detail</h1> -->
+        <InvoiceInformation />
+      </Card>
+      <Card class="px-6">
+        <VerificationForm />
+      </Card>
+      <Card class="px-6" v-if="invoice.checkDuplicate.open">
+        <CheckDuplicate />
+      </Card>
     </div>
   </AppLayout>
 </template>
