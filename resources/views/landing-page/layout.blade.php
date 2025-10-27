@@ -85,16 +85,14 @@
                 </a>
 
                 <div id="navLinks" class="md:static absolute top-[-300px] md:w-auto w-full left-0 bg-white rounded-2xl font-bold z-[100]">
-                    <ul class="flex md:flex-row flex-col md:items-center md:gap-5 gap-2 md:p-0 p-4">
-                        <li><a class="hover:text-[#1FC36C]" href="{{ url('home#problem-n-solution') }}">Problem & Solution</a></li>
-                        <li><a class="hover:text-[#1FC36C]" href="{{ url('home#how-it-works') }}">How it work</a></li>
-                        <li><a class="hover:text-[#1FC36C]" href="{{ url('home#features') }}">Features</a></li>
-                        <li><a class="hover:text-[#1FC36C]" href="{{ url('home#pricing') }}">Pricing</a></li>
-                        <li><a class="hover:text-[#1FC36C]" href="{{ url('home#benefits') }}">Benefits</a></li>
-                        <li class="md:hidden block">
-                            <button class="bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer">Get Started, It's Free</button>
-                        </li>
-                    </ul>
+                    <div class="flex md:flex-row flex-col md:items-center md:gap-5 gap-2 md:p-0 p-4">
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#problem-n-solution') }}">Problem & Solution</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#how-it-works') }}">How it work</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#features') }}">Features</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#pricing') }}">Pricing</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#benefits') }}">Benefits</a>
+                        <button class="md:hidden block bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer">Get Started, It's Free</button>
+                    </div>
                 </div>
 
                 <div class="flex items-center">
