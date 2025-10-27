@@ -11,13 +11,13 @@
     </style>
 @endsection
 @section('content')
-    <section class="max-w-4xl px-10 mx-auto my-10">
-        <p class="text-[40px] font-bold">Frequently Asked Questions</p>
-        <p class="text-2xl mb-10">Everything you need to know before getting started with Loyaltygoo.</p>
+    <section class="max-w-4xl md:px-10 px-5 mx-auto my-10">
+        <p class="md:text-[40px] text-[20px] font-bold">Frequently Asked Questions</p>
+        <p class="md:text-2xl mb-10">Everything you need to know before getting started with Loyaltygoo.</p>
 
         <div style="background-color: #E9FCF2; border: 1px solid var(--waba-primary-color); border-radius: 16px;" class="mt-5">
             <button onclick="toggleAccordion(1)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold">What is Loyaltygoo and how does it work?</span>
+                <span class="font-bold text-left">What is Loyaltygoo and how does it work?</span>
                 <ion-icon id="icon-1" name="remove-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             
@@ -30,7 +30,7 @@
 
         <div class="accordion-waba mt-5">
             <button onclick="toggleAccordion(2)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold">Do customers need to install a new app?</span>
+                <span class="font-bold text-left">Do customers need to install a new app?</span>
                 <ion-icon id="icon-2" name="add-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             
@@ -43,7 +43,7 @@
 
         <div class="accordion-waba mt-5">
             <button onclick="toggleAccordion(3)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold">How can Loyaltygoo benefit my business?</span>
+                <span class="font-bold text-left">How can Loyaltygoo benefit my business?</span>
                 <ion-icon id="icon-3" name="add-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             
@@ -56,7 +56,7 @@
 
         <div class="accordion-waba mt-5">
             <button onclick="toggleAccordion(4)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold">Is it easy to set up?</span>
+                <span class="font-bold text-left">Is it easy to set up?</span>
                 <ion-icon id="icon-4" name="add-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             
@@ -69,7 +69,7 @@
 
         <div class="accordion-waba mt-5">
             <button onclick="toggleAccordion(5)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold">Can I customize my loyalty program?</span>
+                <span class="font-bold text-left">Can I customize my loyalty program?</span>
                 <ion-icon id="icon-5" name="add-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             
@@ -82,7 +82,7 @@
 
         <div class="accordion-waba mt-5">
             <button onclick="toggleAccordion(6)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold">Is my customer data secure?</span>
+                <span class="font-bold text-left">Is my customer data secure?</span>
                 <ion-icon id="icon-6" name="add-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             
@@ -95,7 +95,7 @@
 
         <div class="accordion-waba mt-5">
             <button onclick="toggleAccordion(7)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold">How do I track performance and results?</span>
+                <span class="font-bold text-left">How do I track performance and results?</span>
                 <ion-icon id="icon-7" name="add-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             
@@ -106,13 +106,13 @@
             </div>
         </div>
 
-        <div class="flex items-center justify-between rounded-2xl p-[20px] gap-[50px] bg-[#E9FCF2] mt-10">
+        <div class="flex md:flex-row flex-col items-center justify-between rounded-2xl p-[20px] md:gap-[50px] gap-5 bg-[#E9FCF2] mt-10">
             <div>
-                <p class="font-bold">Curious about something else? Let’s help you out.</p>
+                <p class="font-bold mb-1">Curious about something else? Let’s help you out.</p>
                 <p class="text-[14px]">Reach out to our customer support team anytime. We’re here to help you move forward with clarity and confidence</p>
             </div>
 
-            <button class="button-waba !w-[150px]">Talk to Us</button>
+            <button class="button-waba md:!w-[150px] !w-full">Talk to Us</button>
         </div>
     </section>
 @endsection

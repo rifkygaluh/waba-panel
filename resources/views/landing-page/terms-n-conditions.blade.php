@@ -7,8 +7,8 @@
     </style>
 @endsection
 @section('content')
-    <section class="max-w-4xl px-10 mx-auto my-10">
-        <p class="text-[40px] font-bold mb-10">Terms & Conditions</p>
+    <section class="max-w-4xl md:px-10 px-5 mx-auto my-10">
+        <p class="md:text-[40px] text-[20px] font-bold md:mb-10 mb-5">Terms & Conditions</p>
 
         <div class="space-y-5">
             <p>

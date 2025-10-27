@@ -84,7 +84,7 @@
                     <img class="h-[20px]" src="{{ asset('landing-page/images/logo.png') }}" />
                 </a>
 
-                <div id="navLinks" class="md:static absolute top-[-300px] md:w-auto w-full left-0 bg-white rounded-2xl font-bold">
+                <div id="navLinks" class="md:static absolute top-[-300px] md:w-auto w-full left-0 bg-white rounded-2xl font-bold z-[100]">
                     <ul class="flex md:flex-row flex-col md:items-center md:gap-5 gap-2 md:p-0 p-4">
                         <li><a class="hover:text-[#1FC36C]" href="{{ url('home#problem-n-solution') }}">Problem & Solution</a></li>
                         <li><a class="hover:text-[#1FC36C]" href="{{ url('home#how-it-works') }}">How it work</a></li>

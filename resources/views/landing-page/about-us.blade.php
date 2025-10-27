@@ -11,8 +11,8 @@
     </style>
 @endsection
 @section('content')
-    <section class="max-w-4xl px-10 mx-auto my-10">
-        <p class="text-[40px] font-bold mb-10">We Help Businesses Keep Customers Coming Back</p>
+    <section class="max-w-4xl md:px-10 px-5 mx-auto my-10">
+        <p class="md:text-[40px] text-[20px] font-bold mb-10">We Help Businesses Keep Customers Coming Back</p>
 
         <div class="space-y-5">
             <p>
@@ -30,7 +30,7 @@
         </div>
 
         <p class="font-bold text-[24px] mt-10 mb-5">Our Values</p>
-        <div class="grid grid-cols-2 gap-[20px] mb-[120px]">
+        <div class="grid md:grid-cols-2 grid-cols-1 md:grid-flow-col grid-flow-row gap-[20px] mb-[120px]">
             <div class="card-waba3">
                 <img class="w-[45px] h-[45px] mb-6" src="{{ asset('landing-page/images/Thumbup--Streamline-Beveled-Scribbles.png') }}" />
                 <b>Simplicity First</b>
