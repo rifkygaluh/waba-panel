@@ -99,7 +99,7 @@
 
                 <div class="flex items-center">
                     <button class="bg-[#1FC36C] text-white px-5 py-2 rounded-full cursor-pointer md:block hidden">Get Started, It's Free</button>
-                    <ion-icon onclick="onToggleMenu(this);" class="md:hidden text-3xl cursor-pointer" name="menu-outline"></ion-icon>
+                    <ion-icon id="btnDropDownMenu" onclick="onToggleMenu(this);" class="md:hidden text-3xl cursor-pointer" name="menu-outline"></ion-icon>
                 </div>
             </nav>
         </header>
@@ -154,12 +154,48 @@
     @yield('script')
 
     <script>
-        const navLinks = document.getElementById('navLinks');
-
         function onToggleMenu(e){
+            const navLinks = document.getElementById('navLinks');
             e.name = e.name === 'menu-outline' ? 'close-outline' : 'menu-outline';
             navLinks.classList.toggle('top-[70px]')
         }
+
+        document.addEventListener('click', function(event) {
+            const dropdownButton = event.target.closest('#btnDropDownMenu');
+
+            if(!dropdownButton){
+                const navLinks = document.getElementById('navLinks');
+                const dropdownButtonElement = document.getElementById('btnDropDownMenu');
+
+                // console.log("Clicked outside the dropdown button");
+                dropdownButtonElement.name = 'menu-outline';
+
+                const hasShown = navLinks.classList.contains('top-[70px]');
+                if(hasShown) {
+                    navLinks.classList.toggle('top-[70px]')
+                }
+            }
+        });
+
+        // $(document).on('click', function(event) {
+            // if (!$(event.target).closest('#dropdownMenuButton1').length) {
+            //     // console.log("Clicked outside the dropdown button");
+            //     $('#menuMobile').css('z-index', 0);
+            //     $('#dropdownMenuButton1 i').replaceWith('<i class="fa-solid fa-bars"></i>');
+            //     $('#overlay').removeClass("active-overlay");
+            // } else {
+            //     // console.log("Clicked inside the dropdown button");
+            //     if($('#overlay').hasClass('active-overlay')){
+            //         $('#menuMobile').css('z-index', 0);
+            //         $('#dropdownMenuButton1 i').replaceWith('<i class="fa-solid fa-bars"></i>');
+            //         $('#overlay').removeClass("active-overlay");
+            //     }else{
+            //         $('#menuMobile').css('z-index', 10000);
+            //         $('#dropdownMenuButton1 i').replaceWith('<i class="fa-solid fa-xmark"></i>');
+            //         $('#overlay').addClass('active-overlay')
+            //     }
+            // }
+        // });
     </script>
 </body>
 </html>
