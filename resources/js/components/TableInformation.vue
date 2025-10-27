@@ -25,7 +25,7 @@ const columns = [
 
 <template>
   <Table
-    class="border"
+    class="w-full border"
     row-class-name="border-y-0 py-2"
     :data-source="dataSource"
     :columns="columns"
@@ -38,7 +38,7 @@ const columns = [
     </template>
     <template #bodyCell="{ column, text }">
       <template v-if="column.dataIndex === 'title'">
-        <p class="font-semibold">{{ text }}</p>
+        <p class="font-medium">{{ text }}</p>
       </template>
       <template v-if="column.dataIndex === 'value'">
         <p class="text-right">{{ text }}</p>

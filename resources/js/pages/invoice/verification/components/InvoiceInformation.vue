@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TableVertical from '@/components/TableVertical.vue';
+import TableInformation from '@/components/TableInformation.vue';
 import { useInvoiceStore } from '@/stores/invoice';
 import { component as VViewer } from 'v-viewer';
 
@@ -18,16 +18,15 @@ const dataSource = [
 <template>
   <div class="grid grid-cols-2 gap-6">
     <div>
-      <v-viewer class="min-h-[440px]" :options="{ inline: true }">
-        <img
-          :key="invoice.image"
-          :src="invoice.image"
-          hidden
-        />
+      <v-viewer
+        class="min-h-[400px] bg-gray-50"
+        :options="{ inline: true, navbar: false }"
+      >
+        <img :key="invoice.image" :src="invoice.image" hidden />
       </v-viewer>
     </div>
     <div class="relative">
-      <TableVertical title="Invoice Information" :data-source="dataSource" />
+      <TableInformation title="Invoice Information" :data-source="dataSource" />
     </div>
   </div>
 </template>
