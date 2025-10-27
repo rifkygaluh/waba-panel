@@ -25,8 +25,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 });
 
-Route::get('new-page', function () {
-    return Inertia::render('NewPage');
-})->name('new-page');
-
 require __DIR__.'/settings.php';
