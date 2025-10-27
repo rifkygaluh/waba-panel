@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { filterOption } from '@/lib/utils';
 import { useInvoiceStore } from '@/stores/invoice';
-import { Link } from '@inertiajs/vue3';
 import {
   Button,
   DatePicker,
@@ -177,17 +176,21 @@ const invoice = useInvoiceStore();
           valueFormat="YYYY-MM-DD"
           v-model:value="invoice.date"
           :defaultPickerValue="invoice.uploadDate"
+          @change="invoice.resetCheckDuplicate"
         />
       </FormItem>
       <FormItem label="EU Name">
-        <Input v-model:value="invoice.name" />
+        <Input
+          v-model:value="invoice.name"
+          @change="invoice.resetCheckDuplicate"
+        />
       </FormItem>
       <FormItem label=" " class="flex grow justify-end">
         <div class="flex gap-3">
           <Button type="primary" :disabled="invoice.disabledVerifying" danger>
             Reject Invoice
           </Button>
-          <Link href="#check-duplicate">
+          <a href="#check-duplicate">
             <Button
               type="primary"
               @click="invoice.openCheckDuplicate"
@@ -195,7 +198,7 @@ const invoice = useInvoiceStore();
             >
               Check Duplicate
             </Button>
-          </Link>
+          </a>
         </div>
       </FormItem>
     </div>
