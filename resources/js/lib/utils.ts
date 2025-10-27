@@ -36,3 +36,12 @@ export function filterOption(
   }
   return option?.label.toUpperCase().indexOf(input.toUpperCase()) >= 0;
 }
+
+export function doubleViewersGuard(parentId: string) {
+  const viewers = document
+    .getElementById(parentId)
+    ?.querySelectorAll('.viewer-container.viewer-backdrop');
+  if (viewers && viewers?.length > 1) {
+    viewers[1].remove();
+  }
+}
