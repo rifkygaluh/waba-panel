@@ -12,7 +12,7 @@ export function urlIsActive(
   currentUrl: string,
 ) {
   const endpoints = currentUrl.split('/');
-  if (typeof parseInt(endpoints[endpoints.length - 1]) === 'number') {
+  if (!isNaN(parseInt(endpoints[endpoints.length - 1]))) {
     endpoints.pop();
     return toUrl(urlToCheck) === endpoints.join('/');
   }
