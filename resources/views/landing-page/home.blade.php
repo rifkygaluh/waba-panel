@@ -25,7 +25,8 @@
         }
 
         .card-waba2 {
-            background-color: var(--waba-secondary-color);
+            /* background-color: var(--waba-secondary-color); */
+            border: 0.3px solid #CCCCCC;
             border-radius: 20px;
             overflow: hidden;
             display: flex;
@@ -61,7 +62,7 @@
                     </div>
                     <p class="mt-5 md:text-[18px]">Build loyalty effortlessly inside WhatsApp. Just seamless connection with your customers.</p>
                     <div class="flex md:flex-row flex-col items-center gap-5 mt-10">
-                        <a class="button-waba !md:w-[200px] !w-full" href="https://wa.me/083199294607?text=Hallo">Get a Free Now</a>
+                        <a class="button-waba !md:w-[200px] !w-full text-center" href="https://wa.me/083199294607?text=Hallo">Get a Free Now</a>
                         <a class="button-waba-outline !md:w-[200px] !w-full text-center" href="https://wa.me/081222999879">Start Now</a>
                     </div>
                 </div>
@@ -166,15 +167,15 @@
         <div class="md:px-10 md:mt-20 mt-10">
             <div class="grid md:grid-cols-3 grid-cols-1 md:grid-flow-col grid-flow-row gap-[20px]">
                 <div class="grid gap-[20px]">
-                    <div class="card-waba2">
+                    <div style="background: url('{{ asset('landing-page/images/1.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
                         <div class="p-[30px]">
                             <b class="text-[20px]">Automated Engagement</b>
                             <p class="mt-2">Set once, and let Loyaltygoo handle points, greetings, and reminders automatically.</p>
                         </div>
-                        <img class="w-full" src="{{ asset('landing-page/images/card_1-removebg-preview.png') }}" />
+                        <img class="w-full" src="{{ asset('landing-page/images/01._automated_engagement-removebg-preview.png') }}" />
                     </div>
 
-                    <div class="card-waba2">
+                    <div style="background: url('{{ asset('landing-page/images/4.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
                         <div class="p-[30px]">
                             <b class="text-[20px]">Smart Promotions</b>
                             <p class="mt-2">Send targeted offers based on customer behavior and purchase history.</p>
@@ -184,15 +185,15 @@
                 </div>
 
                 <div class="grid gap-[20px]">
-                    <div class="card-waba2">
+                    <div style="background: url('{{ asset('landing-page/images/2.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
                         <div class="p-[30px]">
                             <b class="text-[20px]">Digital Membership Card</b>
                             <p class="mt-2">A loyalty card that lives in your customer’s phone, never forgotten.</p>
                         </div>
-                        <img class="w-full" src="{{ asset('landing-page/images/card_2-removebg-preview.png') }}" />
+                        <img class="w-full p-5" src="{{ asset('landing-page/images/02._Membership_Card-removebg-preview.png') }}" />
                     </div>
 
-                    <div class="card-waba2">
+                    <div style="background: url('{{ asset('landing-page/images/5.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
                         <div class="p-[30px]">
                             <b class="text-[20px]">Insightful Dashboard</b>
                             <p class="mt-2">Track performance easily and see what drives real loyalty.</p>
@@ -202,15 +203,15 @@
                 </div>
 
                 <div class="grid gap-[20px]">
-                    <div class="card-waba2">
+                    <div style="background: url('{{ asset('landing-page/images/3.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
                         <div class="p-[30px]">
                             <b class="text-[20px]">Interactive Reward Catalog</b>
                             <p class="mt-2">Let customers easily browse and choose the rewards they really want.</p>
                         </div>
-                        <img class="w-full p-[30px]" src="{{ asset('landing-page/images/output-onlinepngtools.png') }}" />
+                        <img class="w-full p-[30px]" src="{{ asset('landing-page/images/message_welcome.png') }}" />
                     </div>
 
-                    <div class="card-waba2">
+                    <div style="background: url('{{ asset('landing-page/images/6.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
                         <div class="p-[30px]">
                             <b class="text-[20px]">Seamless Intregation</b>
                             <p class="mt-2">Connect with your POS or online store — no hassle required.</p>
@@ -313,7 +314,7 @@
                     </button>
                 </div>
 
-                <div class="bg-[var(--waba-secondary-color)] border rounded-2xl p-[30px]">
+                <div style="background: url('{{ asset('landing-page/images/Pricing Card.png') }}');background-repeat: no-repeat;background-size: cover;" class="border rounded-2xl p-[30px]">
                     <div class="flex items-start justify-between">
                         <img class="w-[56px] h-[56px]" src="{{ asset('landing-page/images/Iconb.png') }}" />
                         <div class="rounded-[8px] bg-[#F9FAFB] border-white px-[10px] py-[5px] text-[14px] text-[var(--waba-primary-color)] font-bold">Best Value</div>
