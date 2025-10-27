@@ -111,8 +111,8 @@
         <div class="bg-white rounded-2xl md:p-10 p-5">
             <div class="grid md:grid-cols-12 grid-cols-1 md:grid-flow-col grid-flow-row md:gap-0 gap-5">
                 <div class="md:col-span-4">
-                    <a class="mb-2" href="{{ url('home')}}">
-                        <img class="h-[20px]" src="{{ asset('landing-page/images/logo.png') }}" />
+                    <a class="" href="{{ url('home')}}">
+                        <img class="mb-2 h-[20px]" src="{{ asset('landing-page/images/logo.png') }}" />
                     </a>
                     Build Loyalty. Effortlessly
                 </div>
@@ -135,8 +135,17 @@
                         </div>
                         <div>
                             <p class="text-[20px] font-bold mb-2">Language</p>
-                            <a href="#">Bahasa Indonesia</a><br />
-                            <a href="#">English</a><br />
+                            <div class="flex items-center">
+                                <img class="h-[16px] mr-2" src="{{ asset('landing-page/images/emojione_flag-for-indonesia (1).png') }}" />
+                                <a href="#">Bahasa Indonesia</a>
+                            </div>
+                            <div class="flex items-center justify-between w-[200px]">
+                                <div class="flex items-center">
+                                    <img class="h-[16px] mr-2" src="{{ asset('landing-page/images/circle-flags_uk (1).png') }}" />
+                                    <a href="#" class="text-[var(--waba-primary-color)]">English</a>
+                                </div>
+                                <ion-icon class="text-2xl text-green-500" name="checkmark-outline"></ion-icon>
+                            </div>
                         </div>
                     </div>
                 </div>

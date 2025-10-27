@@ -70,9 +70,9 @@
             <div class="md:col-span-5 md:order-2 order-1 md:px-0 px-10">
                 <div class="relative w-full max-w-[430px] max-h-[569px] mx-auto">
                     {{-- aspect-2/3 object-fill  --}}
-                    <img class="w-full max-w-[360px] max-h-[548px] mx-auto" src="{{ asset('landing-page/images/02 1.png') }}" />
-                    <img class="absolute left-[30%] translate-x-[-50%] top-[25%] w-[75%] max-w-[320px] max-h-[360px]" src="{{ asset('landing-page/images/01._Welcome_Program_2-removebg-preview.png') }}" />
-                    <img class="absolute right-[30%] translate-x-[50%] bottom-[-12%] translate-y-[-50%] w-[75%] max-w-[265px] max-h-[55px]" src="{{ asset('landing-page/images/02. About Program.png') }}" />
+                    <img class="w-full max-w-[360px] max-h-[548px] mx-auto" src="{{ asset('landing-page/images/Free iPhone 15 Mockup 1 1.png') }}" />
+                    <img class="absolute left-[30%] translate-x-[-50%] top-[22%] w-[75%] max-w-[320px] max-h-[360px]" src="{{ asset('landing-page/images/01._Welcome_Program_2-removebg-preview.png') }}" />
+                    <img class="absolute right-[30%] translate-x-[50%] md:bottom-[0px] bottom-[20px] w-[75%] max-w-[265px] max-h-[55px]" src="{{ asset('landing-page/images/02. About Program.png') }}" />
                 </div>
             </div>
         </div>
@@ -309,7 +309,7 @@
                         </p>
                     </div>
 
-                    <button class="button-waba-outline !w-full mt-10">
+                    <button onclick="window.open('https://wa.me/083199294607?text=Hallo', '_blank')" class="button-waba-outline !w-full mt-10 text-center">
                         Start Now
                     </button>
                 </div>
