@@ -91,12 +91,12 @@
                         <a class="hover:text-[#1FC36C]" href="{{ url('home#features') }}">Features</a>
                         <a class="hover:text-[#1FC36C]" href="{{ url('home#pricing') }}">Pricing</a>
                         <a class="hover:text-[#1FC36C]" href="{{ url('home#benefits') }}">Benefits</a>
-                        <a class="md:hidden block bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer text-center" href="https://wa.me/083199294607?text=Hallo">Get Started, It's Free</a>
+                        <a class="md:hidden block bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer text-center" href="https://wa.me/083199294607?text=Hallo" target="_blank">Get Started, It's Free</a>
                     </div>
                 </div>
 
                 <div class="flex items-center">
-                    <a class="bg-[#1FC36C] text-white px-5 py-2 rounded-full cursor-pointer md:block hidden text-center" href="https://wa.me/083199294607?text=Hallo">Get Started, It's Free</a>
+                    <a class="bg-[#1FC36C] text-white px-5 py-2 rounded-full cursor-pointer md:block hidden text-center" href="https://wa.me/083199294607?text=Hallo" target="_blank">Get Started, It's Free</a>
                     <ion-icon id="btnDropDownMenu" onclick="onToggleMenu(this);" class="md:hidden text-3xl cursor-pointer" name="menu-outline"></ion-icon>
                 </div>
             </nav>

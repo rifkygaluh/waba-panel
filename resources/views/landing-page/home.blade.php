@@ -62,8 +62,8 @@
                     </div>
                     <p class="mt-5 md:text-[18px]">Build loyalty effortlessly inside WhatsApp. Just seamless connection with your customers.</p>
                     <div class="flex md:flex-row flex-col items-center gap-5 mt-10">
-                        <a class="button-waba !md:w-[200px] !w-full text-center" href="https://wa.me/083199294607?text=Hallo">Get a Free Now</a>
-                        <a class="button-waba-outline !md:w-[200px] !w-full text-center" href="https://wa.me/081222999879">Start Now</a>
+                        <a class="button-waba !md:w-[200px] !w-full text-center" href="https://wa.me/083199294607?text=Hallo" target="_blank">Get a Free Now</a>
+                        <a class="button-waba-outline !md:w-[200px] !w-full text-center" href="https://wa.me/081222999879" target="_blank">Start Now</a>
                     </div>
                 </div>
             </div>

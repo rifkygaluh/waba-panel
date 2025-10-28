@@ -30,7 +30,7 @@
         </div>
 
         <p class="font-bold text-[24px] mt-10 mb-5">Our Values</p>
-        <div class="grid md:grid-cols-2 grid-cols-1 md:grid-flow-col grid-flow-row gap-[20px] mb-[120px]">
+        <div class="grid md:grid-cols-2 grid-cols-1 grid-flow-row gap-[20px] mb-[120px]">
             <div class="card-waba3">
                 <img class="w-[45px] h-[45px] mb-6" src="{{ asset('landing-page/images/Thumbup--Streamline-Beveled-Scribbles.png') }}" />
                 <b>Simplicity First</b>
