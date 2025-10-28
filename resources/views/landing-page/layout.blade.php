@@ -124,7 +124,7 @@
                         </div>
                         <div>
                             <p class="text-[20px] font-bold mb-2">Company</p>
-                            <a href="{{ url('about-us') }}">About Us</a><br />
+                            {{-- <a href="{{ url('about-us') }}">About Us</a><br /> --}}
                             <a href="{{ url('faq') }}">FAQ</a><br />
                             <a href="#">Contact</a><br />
                         </div>
