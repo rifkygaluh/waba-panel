@@ -43,7 +43,7 @@ export const useInvoiceStore = defineStore('invoice', {
       if (state.totalPrice <= 0) return true;
       if (state.date === '' || !state.date) return true;
       if (state.name.trim() === '' || state.name.trim() === '-') return true;
-      if (state.items.find((i) => !i.productId)) return true;
+      if (state.items.find((i) => !i.productId || !i.totalPrice)) return true;
     },
   },
   actions: {
@@ -63,9 +63,11 @@ export const useInvoiceStore = defineStore('invoice', {
     },
     addNewItem() {
       this.items.push({ ...itemTemplate });
+      this.resetCheckDuplicate();
     },
     removeItem(index: number) {
       this.items.splice(index, 1);
+      this.resetCheckDuplicate();
     },
     openCheckDuplicate() {
       this.checkDuplicate.open = true;
