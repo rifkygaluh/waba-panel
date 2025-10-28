@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BenefitRulesController;
 use App\Http\Controllers\InvoiceHistoryController;
 use App\Http\Controllers\InvoiceVerificationController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('history', [InvoiceHistoryController::class, 'index'])->name('invoice.history');
     });
+
+    Route::resource('benefit-rules', BenefitRulesController::class);
 });
 
 require __DIR__.'/settings.php';

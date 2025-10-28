@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import benefitRules from '@/routes/benefit-rules';
 import { history } from '@/routes/invoice';
 import verification from '@/routes/invoice/verification';
 import { type NavItem } from '@/types';
@@ -46,8 +47,8 @@ const mainNavItems: NavItem[] = [
     ],
   },
   {
-    title: 'Rules Maker',
-    href: dashboard(),
+    title: 'Benefit Rules',
+    href: benefitRules.index().url,
     icon: Scale,
   },
 ];
