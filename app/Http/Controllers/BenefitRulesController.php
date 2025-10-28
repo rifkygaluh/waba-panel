@@ -10,4 +10,9 @@ class BenefitRulesController extends Controller
     {
         return inertia('benefit-rules/Index');
     }
+
+    public function create()
+    {
+        return inertia('benefit-rules/Create');
+    }
 }
