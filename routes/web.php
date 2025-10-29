@@ -7,6 +7,14 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
+use App\Http\Controllers\LandingPageController;
+
+//Landing Page
+Route::get('home', [LandingPageController::class, 'home']);
+// Route::get('about-us', [LandingPageController::class, 'about']);
+Route::get('faq', [LandingPageController::class, 'faq']);
+Route::get('terms-n-conditions', [LandingPageController::class, 'terms']);
+Route::get('privacy-policy', [LandingPageController::class, 'privacy']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
