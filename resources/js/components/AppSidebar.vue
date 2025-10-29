@@ -15,10 +15,12 @@ import { dashboard } from '@/routes';
 import benefitRules from '@/routes/benefit-rules';
 import { history } from '@/routes/invoice';
 import verification from '@/routes/invoice/verification';
+import product from '@/routes/product';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
 import {
   BookOpen,
+  Box,
   Folder,
   LayoutGrid,
   ReceiptText,
@@ -50,6 +52,11 @@ const mainNavItems: NavItem[] = [
     title: 'Benefit Rules',
     href: benefitRules.index().url,
     icon: Scale,
+  },
+  {
+    title: 'Products',
+    href: product.index().url,
+    icon: Box,
   },
 ];
 
