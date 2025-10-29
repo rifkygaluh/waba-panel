@@ -1,0 +1,63 @@
+<script setup lang="ts">
+import TableFetcher from '@/components/TableFetcher.vue';
+import Card from '@/components/ui/card/Card.vue';
+import AppLayout from '@/layouts/AppLayout.vue';
+import product from '@/routes/product';
+import { type BreadcrumbItem } from '@/types';
+import { Head, Link } from '@inertiajs/vue3';
+import { Button } from 'ant-design-vue';
+import { Pen, PlusCircle } from 'lucide-vue-next';
+import { reactive } from 'vue';
+import { columns, queryData } from './api/Index';
+
+const breadcrumbs: BreadcrumbItem[] = [
+  {
+    title: 'Products',
+    href: product.index().url,
+  },
+];
+
+const createModal = reactive({
+  open: false,
+  setOpen: () => {
+    createModal.open = !createModal.open;
+  },
+});
+</script>
+
+<template>
+  <Head title="Products" />
+
+  <AppLayout :breadcrumbs="breadcrumbs">
+    <div
+      class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
+    >
+      <Card class="px-6">
+        <div class="flex justify-between">
+          <h1 class="text-2xl">Products</h1>
+          <div>
+            <Link :href="product.create().url">
+              <Button type="primary" @click="createModal.setOpen">
+                <template #icon>
+                  <PlusCircle class="h-4 w-4" />
+                </template>
+                Add Product
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </Card>
+      <Card class="px-6">
+        <TableFetcher :query-data="queryData" :columns="columns">
+          <template #action="{ index }">
+            <Link :href="product.edit(index + 1).url">
+              <Button class="px-2.5!">
+                <Pen class="h-4 w-4" />
+              </Button>
+            </Link>
+          </template>
+        </TableFetcher>
+      </Card>
+    </div>
+  </AppLayout>
+</template>

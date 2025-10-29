@@ -3,6 +3,7 @@
 use App\Http\Controllers\BenefitRulesController;
 use App\Http\Controllers\InvoiceHistoryController;
 use App\Http\Controllers\InvoiceVerificationController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -24,6 +25,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('history', [InvoiceHistoryController::class, 'index'])->name('invoice.history');
     });
+
+    Route::resource('product', ProductController::class);
 
     Route::resource('benefit-rules', BenefitRulesController::class);
 });
