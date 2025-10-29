@@ -10,17 +10,11 @@ use Laravel\Fortify\Features;
 use App\Http\Controllers\LandingPageController;
 
 //Landing Page
-Route::get('home', [LandingPageController::class, 'home']);
+Route::get('/', [LandingPageController::class, 'home'])->name('home');
 // Route::get('about-us', [LandingPageController::class, 'about']);
 Route::get('faq', [LandingPageController::class, 'faq']);
 Route::get('terms-n-conditions', [LandingPageController::class, 'terms']);
 Route::get('privacy-policy', [LandingPageController::class, 'privacy']);
-
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canRegister' => Features::enabled(Features::registration()),
-    ]);
-})->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
