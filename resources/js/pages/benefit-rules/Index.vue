@@ -6,7 +6,7 @@ import benefitRules from '@/routes/benefit-rules';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
 import { Button } from 'ant-design-vue';
-import { Pen, PlusCircle } from 'lucide-vue-next';
+import { Pen, PlusCircle, Trash2 } from 'lucide-vue-next';
 import { reactive } from 'vue';
 import { columns, queryData } from './api/Index';
 
@@ -50,11 +50,20 @@ const createModal = reactive({
       <Card class="px-6">
         <TableFetcher :query-data="queryData" :columns="columns">
           <template #action="{ index }">
-            <Link :href="benefitRules.edit(index + 1).url">
-              <Button class="px-2.5!">
-                <Pen class="h-4 w-4" />
+            <div class="flex gap-2.5">
+              <Link :href="benefitRules.edit(index + 1).url">
+                <Button class="px-2.5!">
+                  <Pen class="h-4 w-4" />
+                </Button>
+              </Link>
+              <Button
+                class="px-2.5!"
+                danger
+                disabled
+              >
+                <Trash2 class="h-4 w-4" />
               </Button>
-            </Link>
+            </div>
           </template>
         </TableFetcher>
       </Card>
