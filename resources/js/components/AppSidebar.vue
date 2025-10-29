@@ -12,9 +12,18 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import benefitRules from '@/routes/benefit-rules';
+import { history } from '@/routes/invoice';
+import verification from '@/routes/invoice/verification';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import {
+  BookOpen,
+  Folder,
+  LayoutGrid,
+  ReceiptText,
+  Scale,
+} from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
@@ -22,6 +31,25 @@ const mainNavItems: NavItem[] = [
     title: 'Dashboard',
     href: dashboard(),
     icon: LayoutGrid,
+  },
+  {
+    title: 'Invoice',
+    icon: ReceiptText,
+    items: [
+      {
+        title: 'Verification',
+        href: verification.index().url,
+      },
+      {
+        title: 'History',
+        href: history(),
+      },
+    ],
+  },
+  {
+    title: 'Benefit Rules',
+    href: benefitRules.index().url,
+    icon: Scale,
   },
 ];
 

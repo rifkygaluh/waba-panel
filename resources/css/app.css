@@ -169,3 +169,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.ant-btn,
+.ant-select > .ant-select-clear,
+.ant-input-suffix > .ant-input-clear-icon,
+.ant-picker-separator,
+.ant-avatar,
+.ant-input-search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-btn {
+  gap: calc(var(--spacing) * 2);
+}
