@@ -5,8 +5,8 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import product from '@/routes/product';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
-import { Button } from 'ant-design-vue';
-import { Pen, PlusCircle } from 'lucide-vue-next';
+import { Button, Modal } from 'ant-design-vue';
+import { Pen, PlusCircle, Trash2 } from 'lucide-vue-next';
 import { reactive } from 'vue';
 import { columns, queryData } from './api/Index';
 
@@ -17,10 +17,12 @@ const breadcrumbs: BreadcrumbItem[] = [
   },
 ];
 
-const createModal = reactive({
+const deleteModal = reactive({
+  record: null as { email: string } | null,
   open: false,
-  setOpen: () => {
-    createModal.open = !createModal.open;
+  setOpen: (data: { email: string }) => {
+    deleteModal.open = !deleteModal.open;
+    deleteModal.record = deleteModal.open ? data : null;
   },
 });
 </script>
@@ -37,7 +39,7 @@ const createModal = reactive({
           <h1 class="text-2xl">Products</h1>
           <div>
             <Link :href="product.create().url">
-              <Button type="primary" @click="createModal.setOpen">
+              <Button type="primary">
                 <template #icon>
                   <PlusCircle class="h-4 w-4" />
                 </template>
@@ -49,14 +51,32 @@ const createModal = reactive({
       </Card>
       <Card class="px-6">
         <TableFetcher :query-data="queryData" :columns="columns">
-          <template #action="{ index }">
-            <Link :href="product.edit(index + 1).url">
-              <Button class="px-2.5!">
-                <Pen class="h-4 w-4" />
+          <template #action="{ index, record }">
+            <div class="flex gap-2.5">
+              <Link :href="product.edit(index + 1).url">
+                <Button class="px-2.5!">
+                  <Pen class="h-4 w-4" />
+                </Button>
+              </Link>
+              <Button
+                class="px-2.5!"
+                @click="deleteModal.setOpen({ email: record.email })"
+                danger
+              >
+                <Trash2 class="h-4 w-4" />
               </Button>
-            </Link>
+            </div>
           </template>
         </TableFetcher>
+        <Modal
+          class="w-fit!"
+          v-model:open="deleteModal.open"
+          :closable="false"
+          :ok-button-props="{ danger: true }"
+          ok-text="Confirm"
+        >
+          Are you sure to delete this data, {{ deleteModal.record?.email }}?
+        </Modal>
       </Card>
     </div>
   </AppLayout>
