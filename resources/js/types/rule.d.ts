@@ -8,6 +8,7 @@ export interface RuleItem {
 }
 
 export interface Rule {
+  id: number | string;
   name: string | undefined;
   type: 'quantity' | 'price' | undefined;
   dateRange: [string, string] | [dayjs.Dayjs, dayjs.Dayjs] | undefined;
