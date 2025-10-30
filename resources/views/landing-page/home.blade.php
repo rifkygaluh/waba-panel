@@ -2,6 +2,8 @@
 
 @section('title', 'Home')
 @section('css')
+    <link href="{{asset('landing-page/css/fonts.css')}}" rel="stylesheet">
+
     <style>
         /* linear-gradient(to right, #E1F8E8, #1FC36C8F); */
         .background1 {
@@ -39,22 +41,30 @@
             padding: 30px;
             border-radius: 16px;
         }
+
+        .header-waba {
+            font-family: 'Product Sans', sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+        
     </style>
 @endsection
 @section('content')
-    <img class="absolute w-full top-[-80px] z-[-1]" src="{{ asset('landing-page/images/subtract.png') }}" />
+    <img class="absolute w-full top-[-300px] z-[-1]" src="{{ asset('landing-page/images/subtract.png') }}" />
     
     <section class="container px-5 mx-auto">
+
         <div class="grid md:grid-cols-12 grid-cols-1 md:grid-flow-col grid-flow-row gap-10 items-center md:px-10">
             <div class="md:col-span-7 md:order-1 order-2">
                 <div class="max-w-[680px]">
                     <div class="flex flex-wrap leading-normal">
                         {{-- kenapa pakai div, dikarenakan saat pakai span ada kemungkinan image tidak terrender saat sudah dipinggir ukuran --}}
-                        <div class="md:text-[60px] text-[32px] font-bold">Turn WhatsApp&nbsp;</div>
-                        <div class="relative md:text-[60px] text-[32px] font-bold">
+                        <div class="md:text-[60px] text-[32px] header-waba">Turn WhatsApp&nbsp;</div>
+                        <div class="relative md:text-[60px] text-[32px] header-waba">
                             Chats&nbsp; <img class="absolute right-[0px] md:top-[-5px] top-[-13px] md:w-[40px] w-[30px] md:h-[40px] h-[30px]" src="{{ asset('landing-page/images/wa.png') }}" />
                         </div>
-                        <div class="md:text-[60px] text-[32px] font-bold">into&nbsp;</div>
+                        <div class="md:text-[60px] text-[32px] header-waba">into&nbsp;</div>
                         <div class="relative md:text-[60px] text-[32px] font-bold text-[#1FC36C] font-[Times] italic">
                             Loyal&nbsp; <img class="absolute md:w-[57px] w-[30px] md:h-[37px] h-[20px] top-[-2px] md:left-[25px] left-[13px]" src="{{ asset('landing-page/images/Vector.png') }}" />
                         </div>
@@ -68,22 +78,22 @@
                 </div>
             </div>
             <div class="md:col-span-5 md:order-2 order-1 md:px-0 px-10">
-                <div class="relative w-full max-w-[430px] max-h-[569px] mx-auto">
+                <div class="relative w-full max-w-[430px] max-h-[569px] ml-auto">
                     {{-- aspect-2/3 object-fill  --}}
-                    <img class="w-full max-w-[360px] max-h-[548px] mx-auto" src="{{ asset('landing-page/images/Free iPhone 15 Mockup 1 1.png') }}" />
-                    <img class="absolute left-[30%] translate-x-[-50%] top-[22%] w-[75%] max-w-[320px] max-h-[360px]" src="{{ asset('landing-page/images/01._Welcome_Program_2-removebg-preview.png') }}" />
+                    <img class="w-full max-w-[360px] max-h-[548px] ml-auto" src="{{ asset('landing-page/images/Free iPhone 15 Mockup 1 1.png') }}" />
+                    <img class="absolute left-[40%] translate-x-[-50%] top-[22%] w-[75%] max-w-[320px] max-h-[360px]" src="{{ asset('landing-page/images/01_Welcome_Program_2.png') }}" />
                     <img class="absolute right-[30%] translate-x-[50%] md:bottom-[0px] bottom-[20px] w-[75%] max-w-[265px] max-h-[55px]" src="{{ asset('landing-page/images/02. About Program.png') }}" />
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="problem-n-solution" class="container px-5 mx-auto md:mt-20 mt-10">
-        <p class="md:text-[40px] text-[32px] md:text-center font-bold">The Problem and Our Solution</p>
+    <section id="problem-n-solution" class="container px-5 mx-auto md:mt-40 mt-10">
+        <p class="md:text-[40px] text-[32px] md:text-center header-waba">The Problem and Our Solution</p>
         <p class="mt-2 md:text-[18px] md:text-center">Loyalty shouldn’t be hard. We make it automatic, personal, and built for real results.</p>
 
         <div class="grid md:grid-cols-2 grid-cols-1 md:grid-flow-col grid-flow-row md:gap-20 gap-10 items-center md:px-10 md:mt-20 mt-10">
-            <img class="mx-auto" src="{{ asset('landing-page/images/visual.png') }}" />
+            <img class="mx-auto" src="{{ asset('landing-page/images/Visual.png') }}" />
 
             <div class="">
                 <span class="badge-waba">Problem</span>
@@ -126,7 +136,7 @@
             <div class="relative rounded-2xl background1 md:p-[50px] p-[20px]">
                 <div class="grid md:grid-cols-2 grid-cols-1 md:grid-flow-col grid-flow-row items-center justify-items-stretch md:gap-10 gap-3">
                     <div class="max-w-[545px]">
-                        <p class="md:text-[40px] text-[32px] font-bold">As Easy as Sending a Text. Just 3 Simple Steps!</p>
+                        <p class="md:text-[40px] text-[32px] header-waba">As Easy as Sending a Text. Just 3 Simple Steps!</p>
                     </div>
 
                     <div class="max-w-[500px] md:justify-self-end">
@@ -161,7 +171,7 @@
     </section>
 
     <section id="how-it-works" class="container px-5 mx-auto md:mt-20 mt-10">
-        <p class="md:text-[40px] text-[32px] md:text-center font-bold">What Loyaltygoo Can Do for You</p>
+        <p class="md:text-[40px] text-[32px] md:text-center header-waba">What Loyaltygoo Can Do for You</p>
         <p class="mt-2 text-[18px] md:text-center">Empower your business with automated loyalty, points, and repeat sales.</p>
 
         <div class="md:px-10 md:mt-20 mt-10">
@@ -224,7 +234,7 @@
     </section>
 
     <section id="features" class="container px-5 mx-auto mt-20">
-        <p class="md:text-[40px] text-[32px] md:text-center font-bold">It’s More Than Points. It’s About Growth</p>
+        <p class="md:text-[40px] text-[32px] md:text-center header-waba">It’s More Than Points. It’s About Growth</p>
         <p class="mt-2 md:text-[18px] md:text-center">Build loyalty that drives real results.</p>
 
         <div class="md:px-10 mt-20">
@@ -258,7 +268,7 @@
         <div id="pricing" class="md:px-10 mt-20">
             <div class="flex md:flex-row flex-col md:items-center justify-between">
                 <div>
-                    <p class="md:text-[40px] text-[32px] font-bold">Simple plans for <br />every business</p>
+                    <p class="md:text-[40px] text-[32px] header-waba">Simple plans for <br />every business</p>
                 </div>
 
                 <div class="md:text-right">
