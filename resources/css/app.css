@@ -188,3 +188,12 @@ html {
 .ant-btn {
   gap: calc(var(--spacing) * 2);
 }
+
+.ant-modal-footer {
+  display: flex;
+  justify-content: end;
+}
+
+.ant-btn-dangerous {
+  outline-color: var(--color-red-300) !important;
+}

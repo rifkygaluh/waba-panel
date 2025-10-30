@@ -1,4 +1,5 @@
 import { InertiaLinkProps } from '@inertiajs/vue3';
+import { ValueType } from 'ant-design-vue/es/input-number/src/utils/MiniDecimal';
 import { DefaultOptionType } from 'ant-design-vue/es/select';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -12,6 +13,11 @@ export function urlIsActive(
   currentUrl: string,
 ) {
   const endpoints = currentUrl.split('/');
+  if (['create', 'edit'].includes(endpoints[endpoints.length - 1])) {
+    endpoints.pop();
+    if (!isNaN(parseInt(endpoints[endpoints.length - 1]))) endpoints.pop();
+    return toUrl(urlToCheck) === endpoints.join('/');
+  }
   if (!isNaN(parseInt(endpoints[endpoints.length - 1]))) {
     endpoints.pop();
     return toUrl(urlToCheck) === endpoints.join('/');
@@ -40,6 +46,14 @@ export function filterOption(
       .every((match) => match);
   }
   return option?.label.toUpperCase().indexOf(input.toUpperCase()) >= 0;
+}
+
+export function numberFormatter(value: ValueType) {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+export function numberParser(value: string) {
+  return value.replace(/\$\s?|(,*)/g, '');
 }
 
 export function doubleViewersGuard(parentId: string) {

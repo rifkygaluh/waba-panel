@@ -1,4 +1,5 @@
 import { Rule, RuleItem } from '@/types/rule';
+import dayjs from 'dayjs';
 import { defineStore } from 'pinia';
 
 const itemTemplate: RuleItem = {
@@ -32,6 +33,15 @@ export const useRuleStore = defineStore('rule', {
     },
   },
   actions: {
+    setRule(data: Rule) {
+      const dateRange = data.dateRange?.map((d) => dayjs(d));
+      this.name = data.name;
+      this.type = data.type;
+      this.dateRange = dateRange
+        ? [dateRange[0], dateRange[1]]
+        : this.dateRange;
+      this.items = data.items.length > 0 ? data.items : this.items;
+    },
     addNewItem() {
       this.items.push({ ...itemTemplate });
     },

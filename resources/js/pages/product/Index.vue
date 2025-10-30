@@ -2,31 +2,33 @@
 import TableFetcher from '@/components/TableFetcher.vue';
 import Card from '@/components/ui/card/Card.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import benefitRules from '@/routes/benefit-rules';
+import product from '@/routes/product';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
-import { Button } from 'ant-design-vue';
+import { Button, Modal } from 'ant-design-vue';
 import { Pen, PlusCircle, Trash2 } from 'lucide-vue-next';
 import { reactive } from 'vue';
 import { columns, queryData } from './api/Index';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
-    title: 'Benefit Rules',
-    href: benefitRules.index().url,
+    title: 'Products',
+    href: product.index().url,
   },
 ];
 
-const createModal = reactive({
+const deleteModal = reactive({
+  record: null as { email: string } | null,
   open: false,
-  setOpen: () => {
-    createModal.open = !createModal.open;
+  setOpen: (data: { email: string }) => {
+    deleteModal.open = !deleteModal.open;
+    deleteModal.record = deleteModal.open ? data : null;
   },
 });
 </script>
 
 <template>
-  <Head title="Benefit Rules" />
+  <Head title="Products" />
 
   <AppLayout :breadcrumbs="breadcrumbs">
     <div
@@ -34,14 +36,14 @@ const createModal = reactive({
     >
       <Card class="px-6">
         <div class="flex justify-between">
-          <h1 class="text-2xl">Benefit Rules</h1>
+          <h1 class="text-2xl">Products</h1>
           <div>
-            <Link :href="benefitRules.create().url">
-              <Button type="primary" @click="createModal.setOpen">
+            <Link :href="product.create().url">
+              <Button type="primary">
                 <template #icon>
                   <PlusCircle class="h-4 w-4" />
                 </template>
-                New Rule
+                Add Product
               </Button>
             </Link>
           </div>
@@ -49,23 +51,32 @@ const createModal = reactive({
       </Card>
       <Card class="px-6">
         <TableFetcher :query-data="queryData" :columns="columns">
-          <template #action="{ index }">
+          <template #action="{ index, record }">
             <div class="flex gap-2.5">
-              <Link :href="benefitRules.edit(index + 1).url">
+              <Link :href="product.edit(index + 1).url">
                 <Button class="px-2.5!">
                   <Pen class="h-4 w-4" />
                 </Button>
               </Link>
               <Button
                 class="px-2.5!"
+                @click="deleteModal.setOpen({ email: record.email })"
                 danger
-                disabled
               >
                 <Trash2 class="h-4 w-4" />
               </Button>
             </div>
           </template>
         </TableFetcher>
+        <Modal
+          class="w-fit!"
+          v-model:open="deleteModal.open"
+          :closable="false"
+          :ok-button-props="{ danger: true }"
+          ok-text="Confirm"
+        >
+          Are you sure to delete this data, {{ deleteModal.record?.email }}?
+        </Modal>
       </Card>
     </div>
   </AppLayout>
