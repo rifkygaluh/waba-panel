@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  app:
+    image: ojanjon/loyaltygoo-landing:latest
+    container_name: loyaltygoo-app
+    volumes:
+      - loyaltygoo_volume:/var/www/html
+    networks:
+      - loyaltygoo
+    env_file:
+      - .env
+
+  nginx:
+    image: nginx:latest
+    container_name: loyaltygoo-nginx
+    ports:
+      - "3004:80"
+    volumes:
+      - loyaltygoo_volume:/var/www/html
+      - ./docker-setup/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - loyaltygoo
+    depends_on:
+      - app
+
+networks:
+  loyaltygoo:
+
+volumes:
+  loyaltygoo_volume:
+

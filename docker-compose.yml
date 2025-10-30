@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
-    # image: ojanjon/loyaltygoo-landing:latest
+    image: ojanjon/loyaltygoo-landing:latest
     volumes:
       - ./:/var/www/html
     networks:
