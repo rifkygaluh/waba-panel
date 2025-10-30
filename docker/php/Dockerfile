@@ -1,25 +1,21 @@
 FROM php:8.3-fpm
 
-# Install extensions
+# Install dependencies & extensions
 RUN apt-get update && apt-get install -y \
     git curl zip unzip libpng-dev libonig-dev libxml2-dev libzip-dev \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
-# Install Composer
+# Install Composer (copy dari official composer image)
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Set working dir
+# Set working directory
 WORKDIR /var/www/html
 
-# Copy only necessary files
+# Copy semua file Laravel
 COPY . /var/www/html
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader
+# Set permission
+RUN chown -R www-data:www-data /var/www/html
 
-# Optimize Laravel
-RUN php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache
-
+EXPOSE 9000
 CMD ["php-fpm"]
