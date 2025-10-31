@@ -23,6 +23,8 @@ Route::middleware('guest_api')->group(function () {
 });
 
 Route::middleware('auth_api')->group(function () {
+    Route::post('logout', [AuthController::class, 'destroy'])->name('auth.logout');
+    
     Route::get('dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');

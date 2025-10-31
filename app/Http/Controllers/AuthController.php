@@ -39,4 +39,11 @@ class AuthController extends Controller
             ]);
         }
     }
+
+    public function destroy()
+    {
+        session()->flush();
+
+        return redirect()->to('login');
+    }
 }
