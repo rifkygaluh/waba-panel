@@ -22,7 +22,7 @@ Route::middleware('guest_api')->group(function () {
     Route::post('login', [AuthController::class, 'store'])->name('auth.login.store');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware('auth_api')->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
