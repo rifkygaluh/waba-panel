@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BenefitRulesController;
 use App\Http\Controllers\InvoiceHistoryController;
 use App\Http\Controllers\InvoiceVerificationController;
@@ -16,7 +17,14 @@ Route::get('faq', [LandingPageController::class, 'faq']);
 Route::get('terms-n-conditions', [LandingPageController::class, 'terms']);
 Route::get('privacy-policy', [LandingPageController::class, 'privacy']);
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware('guest_api')->group(function () {
+    Route::get('login', [AuthController::class, 'index'])->name('auth.login.index');
+    Route::post('login', [AuthController::class, 'store'])->name('auth.login.store');
+});
+
+Route::middleware('auth_api')->group(function () {
+    Route::post('logout', [AuthController::class, 'destroy'])->name('auth.logout');
+    
     Route::get('dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
