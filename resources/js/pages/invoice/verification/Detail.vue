@@ -28,7 +28,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     href: verification.index().url,
   },
   {
-    title: props.invoice.id.toString(),
+    title: props.invoice.invoice_number,
   },
 ];
 </script>

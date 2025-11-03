@@ -9,14 +9,14 @@ export interface InvoiceItem {
 
 export interface Invoice {
   id: number;
-  storeName: string;
-  storeOwner: string;
-  storePhone: string;
-  storeAddress: string;
+  invoice_number: string;
+  store: any;
+  user: any;
+  status: 'pending' | 'accepted' | 'rejected';
+  created_at: string;
   totalPieces: number;
   totalPrice: number;
   image: string;
-  uploadDate: string;
   date: string;
   name?: string;
   items: InvoiceItem[];

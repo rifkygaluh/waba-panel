@@ -56,11 +56,7 @@ const createModal = reactive({
                   <Pen class="h-4 w-4" />
                 </Button>
               </Link>
-              <Button
-                class="px-2.5!"
-                danger
-                disabled
-              >
+              <Button class="px-2.5!" danger disabled>
                 <Trash2 class="h-4 w-4" />
               </Button>
             </div>

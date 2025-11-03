@@ -11,6 +11,7 @@ import {
   InputNumber,
   Select,
 } from 'ant-design-vue';
+import dayjs from 'dayjs';
 import { Plus, Trash } from 'lucide-vue-next';
 
 const invoice = useInvoiceStore();
@@ -167,7 +168,7 @@ const invoice = useInvoiceStore();
       <FormItem label="Upload Date">
         <DatePicker
           valueFormat="YYYY-MM-DD"
-          v-model:value="invoice.uploadDate"
+          v-model:value="invoice.created_at"
           disabled
         />
       </FormItem>
@@ -175,7 +176,7 @@ const invoice = useInvoiceStore();
         <DatePicker
           valueFormat="YYYY-MM-DD"
           v-model:value="invoice.date"
-          :defaultPickerValue="invoice.uploadDate"
+          :defaultPickerValue="dayjs(invoice.created_at).format('YYYY-MM-DD')"
           @change="invoice.resetCheckDuplicate"
         />
       </FormItem>
