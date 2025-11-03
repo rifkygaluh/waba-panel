@@ -81,7 +81,7 @@
         <header class="container mx-auto px-5">
             <nav class="relative flex justify-between items-center bg-white px-10 py-3 mx-auto rounded-full">
                 <a href="{{ url('home')}}">
-                    <img class="h-[20px]" src="{{ asset('landing-page/images/logo.png') }}" />
+                    <img class="h-[20px]" src="{{ asset('landing-page/images/retentia.png') }}" />
                 </a>
 
                 <div id="navLinks" class="md:static absolute top-[-300px] md:w-auto w-full left-0 bg-white rounded-2xl font-bold z-[100]">
@@ -112,7 +112,7 @@
             <div class="grid md:grid-cols-12 grid-cols-1 md:grid-flow-col grid-flow-row md:gap-0 gap-5">
                 <div class="md:col-span-4">
                     <a class="" href="{{ url('home')}}">
-                        <img class="mb-2 h-[20px]" src="{{ asset('landing-page/images/logo.png') }}" />
+                        <img class="mb-2 h-[20px]" src="{{ asset('landing-page/images/retentia.png') }}" />
                     </a>
                     Build Loyalty. Effortlessly
                 </div>
@@ -151,7 +151,7 @@
                 </div>
             </div>
             <hr class="mt-10 mb-2">
-            <p class="text-center md:text-[16px] text-[14px]">© 2025 Loyaltygoo | Crafted with passion and purpose by <a href="https://algostudio.net/" class="text-green-500 font-bold">AlgoStudio</a>.</p>
+            <p class="text-center md:text-[16px] text-[14px]">© 2025 Retentia | Crafted with passion and purpose by <a href="https://algostudio.net/" class="text-green-500 font-bold">AlgoStudio</a>.</p>
         </div>
     </footer>
 

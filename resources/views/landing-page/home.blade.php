@@ -70,8 +70,9 @@
             <div class="md:col-span-5 md:order-2 order-1 md:px-0 px-10">
                 <div class="relative w-full max-w-[430px] max-h-[569px] mx-auto">
                     {{-- aspect-2/3 object-fill  --}}
+                    {{-- <img class="w-full" src="{{ asset('landing-page/images/01. Hero Image.png') }}" /> --}}
                     <img class="w-full max-w-[360px] max-h-[548px] mx-auto" src="{{ asset('landing-page/images/Free iPhone 15 Mockup 1 1.png') }}" />
-                    <img class="absolute left-[30%] translate-x-[-50%] top-[22%] w-[75%] max-w-[320px] max-h-[360px]" src="{{ asset('landing-page/images/01._Welcome_Program_2-removebg-preview.png') }}" />
+                    <img class="absolute left-[30%] translate-x-[-50%] top-[22%] w-[75%] max-w-[320px] max-h-[360px]" src="{{ asset('landing-page/images/01. Welcome Program- big.png') }}" />
                     <img class="absolute right-[30%] translate-x-[50%] md:bottom-[0px] bottom-[20px] w-[75%] max-w-[265px] max-h-[55px]" src="{{ asset('landing-page/images/02. About Program.png') }}" />
                 </div>
             </div>
@@ -119,7 +120,7 @@
                 </p>
             </div>
             
-            <img class="md:order-2 order-1 mx-auto" src="{{ asset('landing-page/images/Group 90 (1).png') }}" />
+            <img class="md:order-2 order-1 mx-auto" src="{{ asset('landing-page/images/03. A Loyalty Program Theyll Actually Use.png') }}" />
         </div>
 
         <div class="md:px-10 mt-20">
@@ -161,7 +162,7 @@
     </section>
 
     <section id="how-it-works" class="container px-5 mx-auto md:mt-20 mt-10">
-        <p class="md:text-[40px] text-[32px] md:text-center font-bold">What Loyaltygoo Can Do for You</p>
+        <p class="md:text-[40px] text-[32px] md:text-center font-bold">What Retentia Can Do for You</p>
         <p class="mt-2 text-[18px] md:text-center">Empower your business with automated loyalty, points, and repeat sales.</p>
 
         <div class="md:px-10 md:mt-20 mt-10">
@@ -170,9 +171,9 @@
                     <div style="background: url('{{ asset('landing-page/images/1.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
                         <div class="p-[30px]">
                             <b class="text-[20px]">Automated Engagement</b>
-                            <p class="mt-2">Set once, and let Loyaltygoo handle points, greetings, and reminders automatically.</p>
+                            <p class="mt-2">Set once, and let Retentia handle points, greetings, and reminders automatically.</p>
                         </div>
-                        <img class="w-full" src="{{ asset('landing-page/images/01._automated_engagement-removebg-preview.png') }}" />
+                        <img class="w-full" src="{{ asset('landing-page/images/04. Card.png') }}" />
                     </div>
 
                     <div style="background: url('{{ asset('landing-page/images/4.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
@@ -180,7 +181,7 @@
                             <b class="text-[20px]">Smart Promotions</b>
                             <p class="mt-2">Send targeted offers based on customer behavior and purchase history.</p>
                         </div>
-                        <img class="w-full px-5 pb-5" src="{{ asset('landing-page/images/02. About Program (1).png') }}" />
+                        <img class="w-full px-5 pb-5" src="{{ asset('landing-page/images/06. About Program.png') }}" />
                     </div>
                 </div>
 
@@ -190,7 +191,7 @@
                             <b class="text-[20px]">Digital Membership Card</b>
                             <p class="mt-2">A loyalty card that lives in your customer’s phone, never forgotten.</p>
                         </div>
-                        <img class="w-full p-5" src="{{ asset('landing-page/images/02._Membership_Card-removebg-preview.png') }}" />
+                        <img class="w-full p-5" src="{{ asset('landing-page/images/05. Membership Card.png') }}" />
                     </div>
 
                     <div style="background: url('{{ asset('landing-page/images/5.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
@@ -285,7 +286,7 @@
                     </div>
 
                     <p class="text-[24px] font-bold mt-5">Starter</p>
-                    <p>Perfect for new users who want to explore Loyaltygoo and start building customer loyalty</p>
+                    <p>Perfect for new users who want to explore Retentia and start building customer loyalty</p>
 
                     <div class="flex items-center mt-5">
                         <p class="text-[40px] font-bold mr-2">IDR 0</p>
@@ -394,7 +395,8 @@
                     </div>
 
                     <div class="md:order-2 order-1 md:col-span-4 col-span-1 relative md:mx-0 mx-auto">
-                        <img class="md:absolute md:top-2/3 md:left-1/2 md:-translate-x-1/2 md:-translate-y-2/3 w-[210px] h-auto" src="{{ asset('landing-page/images/On Mockup GIF.gif') }}" />
+                        <img class="md:absolute md:top-2/3 md:left-1/2 md:-translate-x-1/2 md:-translate-y-2/3 w-[210px] h-auto" src="{{ asset('landing-page/images/07. phone-mockup.gif') }}" />
+                        {{-- <video style="clip-path: fill-box;border-radius: 0.01px;overflow:hidden;" class="md:absolute md:top-2/3 md:left-1/2 md:-translate-x-1/2 md:-translate-y-2/3 w-[210px] h-auto bg-transparent" src="{{ asset('landing-page/images/07 Motion Phone.mp4') }}" autoplay loop> </video> --}}
                     </div>
                 </div>
             </div>

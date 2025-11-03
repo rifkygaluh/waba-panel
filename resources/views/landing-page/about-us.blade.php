@@ -16,16 +16,16 @@
 
         <div class="space-y-5">
             <p>
-                Loyaltygoo lahir dari ide sederhana - membantu bisnis mempertahankan pelanggan dengan cara yang lebih cerdas dan manusiawi.
+                Retentia lahir dari ide sederhana - membantu bisnis mempertahankan pelanggan dengan cara yang lebih cerdas dan manusiawi.
                 Kami percaya bahwa hubungan dengan pelanggan tidak berhenti setelah pembelian pertama, tapi justru dimulai dari sana.
             </p>
             <p>
-                Dengan teknologi otomatisasi berbasis WhatsApp, Loyaltygoo memudahkan bisnis untuk mengirim pesan yang relevan, 
+                Dengan teknologi otomatisasi berbasis WhatsApp, Retentia memudahkan bisnis untuk mengirim pesan yang relevan, 
                 mengingatkan pelanggan tentang poin, dan mendorong pembelian berulang tanpa perlu tenaga ekstra.
             </p>
             <p>
                 Kami membantu brand membangun pengalaman pelanggan yang lebih dekat, efisien, dan menyenangkan - sehingga setiap pesan yang terkirim bukan sekadar promosi, tapi juga bentuk perhatian.
-                Loyaltygoo adalah jembatan antara bisnis dan pelanggan: cepat, otomatis, dan tetap hangat.
+                Retentia adalah jembatan antara bisnis dan pelanggan: cepat, otomatis, dan tetap hangat.
             </p>
         </div>
 
