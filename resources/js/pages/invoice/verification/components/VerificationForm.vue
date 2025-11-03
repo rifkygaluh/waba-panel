@@ -11,10 +11,25 @@ import {
   InputNumber,
   Select,
 } from 'ant-design-vue';
+import axios from 'axios';
 import dayjs from 'dayjs';
 import { Plus, Trash } from 'lucide-vue-next';
+import { ref } from 'vue';
+
+type APIResult = {
+  value: number;
+  label: number;
+}[];
 
 const invoice = useInvoiceStore();
+
+const products = ref<APIResult>();
+
+axios
+  .get<APIResult>('/api/product/options')
+  .then((res) => {
+    products.value = res.data;
+  });
 </script>
 
 <template>
@@ -27,13 +42,7 @@ const invoice = useInvoiceStore();
             class="w-80"
             v-model:value="item.productId"
             placeholder="Select a product"
-            :options="[
-              { label: 'Product A', value: 'Product A' },
-              { label: 'Product B', value: 'Product B' },
-              { label: 'Product C', value: 'Product C' },
-              { label: 'Product D', value: 'Product D' },
-              { label: 'Product E', value: 'Product E' },
-            ]"
+            :options="products"
             :filter-option="filterOption"
             show-search
             allow-clear

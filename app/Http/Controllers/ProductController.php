@@ -24,6 +24,18 @@ class ProductController extends Controller
         return CollectionHelper::paginate($products, $perPage);
     }
 
+    public function optionsApi(Client $client)
+    {
+        $response = $client->get('api/product');
+
+        return collect($response['products'])->map(function ($item) {
+            return [
+                'value' => $item['id'],
+                'label' => $item['name'],
+            ];
+        });
+    }
+
     public function create()
     {
         return inertia('product/Create');
