@@ -182,7 +182,7 @@
                             <b class="text-[20px]">Automated Engagement</b>
                             <p class="mt-2">Set once, and let Loyaltygoo handle points, greetings, and reminders automatically.</p>
                         </div>
-                        <img class="w-full" src="{{ asset('landing-page/images/01._automated_engagement-removebg-preview.png') }}" />
+                        <img class="w-full" src="{{ asset('landing-page/images/01_automated_engagement.png') }}" />
                     </div>
 
                     <div style="background: url('{{ asset('landing-page/images/4.png') }}');background-position: center center;background-size: 100% 100%;" class="card-waba2">
