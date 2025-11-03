@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\Client;
+use App\Http\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -9,6 +11,29 @@ class ProductController extends Controller
     public function index()
     {
         return inertia('product/Index');
+    }
+
+    public function indexApi(Client $client)
+    {
+        $perPage = $request->results ?? 10;
+        
+        $response = $client->get('api/product');
+
+        $products = collect($response['products']);
+        
+        return CollectionHelper::paginate($products, $perPage);
+    }
+
+    public function optionsApi(Client $client)
+    {
+        $response = $client->get('api/product');
+
+        return collect($response['products'])->map(function ($item) {
+            return [
+                'value' => $item['id'],
+                'label' => $item['name'],
+            ];
+        });
     }
 
     public function create()

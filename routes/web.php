@@ -43,6 +43,9 @@ Route::middleware('auth_api')->group(function () {
     Route::prefix('api')->group(function () {
         Route::get('invoice/verification', [InvoiceVerificationController::class, 'indexApi'])->name('invoice.verification.api');
         Route::get('invoice/history', [InvoiceHistoryController::class, 'indexApi'])->name('invoice.history.api');
+
+        Route::get('product', [ProductController::class, 'indexApi'])->name('product.api');
+        Route::get('product/options', [ProductController::class, 'optionsApi'])->name('product.options.api');
     });
 });
 
