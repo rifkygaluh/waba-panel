@@ -13,17 +13,17 @@
 @section('content')
     <section class="max-w-4xl md:px-10 px-5 mx-auto my-10">
         <p class="md:text-[40px] text-[20px] font-bold">Frequently Asked Questions</p>
-        <p class="md:text-2xl mb-10">Everything you need to know before getting started with Loyaltygoo.</p>
+        <p class="md:text-2xl mb-10">Everything you need to know before getting started with Retentia.</p>
 
         <div style="background-color: #E9FCF2; border: 1px solid var(--waba-primary-color); border-radius: 16px;" class="mt-5">
             <button onclick="toggleAccordion(1)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold text-left">What is Loyaltygoo and how does it work?</span>
+                <span class="font-bold text-left">What is Retentia and how does it work?</span>
                 <ion-icon id="icon-1" name="remove-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             
             <div id="content-1" style="max-height: 500px;transition-duration: 300ms;" class="accordion-content overflow-hidden transition-all duration-300 ease-in-out">
                 <div class="border-t border-[var(--waba-primary-color)] px-[20px] py-[10px]">
-                    Loyaltygoo is an automated WhatsApp-based loyalty system that helps businesses reward repeat customers. It automates registration, invoice uploads, point tracking, and reward redemption - all through WhatsApp.
+                    Retentia is an automated WhatsApp-based loyalty system that helps businesses reward repeat customers. It automates registration, invoice uploads, point tracking, and reward redemption - all through WhatsApp.
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
             
             <div id="content-3" class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                 <div class="border-t border-[var(--waba-primary-color)] px-[20px] py-[10px]">
-                    Loyaltygoo saves you time and boosts repeat purchases. It automatically tracks customer activities, sends reward reminders, and helps increase engagement without manual follow-ups.
+                    Retentia saves you time and boosts repeat purchases. It automatically tracks customer activities, sends reward reminders, and helps increase engagement without manual follow-ups.
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             
             <div id="content-4" class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                 <div class="border-t border-[var(--waba-primary-color)] px-[20px] py-[10px]">
-                    Yes. You can get started in minutes. Just connect your WhatsApp Business number, customize your reward flow, and Loyaltygoo takes care of the rest.
+                    Yes. You can get started in minutes. Just connect your WhatsApp Business number, customize your reward flow, and Retentia takes care of the rest.
                 </div>
             </div>
         </div>
@@ -88,7 +88,7 @@
             
             <div id="content-6" class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                 <div class="border-t border-[var(--waba-primary-color)] px-[20px] py-[10px]">
-                    Yes. Loyaltygoo uses encrypted communication and secure data handling practices to ensure all customer information stays private and protected.
+                    Yes. Retentia uses encrypted communication and secure data handling practices to ensure all customer information stays private and protected.
                 </div>
             </div>
         </div>

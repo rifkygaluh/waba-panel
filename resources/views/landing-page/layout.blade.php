@@ -6,13 +6,13 @@
     <title>@yield('title')</title>
 
     @vite('resources/css/app.css')
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <style>
         body {
             font-family: 'Poppins', sans-serif;
         }
-    </style>
+    </style> --}}
 
     <style>
         /*
@@ -71,12 +71,6 @@
             font-weight: bold;
             padding: 7px 16px;
         }
-
-        #navLinks a.mainmenu {
-            padding: 0 8px;
-            font-weight: 500;
-            size: 14px;
-        }
     </style>
 
     @yield('css')
@@ -87,16 +81,16 @@
         <header class="container mx-auto px-5">
             <nav class="relative flex justify-between items-center bg-white px-10 py-3 mx-auto rounded-full">
                 <a href="{{ url('home')}}">
-                    <img class="h-[20px]" src="{{ asset('landing-page/images/logo.png') }}" />
+                    <img class="h-[20px]" src="{{ asset('landing-page/images/retentia.png') }}" />
                 </a>
 
                 <div id="navLinks" class="md:static absolute top-[-300px] md:w-auto w-full left-0 bg-white rounded-2xl font-bold z-[100]">
                     <div class="flex md:flex-row flex-col md:items-center md:gap-5 gap-2 md:p-0 p-4">
-                        <a class="mainmenu" href="{{ url('home#problem-n-solution') }}">Problem & Solution</a>
-                        <a class="mainmenu" href="{{ url('home#how-it-works') }}">How it work</a>
-                        <a class="mainmenu" href="{{ url('home#features') }}">Features</a>
-                        <a class="mainmenu" href="{{ url('home#pricing') }}">Pricing</a>
-                        <a class="mainmenu" href="{{ url('home#benefits') }}">Benefits</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#problem-n-solution') }}">Problem & Solution</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#how-it-works') }}">How it work</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#features') }}">Features</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#pricing') }}">Pricing</a>
+                        <a class="hover:text-[#1FC36C]" href="{{ url('home#benefits') }}">Benefits</a>
                         <a class="md:hidden block bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer text-center" href="https://wa.me/083199294607?text=Hallo" target="_blank">Get Started, It's Free</a>
                     </div>
                 </div>
@@ -118,36 +112,36 @@
             <div class="grid md:grid-cols-12 grid-cols-1 md:grid-flow-col grid-flow-row md:gap-0 gap-5">
                 <div class="md:col-span-4">
                     <a class="" href="{{ url('home')}}">
-                        <img class="mb-2 h-[20px]" src="{{ asset('landing-page/images/logo.png') }}" />
+                        <img class="mb-2 h-[20px]" src="{{ asset('landing-page/images/retentia.png') }}" />
                     </a>
                     Build Loyalty. Effortlessly
                 </div>
                 <div class="md:col-span-8">
                     <div class="grid md:grid-cols-4 grid-cols-1 md:grid-flow-col grid-flow-row gap-5">
                         <div>
-                            <p class="text-[20px] font-bold mb-3">Product</p>
+                            <p class="text-[20px] font-bold mb-2">Product</p>
                             <a href="#">Features</a>
                         </div>
                         <div>
-                            <p class="text-[20px] font-bold mb-3">Company</p>
+                            <p class="text-[20px] font-bold mb-2">Company</p>
                             {{-- <a href="{{ url('about-us') }}">About Us</a><br /> --}}
-                            <p class="mb-3"><a href="{{ url('faq') }}" class="mb-3">FAQ</a></p>
-                            <p><a href="#">Contact</a></p>
+                            <a href="{{ url('faq') }}">FAQ</a><br />
+                            <a href="#">Contact</a><br />
                         </div>
                         <div>
-                            <p class="text-[20px] font-bold mb-3">Legal</p>
-                            <p class="mb-3"><a href="{{ url('terms-n-conditions') }}" class="mb-3">Terms and Conditions</a></p>
+                            <p class="text-[20px] font-bold mb-2">Legal</p>
+                            <a href="{{ url('terms-n-conditions') }}">Terms and Conditions</a><br />
                             <a href="{{ url('privacy-policy') }}">Privacy Policy</a><br />
                         </div>
                         <div>
-                            <p class="text-[20px] font-bold mb-3">Language</p>
-                            <div class="flex items-center mb-3">
-                                <img class="h-[16px] mr-3" src="{{ asset('landing-page/images/emojione_flag-for-indonesia (1).png') }}" />
+                            <p class="text-[20px] font-bold mb-2">Language</p>
+                            <div class="flex items-center">
+                                <img class="h-[16px] mr-2" src="{{ asset('landing-page/images/emojione_flag-for-indonesia (1).png') }}" />
                                 <a href="#">Bahasa Indonesia</a>
                             </div>
                             <div class="flex items-center justify-between w-[200px]">
                                 <div class="flex items-center">
-                                    <img class="h-[16px] mr-3" src="{{ asset('landing-page/images/circle-flags_uk (1).png') }}" />
+                                    <img class="h-[16px] mr-2" src="{{ asset('landing-page/images/circle-flags_uk (1).png') }}" />
                                     <a href="#" class="text-[var(--waba-primary-color)]">English</a>
                                 </div>
                                 <ion-icon class="text-2xl text-green-500" name="checkmark-outline"></ion-icon>
@@ -156,11 +150,8 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-10 p-5">
-                &nbsp;
-            </div>
-            <hr class="mb-4">
-            <p class="text-center md:text-[16px] text-[14px]">© 2025 Loyaltygoo | Crafted with passion and purpose by <a href="https://algostudio.net/" class="text-green-500 font-bold">AlgoStudio</a>.</p>
+            <hr class="mt-10 mb-2">
+            <p class="text-center md:text-[16px] text-[14px]">© 2025 Retentia | Crafted with passion and purpose by <a href="https://algostudio.net/" class="text-green-500 font-bold">AlgoStudio</a>.</p>
         </div>
     </footer>
 
