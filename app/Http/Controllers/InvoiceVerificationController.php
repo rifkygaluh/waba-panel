@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\CollectionHelper;
+use App\Http\Helpers\Client;
 use Illuminate\Http\Request;
 
 class InvoiceVerificationController extends Controller
@@ -11,19 +13,29 @@ class InvoiceVerificationController extends Controller
         return inertia('invoice/verification/Index');
     }
 
-    public function show($id)
+    public function indexApi(Client $client, Request $request)
     {
-        $invoice = [
-            'id' => $id,
-            'storeName' => fake()->company(),
-            'storeOwner' => fake()->name(),
-            'storePhone' => fake()->phoneNumber(),
-            'storeAddress' => fake()->address(),
-            'image' => 'https://picsum.photos/200/300',
-            'uploadDate' => now()->subDays(7)->toDateString(),
-            'name' => explode(' ', fake()->name())[1],
-            'items' => [],
-        ];
+        $perPage = $request->results ?? 10;
+        
+        $response = $client->get('api/invoice');
+        
+        $invoices = collect($response['invoices'])
+            ->where('status', 'pending')
+            ->when($request->has('sortField'), function ($item) use ($request) {
+                return $item->sortBy($request->sortField, descending: $request->sortOrder === 'descend');
+            }, function ($item) {
+                return $item->sortBy('created_at');
+            })
+            ->values();
+
+        return CollectionHelper::paginate($invoices, $perPage);
+    }
+
+    public function show($id, Client $client)
+    {
+        $response = $client->get("api/invoice/$id");
+        
+        $invoice = collect($response['invoice']);
         
         return inertia('invoice/verification/Detail', compact('invoice'));
     }

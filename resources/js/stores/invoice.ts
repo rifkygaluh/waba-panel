@@ -13,14 +13,13 @@ const itemTemplate: InvoiceItem = {
 export const useInvoiceStore = defineStore('invoice', {
   state: () => ({
     id: undefined as number | undefined,
-    storeName: undefined as string | undefined,
-    storeOwner: undefined as string | undefined,
-    storePhone: undefined as string | undefined,
-    storeAddress: undefined as string | undefined,
+    invoice_number: undefined as string | undefined,
+    store: undefined as any | undefined,
+    user: undefined as any | undefined,
     image: undefined as string | undefined,
     totalPieces: 0,
     totalPrice: 0,
-    uploadDate: '',
+    created_at: '',
     date: '',
     name: '',
     items: [{ ...itemTemplate }],
@@ -49,17 +48,16 @@ export const useInvoiceStore = defineStore('invoice', {
   actions: {
     setInvoice(data: Invoice) {
       this.id = data.id;
-      this.storeName = data.storeName;
-      this.storeOwner = data.storeOwner;
-      this.storePhone = data.storePhone;
-      this.storeAddress = data.storeAddress;
+      this.invoice_number = data.invoice_number;
+      this.store = data.store;
+      this.user = data.user;
       this.image = data.image;
       this.totalPieces = data.totalPieces || this.totalPieces;
       this.totalPrice = data.totalPrice || this.totalPrice;
-      this.uploadDate = data.uploadDate || this.uploadDate;
+      this.created_at = data.created_at || this.created_at;
       this.date = data.date || this.date;
       this.name = data.name || this.name;
-      this.items = data.items.length > 0 ? data.items : this.items;
+      this.items = data.items?.length > 0 ? data.items : this.items;
     },
     addNewItem() {
       this.items.push({ ...itemTemplate });

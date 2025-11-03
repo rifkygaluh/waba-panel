@@ -39,6 +39,11 @@ Route::middleware('auth_api')->group(function () {
     Route::resource('product', ProductController::class);
 
     Route::resource('benefit-rules', BenefitRulesController::class);
+
+    Route::prefix('api')->group(function () {
+        Route::get('invoice/verification', [InvoiceVerificationController::class, 'indexApi'])->name('invoice.verification.api');
+        Route::get('invoice/history', [InvoiceHistoryController::class, 'indexApi'])->name('invoice.history.api');
+    });
 });
 
 require __DIR__.'/settings.php';
