@@ -72,17 +72,17 @@
     <div class="mt-5 w-full z-10">
         <header class="container mx-auto px-5">
             <nav class="relative flex justify-between items-center bg-white px-10 py-3 mx-auto rounded-full">
-                <a href="{{ url('home')}}">
+                <a href="{{ url('/')}}">
                     <img class="h-[20px]" src="{{ asset('landing-page/images/retentia.png') }}" />
                 </a>
 
                 <div id="navLinks" class="md:static absolute top-[-300px] md:w-auto w-full left-0 bg-white rounded-2xl font-bold z-[100]">
                     <div class="flex md:flex-row flex-col md:items-center md:gap-5 gap-2 md:p-0 p-4">
-                        <a class="mainmenu" href="{{ url('home#problem-n-solution') }}">Problem & Solution</a>
-                        <a class="mainmenu" href="{{ url('home#how-it-works') }}">How it work</a>
-                        <a class="mainmenu" href="{{ url('home#features') }}">Features</a>
-                        <a class="mainmenu" href="{{ url('home#pricing') }}">Pricing</a>
-                        <a class="mainmenu" href="{{ url('home#benefits') }}">Benefits</a>
+                        <a class="mainmenu" href="{{ url('#problem-n-solution') }}">Problem & Solution</a>
+                        <a class="mainmenu" href="{{ url('#how-it-works') }}">How it work</a>
+                        <a class="mainmenu" href="{{ url('#features') }}">Features</a>
+                        <a class="mainmenu" href="{{ url('#pricing') }}">Pricing</a>
+                        <a class="mainmenu" href="{{ url('#benefits') }}">Benefits</a>
                         <a class="md:hidden block bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer text-center" href="https://wa.me/083199294607?text=Hallo" target="_blank">Get Started, It's Free</a>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
         <div class="bg-white rounded-2xl md:p-10 p-5">
             <div class="grid md:grid-cols-12 grid-cols-1 md:grid-flow-col grid-flow-row md:gap-0 gap-5">
                 <div class="md:col-span-4">
-                    <a class="" href="{{ url('home')}}">
+                    <a class="" href="{{ url('/')}}">
                         <img class="mb-2 h-[20px]" src="{{ asset('landing-page/images/retentia.png') }}" />
                     </a>
                     Build Loyalty. Effortlessly
