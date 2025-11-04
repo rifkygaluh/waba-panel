@@ -2,7 +2,7 @@
 
 @section('title', 'Home')
 @section('css')
-    <style href="{{ asset('landing-page/css/fonts.css') }}" rel="stylesheet"></style>
+    <link href="{{ asset('landing-page/css/fonts.css') }}" rel="stylesheet">
     <style>
         /* linear-gradient(to right, #E1F8E8, #1FC36C8F); */
         .background1 {
