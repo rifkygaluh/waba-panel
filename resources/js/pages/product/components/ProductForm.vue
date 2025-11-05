@@ -29,7 +29,7 @@ defineProps<Props>();
         <Input.TextArea v-model:value="product.description" :rows="4" />
       </FormItem>
       <FormItem label="Unique Code">
-        <Input v-model:value="product.uniqueCode" />
+        <Input v-model:value="product.unique_code" />
       </FormItem>
     </div>
   </Form>

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Helpers\Client;
-use App\Http\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -13,27 +12,18 @@ class ProductController extends Controller
         return inertia('product/Index');
     }
 
-    public function indexApi(Client $client)
+    public function indexApi()
     {
         $perPage = $request->results ?? 10;
         
-        $response = $client->get('api/product');
-
-        $products = collect($response['products']);
-        
-        return CollectionHelper::paginate($products, $perPage);
+        return DB::table('products')->paginate($perPage);
     }
 
-    public function optionsApi(Client $client)
+    public function optionsApi()
     {
-        $response = $client->get('api/product');
-
-        return collect($response['products'])->map(function ($item) {
-            return [
-                'value' => $item['id'],
-                'label' => $item['name'],
-            ];
-        });
+        return DB::table('products')
+            ->select('name AS label', 'id AS value')
+            ->get();
     }
 
     public function create()
@@ -43,13 +33,7 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $product = [
-            'id' => $id,
-            'name' => "Product $id",
-            'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias ipsam saepe odio nemo veritatis omnis suscipit soluta eligendi explicabo necessitatibus, error quia eos nam, dolorem obcaecati. Quidem fugit minus temporibus.',
-            'price' => 50000,
-            'uniqueCode' => "000-1111-$id"
-        ];
+        $product = DB::table('products')->find($id);
         
         return inertia('product/Edit', compact('product'));
     }
