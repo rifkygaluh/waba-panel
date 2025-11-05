@@ -34,23 +34,16 @@ const columns = [
     sorter: true,
   },
   {
-    title: 'Amount',
-    dataIndex: 'amount',
-    sorter: true,
-    customRender: ({ text }: { text: number }) =>
-      text.toLocaleString('id-ID', {
-        style: 'currency',
-        currency: 'IDR',
-        maximumFractionDigits: 0,
-      }),
+    title: 'User Name',
+    dataIndex: 'user_name',
   },
   {
-    title: 'User',
-    dataIndex: 'user',
+    title: 'Store Code',
+    dataIndex: 'store_code',
   },
   {
-    title: 'Store',
-    dataIndex: 'store',
+    title: 'Store Name',
+    dataIndex: 'store_name',
   },
   {
     title: 'Upload Date',
