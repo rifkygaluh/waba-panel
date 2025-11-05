@@ -1,3 +1,4 @@
+import { currencyFormatter } from '@/lib/utils';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
@@ -37,20 +38,24 @@ const columns = [
     title: 'Amount',
     dataIndex: 'amount',
     sorter: true,
-    customRender: ({ text }: { text: number }) =>
-      text.toLocaleString('id-ID', {
-        style: 'currency',
-        currency: 'IDR',
-        maximumFractionDigits: 0,
-      }),
+    customRender: ({ text }: { text: number | string }) =>
+      currencyFormatter(text),
   },
   {
-    title: 'User',
-    dataIndex: 'user',
+    title: 'Status',
+    dataIndex: 'status',
   },
   {
-    title: 'Store',
-    dataIndex: 'store',
+    title: 'User Name',
+    dataIndex: 'user_name',
+  },
+  {
+    title: 'Store Code',
+    dataIndex: 'store_code',
+  },
+  {
+    title: 'Store Name',
+    dataIndex: 'store_name',
   },
   {
     title: 'Upload Date',

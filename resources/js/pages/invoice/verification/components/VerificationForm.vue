@@ -25,11 +25,9 @@ const invoice = useInvoiceStore();
 
 const products = ref<APIResult>();
 
-axios
-  .get<APIResult>('/api/product/options')
-  .then((res) => {
-    products.value = res.data;
-  });
+axios.get<APIResult>('/api/product/options').then((res) => {
+  products.value = res.data;
+});
 </script>
 
 <template>
