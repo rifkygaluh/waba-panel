@@ -69,8 +69,9 @@
                     </div>
                     <p class="mt-5 md:text-[18px]">Build loyalty effortlessly inside WhatsApp. Just seamless connection with your customers.</p>
                     <div class="flex md:flex-row flex-col items-center gap-5 mt-10">
-                        <a class="button-waba !md:w-[200px] !w-full text-center" href="https://wa.me/083199294607?text=Hallo" target="_blank">Get a Free Now</a>
-                        <a class="button-waba-outline !md:w-[200px] !w-full text-center" href="https://wa.me/081222999879" target="_blank">Start Now</a>
+                        {{-- <a class="button-waba md:w-[250px] w-full text-center" href="https://api.whatsapp.com/send?phone=6283199294607&text=Halo Retentia %F0%9F%91%8B" target="_blank">Get a Free Try Now</a> --}}
+                        <a class="button-waba md:w-[250px] w-full text-center" href="https://wa.me/6283199294607?text=Halo Retentia %F0%9F%91%8B" target="_blank">Get a Free Try Now</a>
+                        {{-- <a class="button-waba-outline !md:w-[200px] !w-full text-center" href="https://wa.me/081222999879" target="_blank">Start Now</a> --}}
                     </div>
                 </div>
             </div>
@@ -130,7 +131,7 @@
             <img class="md:order-2 order-1 mx-auto" src="{{ asset('landing-page/images/03. A Loyalty Program Theyll Actually Use.png') }}" />
         </div>
 
-        <div class="md:px-10 mt-20">
+        <div id="how-it-works" class="md:px-10 mt-20">
             <div class="relative rounded-2xl background1 md:p-[50px] p-[20px]">
                 <div class="grid md:grid-cols-2 grid-cols-1 md:grid-flow-col grid-flow-row items-center justify-items-stretch md:gap-10 gap-3">
                     <div class="max-w-[545px]">
@@ -146,15 +147,15 @@
 
                 <div class="grid md:grid-cols-3 grid-cols-1 md:grid-flow-col grid-flow-row mt-15 gap-[20px]">
                     <div class="card-waba1">
-                        <p class="text-[20px] text-[var(--waba-primary-color)] font-bold">1. Join inSeconds</p>
+                        <p class="text-[20px] text-[var(--waba-primary-color)] font-bold">1. Join in Seconds</p>
                         <p class="mt-2 ml-5 text-[14px]">
                             Customers scan a QR or link to start instantly, no app needed.
                         </p>
                     </div>
                     <div class="card-waba1">
-                        <p class="text-[20px] text-[var(--waba-primary-color)] font-bold">2. Earn Points Automatically</p>
+                        <p class="text-[20px] text-[var(--waba-primary-color)] font-bold">2. Collect Point</p>
                         <p class="mt-2 ml-5 text-[14px]">
-                            Points are added after every purchase with instant WhatsApp confirmation.
+                            Send every purchase via whatsapp to collect point.
                         </p>
                     </div>
                     <div class="card-waba1">
@@ -168,7 +169,7 @@
         </div>
     </section>
 
-    <section id="how-it-works" class="container px-5 mx-auto md:mt-20 mt-10">
+    <section id="features" class="container px-5 mx-auto md:mt-20 mt-10">
         <p class="md:text-[40px] text-[32px] md:text-center header-waba">What Retentia Can Do for You</p>
         <p class="mt-2 text-[18px] md:text-center">Empower your business with automated loyalty, points, and repeat sales.</p>
 
@@ -231,7 +232,7 @@
         </div>
     </section>
 
-    <section id="features" class="container px-5 mx-auto mt-20">
+    <section id="benefits" class="container px-5 mx-auto mt-20">
         <p class="md:text-[40px] text-[32px] md:text-center header-waba">It’s More Than Points. It’s About Growth</p>
         <p class="mt-2 md:text-[18px] md:text-center">Build loyalty that drives real results.</p>
 
@@ -317,7 +318,10 @@
                         </p>
                     </div>
 
-                    <button onclick="window.open('https://wa.me/083199294607?text=Hallo', '_blank')" class="button-waba-outline !w-full mt-10 text-center">
+                    {{-- <a href="https://wa.me/6281554397702?text=Halo Retentia, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?" target="_blank" class="w-full mt-10 block">
+                        <button class="button-waba-outline"> Start Now </button>
+                    </a> --}}
+                    <button onclick="window.open('https://wa.me/628113660031?text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?', '_blank')" class="button-waba-outline !w-full mt-10 text-center">
                         Start Now
                     </button>
                 </div>
@@ -353,7 +357,7 @@
                         </p>
                     </div>
 
-                    <button class="button-waba !w-full mt-10">Get Pro</button>
+                    <button onclick="window.open('https://wa.me/628113660031?text=Halo Retentia %F0%9F%91%8B, saya ingin tahu lebih lebih banyak tentang paket *Pro*. Apakah bisa bantu jelaskan fitur dan benefitnya?', '_blank')" class="button-waba w-full mt-10">Get Pro</button>
                 </div>
 
                 <div class="bg-white border rounded-2xl p-[30px]">
@@ -385,20 +389,20 @@
                         </p>
                     </div>
 
-                    <button class="button-waba-outline !w-full mt-10">
+                    <button onclick="window.open('https://wa.me/628113660031?text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Business* untuk kebutuhan perusahaan kami. Bisa bantu jelaskan detail dan penawarannya?', '_blank')" class="button-waba-outline !w-full mt-10">
                         Contact Sales
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="benefits" class="md:px-10 md:mt-[240px] mt-10 md:mb-[120px] mb-10">
+        <div class="md:px-10 md:mt-[240px] mt-10 md:mb-[120px] mb-10">
             <div class="p-[30px] background2 rounded-2xl">
                 <div class="grid md:grid-cols-12 grid-cols-1 md:grid-flow-col grid-flow-row md:gap-0 gap-5">
                     <div class="md:order-1 order-2 md:col-span-8 col-span-1">
                         <p class="font-bold text-2xl mb-2"> Ready to Turn Everyday Customers into Lifelong Fans? </p>
                         <p> Book a free demo and see how WhatsApp loyalty grows your business. No credit card required, no commitment at all </p>
-                        <button class="bg-white text-[#1FC36C] font-bold rounded-2xl px-3 py-2 mt-5 cursor-pointer md:w-auto w-full"> Contact Us Now </button>
+                        <button onclick="window.open('https://wa.me/628113660031?text=Halo Retentia, saya tertarik dengan program loyalti yang kalian tawarkan. Bisa bantu jelaskan lebih lanjut?', '_blank')" class="bg-white text-[#1FC36C] font-bold rounded-2xl px-3 py-2 mt-5 cursor-pointer md:w-auto w-full"> Contact Us Now </button>
                     </div>
 
                     <div class="md:order-2 order-1 md:col-span-4 col-span-1 relative md:mx-0 mx-auto">

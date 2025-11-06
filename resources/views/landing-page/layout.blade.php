@@ -26,7 +26,7 @@
             background-color: var(--waba-primary-color);
             color: white;
             padding: 12px 20px;
-            width: 200px;
+            /* width: 200px; */
             border-radius: calc(infinity * 1px);
             cursor: pointer;
         }
@@ -68,8 +68,8 @@
     @yield('css')
 </head>
 <body class="bg-gradient-to-b from-gray-200 to-gray-50">
-    {{-- <div class="fixed top-5 w-full z-10"> --}}
-    <div class="mt-5 w-full z-10">
+    <div class="fixed top-5 w-full z-10">
+    {{-- <div class="mt-5 w-full z-10"> --}}
         <header class="container mx-auto px-5">
             <nav class="relative flex justify-between items-center bg-white px-10 py-3 mx-auto rounded-full">
                 <a href="{{ url('/')}}">
@@ -81,21 +81,21 @@
                         <a class="mainmenu" href="{{ url('#problem-n-solution') }}">Problem & Solution</a>
                         <a class="mainmenu" href="{{ url('#how-it-works') }}">How it work</a>
                         <a class="mainmenu" href="{{ url('#features') }}">Features</a>
-                        <a class="mainmenu" href="{{ url('#pricing') }}">Pricing</a>
                         <a class="mainmenu" href="{{ url('#benefits') }}">Benefits</a>
-                        <a class="md:hidden block bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer text-center" href="https://wa.me/083199294607?text=Hallo" target="_blank">Get Started, It's Free</a>
+                        <a class="mainmenu" href="{{ url('#pricing') }}">Pricing</a>
+                        <a class="md:hidden block bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer text-center" href="https://wa.me/6283199294607?text=Halo Retentia %F0%9F%91%8B" target="_blank">Get Started</a>
                     </div>
                 </div>
 
                 <div class="flex items-center">
-                    <a class="bg-[#1FC36C] text-white px-5 py-2 rounded-full cursor-pointer md:block hidden text-center" href="https://wa.me/083199294607?text=Hallo" target="_blank">Get Started, It's Free</a>
+                    <a class="bg-[#1FC36C] text-white px-5 py-2 rounded-full cursor-pointer md:block hidden text-center" href="https://wa.me/6283199294607?text=Halo Retentia %F0%9F%91%8B" target="_blank">Get Started</a>
                     <ion-icon id="btnDropDownMenu" onclick="onToggleMenu(this);" class="md:hidden text-3xl cursor-pointer" name="menu-outline"></ion-icon>
                 </div>
             </nav>
         </header>
     </div>
 
-    <div class="relative md:mt-20 mt-8">
+    <div class="relative md:mt-40 mt-8">
         @yield('content')
     </div>
 
