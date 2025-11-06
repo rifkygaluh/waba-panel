@@ -69,8 +69,8 @@
                     </div>
                     <p class="mt-5 md:text-[18px]">Build loyalty effortlessly inside WhatsApp. Just seamless connection with your customers.</p>
                     <div class="flex md:flex-row flex-col items-center gap-5 mt-10">
-                        {{-- <a class="button-waba md:w-[250px] w-full text-center" href="https://api.whatsapp.com/send?phone=6283199294607&text=Halo Retentia %F0%9F%91%8B" target="_blank">Get a Free Try Now</a> --}}
-                        <a class="button-waba md:w-[250px] w-full text-center" href="https://wa.me/6283199294607?text=Halo Retentia %F0%9F%91%8B" target="_blank">Get a Free Try Now</a>
+                        <a class="button-waba md:w-[250px] w-full text-center" href="https://api.whatsapp.com/send?phone=6283199294607&text=Halo Retentia %F0%9F%91%8B" target="_blank">Get a Free Try Now</a>
+                        {{-- <a class="button-waba md:w-[250px] w-full text-center" href="https://wa.me/6283199294607?text=Halo Retentia %F0%9F%91%8B" target="_blank">Get a Free Try Now</a> --}}
                         {{-- <a class="button-waba-outline !md:w-[200px] !w-full text-center" href="https://wa.me/081222999879" target="_blank">Start Now</a> --}}
                     </div>
                 </div>
@@ -288,13 +288,15 @@
             </div>
 
             <div class="grid md:grid-cols-3 grid-cols-1 md:grid-flow-col grid-flow-row gap-[20px] mt-10">
-                <div class="bg-white border rounded-2xl p-[30px]">
-                    <div class="flex items-start justify-between">
-                        <img class="w-[56px] h-[56px]" src="{{ asset('landing-page/images/Icon.png') }}" />
-                    </div>
+                <div class="flex flex-col justify-between bg-white border rounded-2xl p-[30px]">
+                    <div>
+                        <div class="flex items-start justify-between">
+                            <img class="w-[56px] h-[56px]" src="{{ asset('landing-page/images/Icon.png') }}" />
+                        </div>
 
-                    <p class="text-[24px] font-bold mt-5">Starter</p>
-                    <p>Perfect for new users who want to explore Retentia and start building customer loyalty</p>
+                        <p class="text-[24px] font-bold mt-5">Starter</p>
+                        <p>Perfect for new users who want to explore Retentia and start building customer loyalty</p>
+                    </div>
 
                     <div class="flex items-center mt-5">
                         <p class="text-[40px] font-bold mr-2">IDR 0</p>
@@ -318,22 +320,27 @@
                         </p>
                     </div>
 
-                    {{-- <a href="https://wa.me/6281554397702?text=Halo Retentia, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?" target="_blank" class="w-full mt-10 block">
+                    {{-- <a href="https://api.whatsapp.com/send?phone=6281554397702&text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?" target="_blank">saas</a> --}}
+                    {{-- <a href="https://wa.me/6282233331515?text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?" target="_blank">saas</a> --}}
+                    {{-- <a href="https://wa.me/6282233331515?text=Halo Retentia, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?" target="_blank" class="w-full mt-10 block">
                         <button class="button-waba-outline"> Start Now </button>
                     </a> --}}
-                    <button onclick="window.open('https://wa.me/6282233331515?text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?', '_blank')" class="button-waba-outline !w-full mt-10 text-center">
+                    <button onclick="window.open('https://api.whatsapp.com/send?phone=6282233331515&text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?', '_blank')" class="button-waba-outline !w-full mt-10 text-center">
+                    {{-- <button onclick="window.open('https://wa.me/6282233331515?text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Starter* dari program loyalti kalian. Bisa dijelaskan lebih lanjut?', '_blank')" class="button-waba-outline !w-full mt-10 text-center"> --}}
                         Start Now
                     </button>
                 </div>
 
-                <div style="background: url('{{ asset('landing-page/images/Pricing Card.png') }}');background-repeat: no-repeat;background-size: cover;" class="border rounded-2xl p-[30px]">
-                    <div class="flex items-start justify-between">
-                        <img class="w-[56px] h-[56px]" src="{{ asset('landing-page/images/Iconb.png') }}" />
-                        <div class="rounded-[8px] bg-[#F9FAFB] border-white px-[10px] py-[5px] text-[14px] text-[var(--waba-primary-color)] font-bold">Best Value</div>
-                    </div>
+                <div style="background: url('{{ asset('landing-page/images/Pricing Card.png') }}');background-repeat: no-repeat;background-size: cover;" class="flex flex-col justify-between border rounded-2xl p-[30px]">
+                    <div>
+                        <div class="flex items-start justify-between">
+                            <img class="w-[56px] h-[56px]" src="{{ asset('landing-page/images/Iconb.png') }}" />
+                            <div class="rounded-[8px] bg-[#F9FAFB] border-white px-[10px] py-[5px] text-[14px] text-[var(--waba-primary-color)] font-bold">Best Value</div>
+                        </div>
 
-                    <p class="text-[24px] font-bold mt-5">Pro</p>
-                    <p>Ideal for growing brands that want to automate rewards, segment customers, and boost repeat sales.</p>
+                        <p class="text-[24px] font-bold mt-5">Pro</p>
+                        <p>Ideal for growing brands that want to automate rewards, segment customers, and boost repeat sales.</p>
+                    </div>
 
                     <div class="flex items-center mt-5">
                         <p class="text-[40px] font-bold mr-2">IDR 299</p>
@@ -357,16 +364,18 @@
                         </p>
                     </div>
 
-                    <button onclick="window.open('https://wa.me/6282233331515?text=Halo Retentia %F0%9F%91%8B, saya ingin tahu lebih lebih banyak tentang paket *Pro*. Apakah bisa bantu jelaskan fitur dan benefitnya?', '_blank')" class="button-waba w-full mt-10">Get Pro</button>
+                    <button onclick="window.open('https://api.whatsapp.com/send?phone=6282233331515&text=Halo Retentia %F0%9F%91%8B, saya ingin tahu lebih lebih banyak tentang paket *Pro*. Apakah bisa bantu jelaskan fitur dan benefitnya?', '_blank')" class="button-waba w-full mt-10">Get Pro</button>
                 </div>
 
-                <div class="bg-white border rounded-2xl p-[30px]">
-                    <div class="flex items-start justify-between">
-                        <img class="w-[56px] h-[56px]" src="{{ asset('landing-page/images/Iconc.png') }}" />
-                    </div>
+                <div class="flex flex-col justify-between bg-white border rounded-2xl p-[30px]">
+                    <div>
+                        <div class="flex items-start justify-between">
+                            <img class="w-[56px] h-[56px]" src="{{ asset('landing-page/images/Iconc.png') }}" />
+                        </div>
 
-                    <p class="text-[24px] font-bold mt-5">Business</p>
-                    <p>Designed for established companies with multiple locations or complex customer data.</p>
+                        <p class="text-[24px] font-bold mt-5">Business</p>
+                        <p>Designed for established companies with multiple locations or complex customer data.</p>
+                    </div>
 
                     <div class="flex items-center mt-5">
                         <p class="text-[24px] text-[#1FC36C] font-bold mr-2">Contact us</p>
@@ -389,7 +398,7 @@
                         </p>
                     </div>
 
-                    <button onclick="window.open('https://wa.me/6282233331515?text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Business* untuk kebutuhan perusahaan kami. Bisa bantu jelaskan detail dan penawarannya?', '_blank')" class="button-waba-outline !w-full mt-10">
+                    <button onclick="window.open('https://api.whatsapp.com/send?phone=6282233331515&text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan paket *Business* untuk kebutuhan perusahaan kami. Bisa bantu jelaskan detail dan penawarannya?', '_blank')" class="button-waba-outline !w-full mt-10">
                         Contact Sales
                     </button>
                 </div>
@@ -402,7 +411,7 @@
                     <div class="md:order-1 order-2 md:col-span-8 col-span-1">
                         <p class="font-bold text-2xl mb-2"> Ready to Turn Everyday Customers into Lifelong Fans? </p>
                         <p> Book a free demo and see how WhatsApp loyalty grows your business. No credit card required, no commitment at all </p>
-                        <button onclick="window.open('https://wa.me/6282233331515?text=Halo Retentia, saya tertarik dengan program loyalti yang kalian tawarkan. Bisa bantu jelaskan lebih lanjut?', '_blank')" class="bg-white text-[#1FC36C] font-bold rounded-2xl px-3 py-2 mt-5 cursor-pointer md:w-auto w-full"> Contact Us Now </button>
+                        <button onclick="window.open('https://api.whatsapp.com/send?phone=6282233331515&text=Halo Retentia %F0%9F%91%8B, saya tertarik dengan program loyalti yang kalian tawarkan. Bisa bantu jelaskan lebih lanjut?', '_blank')" class="bg-white text-[#1FC36C] font-bold rounded-2xl px-3 py-2 mt-5 cursor-pointer md:w-auto w-full"> Contact Us Now </button>
                     </div>
 
                     <div class="md:order-2 order-1 md:col-span-4 col-span-1 relative md:mx-0 mx-auto">
