@@ -272,17 +272,26 @@
 
                 <div class="md:text-right">
                     <p>Start small, scale when ready. Monthly & annual billing.</p>
-                    <p>14-day free trial no credit card required.</p>
+                    {{-- <p>14-day free trial no credit card required.</p> --}}
                     
-                    {{-- after:h-6 after:w-6 --}}
                     <div class="flex justify-end mt-2">
-                        <img class="w-[186px]" src="{{ asset('landing-page/images/TAB (1).png') }}" />
-                        {{-- <label class="relative flex items-center mb-5 cursor-pointer">
-                            <input type="checkbox" value="" class="sr-only peer">
-                            <div class="w-[186px] h-[41px] bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white 
-                                after:content-['Monthly'] after:absolute after:top-0.5 after:left-[4px] after:bg-[#0CC144] after:border-gray-300 after:border after:rounded-full after:py-1 after:px-3 after:transition-all 
-                                peer-checked:bg-indigo-600 hover:peer-checked:bg-indigo-700">Annual</div>
-                        </label> --}}
+                        {{-- <img class="w-[186px]" src="{{ asset('landing-page/images/TAB (1).png') }}" /> --}}
+                        <div class="flex items-center space-x-4">
+                            <!-- The Toggle Switch Container -->
+                            <label for="toggle-switch" class="relative inline-flex items-center cursor-pointer">
+                                <!-- Hidden Checkbox Input -->
+                                <input type="checkbox" id="toggle-switch" class="sr-only peer">
+
+                                <!-- The Switch Track (background) -->
+                                <div class="flex justify-between w-[200px] px-[20px] py-[10px] bg-[var(--waba-secondary-color)] rounded-full ring-1 ring-[var(--waba-primary-color)] transition-colors duration-200">
+                                    <p>Monthly</p>
+                                    <p class="text-center">Annual</p>
+                                </div>
+
+                                <!-- The Switch Handle (circle) -->
+                                <div id="switch-handle" class="absolute top-[0px] left-[0px] px-[19px] py-[10px] w-[100px] text-white text-center bg-[var(--waba-primary-color)] rounded-full shadow-md transform transition-transform duration-200 peer-checked:translate-x-[100px]">Monthly</div>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -295,12 +304,12 @@
                         </div>
 
                         <p class="text-[24px] font-bold mt-5">Starter</p>
-                        <p>Perfect for new users who want to explore Retentia and start building customer loyalty</p>
+                        <p>Perfect for new businesses wanting to explore WhatsApp loyalty and start building customer engagement.</p>
                     </div>
 
                     <div class="flex items-center mt-5">
-                        <p class="text-[40px] font-bold mr-2">IDR 0</p>
-                        <p>/ month</p>
+                        <p class="text-[40px] font-bold mr-2">IDR <span id="starterCost">5,000,000</span></p>
+                        <p class="time-category">/ month</p>
                     </div>
 
                     <hr class="mt-5">
@@ -308,15 +317,19 @@
                     <div class="mt-5 space-y-1.5">
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            Up to 100 customers
+                            Up to 1,000 loyalty members
                         </p>
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            Basic automations
+                            Up to 3 admin/agent
                         </p>
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            Email support
+                            Loyalty features
+                        </p>
+                        <p class="flex items-center">
+                            <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
+                            Standard Support (Email & Chat)
                         </p>
                     </div>
 
@@ -339,12 +352,12 @@
                         </div>
 
                         <p class="text-[24px] font-bold mt-5">Pro</p>
-                        <p>Ideal for growing brands that want to automate rewards, segment customers, and boost repeat sales.</p>
+                        <p>Ideal for growing brands that want to automate rewards and segment customers.</p>
                     </div>
 
                     <div class="flex items-center mt-5">
-                        <p class="text-[40px] font-bold mr-2">IDR 299</p>
-                        <p>/ month</p>
+                        <p class="text-[40px] font-bold mr-2">IDR <span id="proCost">10,000,000</span></p>
+                        <p class="time-category">/ month</p>
                     </div>
 
                     <hr class="mt-5">
@@ -352,15 +365,23 @@
                     <div class="mt-5 space-y-1.5">
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            Unlimited customers
+                            Up to 5,000 members
                         </p>
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            Advanced automations
+                            Up to 8 admin/agent accounts
                         </p>
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            Segmentation & A/B tests
+                            Loyalty features
+                        </p>
+                        <p class="flex items-center">
+                            <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
+                            Broadcast feature
+                        </p>
+                        <p class="flex items-center">
+                            <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
+                            Standard Support (Email & Chat)
                         </p>
                     </div>
 
@@ -373,8 +394,8 @@
                             <img class="w-[56px] h-[56px]" src="{{ asset('landing-page/images/Iconc.png') }}" />
                         </div>
 
-                        <p class="text-[24px] font-bold mt-5">Business</p>
-                        <p>Designed for established companies with multiple locations or complex customer data.</p>
+                        <p class="text-[24px] font-bold mt-5">Enterprise</p>
+                        <p>Designed for established companies with multi-location or complex data and customization needs.</p>
                     </div>
 
                     <div class="flex items-center mt-5">
@@ -386,15 +407,23 @@
                     <div class="mt-5 space-y-1.5">
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            Multi-location
+                            Custom Members & Accounts
                         </p>
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            Dedicated onboarding
+                            Dedicated Onboarding
                         </p>
                         <p class="flex items-center">
                             <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
-                            SLA & custom integrations
+                            Loyalty and Broadcast Feature
+                        </p>
+                        <p class="flex items-center">
+                            <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
+                            Full Customization & Integration
+                        </p>
+                        <p class="flex items-start">
+                            <ion-icon class="text-2xl text-green-500 mr-1" name="checkmark-outline"></ion-icon>
+                            Premium Support (Dedicated Account Manager) & SLA
                         </p>
                     </div>
 
@@ -422,4 +451,43 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script>
+        // Get references to the elements
+        const toggleSwitch = document.getElementById('toggle-switch');
+        const labelSwitch = document.getElementById('switch-handle');
+        const starterCost = document.getElementById('starterCost');
+        const proCost = document.getElementById('proCost');
+        const monthlyPrices = {
+            starter: '5,000,000',
+            pro: '10,000,000'
+        };
+        const annualPrices = {
+            starter: '4,500,000',
+            pro: '9,000,000'
+        };
+
+        // Function to update label styles based on the switch state
+        function updateLabelStyles() {
+            if (toggleSwitch.checked) {
+                labelSwitch.textContent = 'Annual';
+                starterCost.textContent = annualPrices.starter;
+                proCost.textContent = annualPrices.pro;
+                // document.querySelectorAll('.time-category').forEach(el => el.textContent = '/ year');
+            } else {
+                labelSwitch.textContent = 'Monthly';
+                starterCost.textContent = monthlyPrices.starter;
+                proCost.textContent = monthlyPrices.pro;
+                // document.querySelectorAll('.time-category').forEach(el => el.textContent = '/ month');
+            }
+        }
+
+        // Add an event listener to the switch
+        toggleSwitch.addEventListener('change', updateLabelStyles);
+
+        // Set initial styles on page load
+        updateLabelStyles();
+
+    </script>
 @endsection
