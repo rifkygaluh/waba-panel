@@ -432,6 +432,7 @@
                     </button>
                 </div>
             </div>
+            <div class="mt-2 text-sm">*plan fee excludes WhatsApp messaging and voucher reward costs. These are billed separately based on usage (Pay-As-You-Go) via a top-up balance system</div>
         </div>
 
         <div class="md:px-10 md:mt-[240px] mt-10 md:mb-[120px] mb-10">
