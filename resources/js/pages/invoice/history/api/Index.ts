@@ -1,4 +1,4 @@
-import { currencyFormatter } from '@/lib/utils';
+import { currencyFormatter, numberFormatter } from '@/lib/utils';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
@@ -35,6 +35,25 @@ const columns = [
     sorter: true,
   },
   {
+    title: 'User Name',
+    dataIndex: 'user_name',
+  },
+  {
+    title: 'Store Code',
+    dataIndex: 'store_code',
+  },
+  {
+    title: 'Store Name',
+    dataIndex: 'store_name',
+  },
+  {
+    title: 'Total Pieces',
+    dataIndex: 'total_pieces',
+    sorter: true,
+    customRender: ({ text }: { text: number | string }) =>
+      numberFormatter(text),
+  },
+  {
     title: 'Amount',
     dataIndex: 'amount',
     sorter: true,
@@ -46,16 +65,9 @@ const columns = [
     dataIndex: 'status',
   },
   {
-    title: 'User Name',
-    dataIndex: 'user_name',
-  },
-  {
-    title: 'Store Code',
-    dataIndex: 'store_code',
-  },
-  {
-    title: 'Store Name',
-    dataIndex: 'store_name',
+    title: 'Comments',
+    dataIndex: 'comments',
+    customRender: ({ text }: { text: string }) => text || '-',
   },
   {
     title: 'Upload Date',

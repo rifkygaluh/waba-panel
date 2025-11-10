@@ -19,6 +19,7 @@ const columns = [
   {
     title: 'Value',
     dataIndex: 'value',
+    width: '60%',
   },
 ];
 </script>

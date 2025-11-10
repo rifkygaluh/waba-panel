@@ -21,7 +21,7 @@ const rule = useRuleStore();
         <FormItem class="grow" :label="index === 0 ? 'Product' : null">
           <Select
             class="w-80"
-            v-model:value="item.productId"
+            v-model:value="item.product_id"
             placeholder="Select a product"
             :options="[
               { label: 'Product A', value: 'Product A' },

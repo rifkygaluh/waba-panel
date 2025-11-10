@@ -3,6 +3,7 @@ import TableInformation from '@/components/TableInformation.vue';
 import { doubleViewersGuard } from '@/lib/utils';
 import { useInvoiceStore } from '@/stores/invoice';
 import { Modal } from 'ant-design-vue';
+import dayjs from 'dayjs';
 import { component as VViewer } from 'v-viewer';
 import { watch } from 'vue';
 
@@ -19,12 +20,33 @@ const props = defineProps<Props>();
 const invoice = useInvoiceStore();
 
 const dataSource = (data: any) => [
-  { title: 'Invoice ID', value: data.id },
-  { title: 'Store Name', value: data.storeName },
-  { title: 'Store Owner', value: data.storeOwner },
-  { title: 'Store Phone', value: data.storePhone },
-  { title: 'Store Address', value: data.storeAddress },
-  { title: 'Upload Date', value: data.uploadDate },
+  { title: 'Invoice Number', value: data.invoice_number },
+  {
+    title: 'Store Name',
+    value: data.store ? data.store.name : data.store_name,
+  },
+  {
+    title: 'Store Code',
+    value: data.store ? data.store.code : data.store_code,
+  },
+  {
+    title: 'Store Area',
+    value: data.store ? data.store.area : data.store_area,
+  },
+  { title: 'User Name', value: data.user ? data.user.name : data.user_name },
+  { title: 'User Email', value: data.user ? data.user.email : data.user_email },
+  {
+    title: 'User Phone',
+    value: data.user ? data.user.phone_number : data.user_phone_number,
+  },
+  {
+    title: 'User Address',
+    value: data.user ? data.user.address : data.user_address,
+  },
+  {
+    title: 'Upload Date',
+    value: dayjs(data.created_at).format('DD-MM-YYYY'),
+  },
 ];
 
 watch(props.modal, () => {
@@ -41,7 +63,7 @@ watch(props.modal, () => {
     :footer="null"
   >
     <div class="py-8">
-      <div class="flex justify-evenly">
+      <div class="flex justify-center space-x-5">
         <div id="original-invoices" class="relative w-[560px]">
           <v-viewer
             class="mx-auto h-fit max-h-[360px] min-h-[360px] w-fit max-w-[480px] grow overflow-clip border-4 border-gray-200"
@@ -60,27 +82,21 @@ watch(props.modal, () => {
             class="mx-auto h-fit max-h-[360px] min-h-[360px] w-fit max-w-[480px] grow overflow-clip border-4 border-gray-200"
             :options="{ inline: true, navbar: false }"
           >
-            <!-- TODO: Handle possible duplicate's invoice image -->
-            <img
-              key="target-invoice"
-              :src="modal.record.picture.medium"
-              hidden
-            />
+            <img key="target-invoice" :src="modal.record.image" hidden />
           </v-viewer>
         </div>
       </div>
-      <div class="mt-8 flex justify-evenly">
+      <div class="mt-8 flex justify-center space-x-5">
         <div class="w-[560px]">
           <TableInformation
             title="Original Invoice"
             :data-source="dataSource(invoice)"
           />
         </div>
-        <!-- TODO: Handle possible duplicate's invoice source of information -->
         <div class="w-[560px]">
           <TableInformation
             title="Target Invoice"
-            :data-source="dataSource(invoice)"
+            :data-source="dataSource(modal.record)"
           />
         </div>
       </div>

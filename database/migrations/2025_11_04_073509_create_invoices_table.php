@@ -12,8 +12,9 @@ return new class extends Migration
             $table->uuid('id')->primary()->default(DB::raw('gen_random_uuid()'));
             $table->uuid('user_id');
             $table->text('invoice_number');
-            $table->integer('total_pieces');
-            $table->double('amount');
+            $table->integer('total_pieces')->nullable();
+            $table->double('amount')->nullable();
+            $table->date('date')->nullable();
             $table->text('media_url');
             $table->text('status')->default('pending');
             $table->timestamp('verified_at')->nullable();

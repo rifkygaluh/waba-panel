@@ -14,6 +14,8 @@ return new class extends Migration
             $table->integer('product_id');
             $table->integer('qty');
             $table->double('price');
+            $table->enum('discount_type', ['percentage','fixed']);
+            $table->double('discount')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 
             $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');

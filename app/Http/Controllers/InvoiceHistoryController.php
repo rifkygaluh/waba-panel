@@ -23,6 +23,7 @@ class InvoiceHistoryController extends Controller
             ->select([
                 'i.id', 'i.invoice_number', 'i.amount', 'i.status', 'i.created_at',
                 's.name AS store_name', 's.code AS store_code', 'u.name AS user_name',
+                'i.total_pieces', 'i.comments',
             ])
             ->joinSub($stores, 's', 's.id', 'i.store_id')
             ->joinSub($users, 'u', 'u.id', 'i.user_id')
@@ -30,7 +31,7 @@ class InvoiceHistoryController extends Controller
             ->when($request->has('sortField'), function ($query) use ($request) {
                 return $query->orderBy($request->sortField, direction: $request->sortOrder === 'descend' ? 'desc' : 'asc');
             }, function ($query) {
-                return $query->orderBy('created_at');
+                return $query->orderByDesc('verified_at');
             })
             ->paginate($perPage);
     }
