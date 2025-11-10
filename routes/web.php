@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('invoice')->group(function () {
         Route::get('verification', [InvoiceVerificationController::class, 'index'])->name('invoice.verification.index');
         Route::get('verification/{id}', [InvoiceVerificationController::class, 'show'])->name('invoice.verification.show');
+        Route::post('verification/{id}/accept', [InvoiceVerificationController::class, 'accept'])->name('invoice.verification.accept');
+        Route::post('verification/{id}/reject', [InvoiceVerificationController::class, 'reject'])->name('invoice.verification.reject');
 
         Route::get('history', [InvoiceHistoryController::class, 'index'])->name('invoice.history');
     });
@@ -34,8 +36,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('benefit-rules', BenefitRulesController::class);
 
     Route::prefix('api')->group(function () {
-        Route::get('invoice/verification', [InvoiceVerificationController::class, 'indexApi'])->name('invoice.verification.api');
-        Route::get('invoice/history', [InvoiceHistoryController::class, 'indexApi'])->name('invoice.history.api');
+        Route::prefix('invoice')->group(function () {
+            Route::get('verification', [InvoiceVerificationController::class, 'indexApi'])->name('invoice.verification.api');
+            Route::get('verification/check-duplicate', [InvoiceVerificationController::class, 'checkDuplicateApi'])->name('invoice.verification.check-duplicate.api');
+
+            Route::get('history', [InvoiceHistoryController::class, 'indexApi'])->name('invoice.history.api');
+        });
 
         Route::get('product', [ProductController::class, 'indexApi'])->name('product.api');
         Route::get('product/options', [ProductController::class, 'optionsApi'])->name('product.options.api');

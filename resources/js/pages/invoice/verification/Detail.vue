@@ -53,3 +53,10 @@ const breadcrumbs: BreadcrumbItem[] = [
     </div>
   </AppLayout>
 </template>
+
+<style>
+input:disabled,
+input[disabled] {
+  color: #000 !important;
+}
+</style>
