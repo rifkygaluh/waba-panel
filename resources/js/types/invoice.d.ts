@@ -1,23 +1,25 @@
 export interface InvoiceItem {
-  productId: number | string | undefined;
+  product_id: number | string | undefined;
+  product_name: number | string | undefined;
   quantity: number | undefined;
   discount: number | undefined;
-  discountType: 'percentage' | 'fixed';
+  discount_type: 'percentage' | 'fixed';
   price: number | undefined;
-  totalPrice: number;
+  total_price: number;
 }
 
 export interface Invoice {
-  id: number;
+  id: string;
   invoice_number: string;
   store: any;
   user: any;
   status: 'pending' | 'accepted' | 'rejected';
   created_at: string;
-  totalPieces: number;
-  totalPrice: number;
+  total_pieces: number;
+  total_price: number;
   image: string;
   date: string;
   name?: string;
+  comments?: string;
   items: InvoiceItem[];
 }
