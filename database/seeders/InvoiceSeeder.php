@@ -18,13 +18,16 @@ class InvoiceSeeder extends Seeder
 
         foreach ($stores as $store) {
             for ($i=0; $i < rand(1, 5); $i++) { 
-                $user = DB::table('users')->inRandomOrder()->first();
+                $user = DB::table('users')
+                    ->where('role', 'user')
+                    ->inRandomOrder()
+                    ->first();
                 
                 $invoices[] = [
                     'user_id' => $user->id,
                     'store_id' => $store->id,
                     'invoice_number' => 'INV'
-                        . '-' . rand(1000, 9999)
+                        . '-' . now()->format('md')
                         . '-' . rand(100, 999),
                     'media_url' => 'https://picsum.photos/300/200',
                 ];
