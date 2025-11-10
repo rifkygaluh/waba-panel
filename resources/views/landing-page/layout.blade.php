@@ -78,11 +78,11 @@
 
                 <div id="navLinks" class="md:static absolute top-[-300px] md:w-auto w-full left-0 bg-white rounded-2xl font-bold z-[100]">
                     <div class="flex md:flex-row flex-col md:items-center md:gap-5 gap-2 md:p-0 p-4">
-                        <a class="mainmenu" href="{{ url('#problem-n-solution') }}">Problem & Solution</a>
-                        <a class="mainmenu" href="{{ url('#how-it-works') }}">How it work</a>
-                        <a class="mainmenu" href="{{ url('#features') }}">Features</a>
-                        <a class="mainmenu" href="{{ url('#benefits') }}">Benefits</a>
-                        <a class="mainmenu" href="{{ url('#pricing') }}">Pricing</a>
+                        <a class="mainmenu" href="{{ url('/#problem-n-solution') }}">Problem & Solution</a>
+                        <a class="mainmenu" href="{{ url('/#how-it-works') }}">How it work</a>
+                        <a class="mainmenu" href="{{ url('/#features') }}">Features</a>
+                        <a class="mainmenu" href="{{ url('/#benefits') }}">Benefits</a>
+                        <a class="mainmenu" href="{{ url('/#pricing') }}">Pricing</a>
                         <a class="md:hidden block bg-[#1FC36C] text-white px-5 py-1 w-full rounded-full cursor-pointer text-center" href="https://api.whatsapp.com/send?phone=6283199294607&text=Halo Retentia %F0%9F%91%8B" target="_blank">Get Started</a>
                     </div>
                 </div>

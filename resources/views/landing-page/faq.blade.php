@@ -112,7 +112,7 @@
                 <p class="text-[14px]">Reach out to our customer support team anytime. We’re here to help you move forward with clarity and confidence</p>
             </div>
 
-            <button class="button-waba md:!w-[150px] !w-full">Talk to Us</button>
+            <button class="button-waba md:!w-[150px] !w-full"  onclick="window.open('https://api.whatsapp.com/send?phone=6282233331515', '_blank')">Talk to Us</button>
         </div>
     </section>
 @endsection
