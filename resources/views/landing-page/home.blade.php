@@ -46,6 +46,10 @@
             font-weight: 700;
             font-style: normal;
         }
+
+        :target {
+            scroll-margin-top: 100px; /* Adjust the value as needed */
+        }
     </style>
 @endsection
 @section('content')
