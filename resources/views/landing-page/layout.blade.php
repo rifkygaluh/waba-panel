@@ -15,6 +15,10 @@
     </style>
 
     <style>
+        html {
+            scroll-behavior: auto;
+        }
+
         :root {
             --waba-primary-color: #1FC36C;
             --waba-secondary-color: #D6F5E5;
