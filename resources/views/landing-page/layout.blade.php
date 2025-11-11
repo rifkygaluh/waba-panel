@@ -177,6 +177,10 @@
             }
         });
 
+        window.onload = function() {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        };
+
         // $(document).on('click', function(event) {
             // if (!$(event.target).closest('#dropdownMenuButton1').length) {
             //     // console.log("Clicked outside the dropdown button");
