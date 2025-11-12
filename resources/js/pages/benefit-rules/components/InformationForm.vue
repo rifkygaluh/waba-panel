@@ -31,7 +31,7 @@ const rule = useRuleStore();
         </div>
       </FormItem>
       <FormItem label="Rule Period" class="mb-0!">
-        <RangePicker v-model:value="rule.dateRange" />
+        <RangePicker v-model:value="rule.period" valueFormat="YYYY-MM-DD" />
       </FormItem>
     </div>
   </Form>

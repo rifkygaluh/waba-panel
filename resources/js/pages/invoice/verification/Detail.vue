@@ -45,7 +45,9 @@ const breadcrumbs: BreadcrumbItem[] = [
         <InvoiceInformation />
       </Card>
       <Card class="px-6">
-        <VerificationForm />
+        <Suspense>
+          <VerificationForm />
+        </Suspense>
       </Card>
       <Card class="px-6" v-if="invoice.checkDuplicate.open">
         <CheckDuplicate />
