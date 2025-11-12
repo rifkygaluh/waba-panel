@@ -1,0 +1,36 @@
+version: '3.9'
+
+networks:
+  retentia-network:
+    external: true
+
+services:
+  app:
+    image: ojanjon/loyaltygoo-landing:latest
+    container_name: retentia-landing
+    volumes:
+      - retentia_volume:/var/www/html
+      - ./.env.staging:/var/www/html/.env
+      - retentia-storage:/var/www/html/storage/app/public
+    networks:
+      - retentia-network
+    env_file:
+      - .env.staging
+
+  nginx:
+    image: nginx:latest
+    container_name: retentia-nginx
+    ports:
+      - "3004:80"
+    volumes:
+      - retentia_volume:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - retentia-network
+    depends_on:
+      - app
+
+volumes:
+  retentia_volume:
+  retentia-storage:
+
