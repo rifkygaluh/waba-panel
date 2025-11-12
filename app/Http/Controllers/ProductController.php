@@ -3,12 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
     public function index()
     {
         return inertia('product/Index');
+    }
+
+    public function indexApi()
+    {
+        $perPage = $request->results ?? 10;
+        
+        return DB::table('products')->paginate($perPage);
+    }
+
+    public function optionsApi()
+    {
+        return DB::table('products')
+            ->select('name AS label', 'id AS value')
+            ->get();
     }
 
     public function create()
@@ -18,13 +33,7 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $product = [
-            'id' => $id,
-            'name' => "Product $id",
-            'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias ipsam saepe odio nemo veritatis omnis suscipit soluta eligendi explicabo necessitatibus, error quia eos nam, dolorem obcaecati. Quidem fugit minus temporibus.',
-            'price' => 50000,
-            'uniqueCode' => "000-1111-$id"
-        ];
+        $product = DB::table('products')->find($id);
         
         return inertia('product/Edit', compact('product'));
     }

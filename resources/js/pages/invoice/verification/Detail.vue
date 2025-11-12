@@ -28,7 +28,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     href: verification.index().url,
   },
   {
-    title: props.invoice.id.toString(),
+    title: props.invoice.invoice_number,
   },
 ];
 </script>
@@ -45,7 +45,9 @@ const breadcrumbs: BreadcrumbItem[] = [
         <InvoiceInformation />
       </Card>
       <Card class="px-6">
-        <VerificationForm />
+        <Suspense>
+          <VerificationForm />
+        </Suspense>
       </Card>
       <Card class="px-6" v-if="invoice.checkDuplicate.open">
         <CheckDuplicate />
@@ -53,3 +55,10 @@ const breadcrumbs: BreadcrumbItem[] = [
     </div>
   </AppLayout>
 </template>
+
+<style>
+input:disabled,
+input[disabled] {
+  color: #000 !important;
+}
+</style>

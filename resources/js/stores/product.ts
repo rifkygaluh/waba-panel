@@ -8,7 +8,7 @@ export const useProductStore = defineStore('product', {
       name: undefined,
       description: undefined,
       price: undefined,
-      uniqueCode: undefined,
+      unique_code: undefined,
     }) as Product,
   actions: {
     setProduct(data: Product) {
@@ -16,7 +16,7 @@ export const useProductStore = defineStore('product', {
       this.name = data.name;
       this.description = data.description;
       this.price = data.price;
-      this.uniqueCode = data.uniqueCode;
+      this.unique_code = data.unique_code;
     },
   },
 });

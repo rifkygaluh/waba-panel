@@ -32,8 +32,8 @@ const breadcrumbs: BreadcrumbItem[] = [
       </Card>
       <Card class="px-6">
         <TableFetcher :query-data="queryData" :columns="columns">
-          <template #action="{ index }">
-            <Link :href="verification.show(index + 1).url">
+          <template #action="{ record }">
+            <Link :href="verification.show(record.id).url">
               <Button class="px-2.5!" type="primary">
                 <FileSearch2 class="h-4 w-4" />
               </Button>

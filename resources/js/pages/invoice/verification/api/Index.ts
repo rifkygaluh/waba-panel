@@ -1,4 +1,5 @@
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 type APIParams = {
   results: number;
@@ -9,56 +10,47 @@ type APIParams = {
 };
 
 type APIResult = {
-  results: {
-    gender: 'female' | 'male';
-    name: {
-      title: string;
-      first: string;
-      last: string;
-    };
-    email: string;
+  current_page: number;
+  per_page: number;
+  total: number;
+  data: {
+    invoice_number: string;
+    amount: number;
+    media: string[] | null[];
   }[];
 };
 
 const queryData = async (params: APIParams) => {
-  const res = await axios.get<APIResult>('https://randomuser.me/api?noinfo', {
+  const res = await axios.get<APIResult>('/api/invoice/verification', {
     params,
   });
-  return res.data.results;
+  return res.data;
 };
 
 const columns = [
   {
-    title: 'Name',
-    dataIndex: 'name',
+    title: 'Invoice Number',
+    dataIndex: 'invoice_number',
     sorter: true,
-    width: '20%',
-    customRender: ({ record: { name } }: { record: any }) =>
-      `${name.title} ${name.first} ${name.last}`,
   },
   {
-    title: 'Gender',
-    dataIndex: 'gender',
-    filters: [
-      { text: 'Male', value: 'male' },
-      { text: 'Female', value: 'female' },
-    ],
+    title: 'User Name',
+    dataIndex: 'user_name',
+  },
+  {
+    title: 'Store Code',
+    dataIndex: 'store_code',
+  },
+  {
+    title: 'Store Name',
+    dataIndex: 'store_name',
+  },
+  {
+    title: 'Upload Date',
+    dataIndex: 'created_at',
+    sorter: true,
     customRender: ({ text }: { text: string }) =>
-      text.charAt(0).toUpperCase() + text.slice(1),
-  },
-  {
-    title: 'Email',
-    dataIndex: 'email',
-  },
-  {
-    title: 'Phone',
-    dataIndex: 'cell',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'location',
-    customRender: ({ record: { location } }: { record: any }) =>
-      `${location.street.name} ${location.street.number}, ${location.city} ${location.state}`,
+      dayjs(text).format('DD-MM-YYYY'),
   },
   {
     title: '',
