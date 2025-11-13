@@ -43,7 +43,7 @@
 
         <div class="accordion-waba mt-5">
             <button onclick="toggleAccordion(3)" class="w-full flex justify-between items-center px-[20px] py-[10px] cursor-pointer">
-                <span class="font-bold text-left">How can Loyaltygoo benefit my business?</span>
+                <span class="font-bold text-left">How can Retentia benefit my business?</span>
                 <ion-icon id="icon-3" name="add-outline" class="text-2xl text-[var(--waba-primary-color)]"></ion-icon>
             </button>
             

@@ -116,7 +116,7 @@
                     <div class="grid md:grid-cols-4 grid-cols-1 md:grid-flow-col grid-flow-row gap-5">
                         <div>
                             <p class="text-[20px] font-bold mb-3">Product</p>
-                            <p><a href="#">Features</a></p>
+                            <p><a href="{{url('/#features')}}">Features</a></p>
                         </div>
                         <div>
                             <p class="text-[20px] font-bold mb-3">Company</p>
@@ -131,10 +131,10 @@
                         </div>
                         <div>
                             <p class="text-[20px] font-bold mb-3">Language</p>
-                            <div class="flex items-center mb-3">
+                            {{-- <div class="flex items-center mb-3">
                                 <img class="h-[16px] mr-3" src="{{ asset('landing-page/images/emojione_flag-for-indonesia (1).png') }}" />
                                 <a href="#">Bahasa Indonesia</a>
-                            </div>
+                            </div> --}}
                             <div class="flex items-center justify-between w-[200px]">
                                 <div class="flex items-center">
                                     <img class="h-[16px] mr-3" src="{{ asset('landing-page/images/circle-flags_uk (1).png') }}" />
