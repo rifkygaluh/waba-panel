@@ -13,24 +13,15 @@ import {
   Modal,
   Select,
 } from 'ant-design-vue';
-import axios from 'axios';
 import dayjs from 'dayjs';
 import { Plus, Trash } from 'lucide-vue-next';
 import { reactive, ref } from 'vue';
 import { reject } from '../api/FormSubmission';
-
-type APIResult = {
-  value: number;
-  label: number;
-}[];
+import productOptions from '@/pages/product/api/Options';
 
 const invoice = useInvoiceStore();
 
-const products = ref<APIResult>();
-
-axios.get<APIResult>('/api/product/options').then((res) => {
-  products.value = res.data;
-});
+const products = ref(await productOptions());
 
 const onChangeProduct = (item: InvoiceItem, index: number) => {
   if (item.product_id) {
