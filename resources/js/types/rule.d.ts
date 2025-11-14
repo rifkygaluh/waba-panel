@@ -1,16 +1,17 @@
 import dayjs from 'dayjs';
 
 export interface RuleItem {
-  productId: number | string | undefined;
-  minimumValue: number | undefined;
-  benefitPoint: number | undefined;
-  balanceRollover: boolean | undefined;
+  id: number | string | undefined;
+  product_id: number | string | undefined;
+  min_value: number | undefined;
+  benefit: number | undefined;
+  is_rollover: boolean | undefined;
 }
 
 export interface Rule {
   id: number | string;
   name: string | undefined;
   type: 'quantity' | 'price' | undefined;
-  dateRange: [string, string] | [dayjs.Dayjs, dayjs.Dayjs] | undefined;
+  period: [string, string] | [dayjs.Dayjs, dayjs.Dayjs] | undefined;
   items: RuleItem[];
 }

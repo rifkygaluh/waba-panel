@@ -6,6 +6,7 @@ import { useRuleStore } from '@/stores/rule';
 import { type BreadcrumbItem } from '@/types';
 import { Rule } from '@/types/rule';
 import { Head } from '@inertiajs/vue3';
+import { update } from './api/Edit';
 import InformationForm from './components/InformationForm.vue';
 import ItemsForm from './components/ItemsForm.vue';
 
@@ -46,7 +47,9 @@ rule.setRule(props.rule);
         <InformationForm />
       </Card>
       <Card class="px-6">
-        <ItemsForm />
+        <Suspense>
+          <ItemsForm :submit="update" />
+        </Suspense>
       </Card>
     </div>
   </AppLayout>
