@@ -5,6 +5,7 @@ import benefitRules from '@/routes/benefit-rules';
 import { useRuleStore } from '@/stores/rule';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
+import { store } from './api/Create';
 import InformationForm from './components/InformationForm.vue';
 import ItemsForm from './components/ItemsForm.vue';
 
@@ -35,7 +36,9 @@ const rule = useRuleStore();
         <InformationForm />
       </Card>
       <Card class="px-6">
-        <ItemsForm />
+        <Suspense>
+          <ItemsForm :submit="store" />
+        </Suspense>
       </Card>
     </div>
   </AppLayout>

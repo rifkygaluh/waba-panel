@@ -1,12 +1,12 @@
 import { Rule, RuleItem } from '@/types/rule';
-import dayjs from 'dayjs';
 import { defineStore } from 'pinia';
 
 const itemTemplate: RuleItem = {
-  productId: undefined as string | number | undefined,
-  minimumValue: undefined as number | undefined,
-  benefitPoint: undefined as number | undefined,
-  balanceRollover: false,
+  id: undefined,
+  product_id: undefined,
+  min_value: undefined,
+  benefit: undefined,
+  is_rollover: false,
 };
 
 export const useRuleStore = defineStore('rule', {
@@ -14,18 +14,17 @@ export const useRuleStore = defineStore('rule', {
     ({
       name: undefined,
       type: undefined,
-      dateRange: undefined,
+      period: undefined,
       items: [{ ...itemTemplate }],
     }) as Rule,
   getters: {
     disabledRemoveItem: (state) => state.items.length === 1,
     disabledProcessing: (state) => {
-      if (!state.dateRange) return true;
+      if (!state.period) return true;
       if (!state.name || state.name.trim() === '') return true;
       if (
         state.items.find(
-          (i) =>
-            !i.productId || i.minimumValue === undefined || !i.benefitPoint,
+          (i) => !i.product_id || i.min_value === undefined || !i.benefit,
         )
       ) {
         return true;
@@ -34,12 +33,11 @@ export const useRuleStore = defineStore('rule', {
   },
   actions: {
     setRule(data: Rule) {
-      const dateRange = data.dateRange?.map((d) => dayjs(d));
+      this.$reset();
+      this.id = data.id;
       this.name = data.name;
       this.type = data.type;
-      this.dateRange = dateRange
-        ? [dateRange[0], dateRange[1]]
-        : this.dateRange;
+      this.period = data.period;
       this.items = data.items.length > 0 ? data.items : this.items;
     },
     addNewItem() {

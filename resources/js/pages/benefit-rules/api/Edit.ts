@@ -4,9 +4,9 @@ import { Rule } from '@/types/rule';
 import { router } from '@inertiajs/vue3';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
-export async function store(rule: Rule): Promise<void> {
+export async function update(rule: Rule): Promise<void> {
   axios
-    .post('/benefit-rules', {
+    .patch(`/benefit-rules/${rule.id}`, {
       name: rule.name,
       type: rule.type,
       start_date: Array.isArray(rule.period) ? rule.period[0] : rule.period,

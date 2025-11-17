@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
             Route::get('history', [InvoiceHistoryController::class, 'indexApi'])->name('invoice.history.api');
         });
 
+        Route::get('benefit-rules', [BenefitRulesController::class, 'indexApi'])->name('benefit-rules.api');
+
         Route::get('product', [ProductController::class, 'indexApi'])->name('product.api');
         Route::get('product/options', [ProductController::class, 'optionsApi'])->name('product.options.api');
     });

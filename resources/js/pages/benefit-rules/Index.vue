@@ -49,9 +49,9 @@ const createModal = reactive({
       </Card>
       <Card class="px-6">
         <TableFetcher :query-data="queryData" :columns="columns">
-          <template #action="{ index }">
+          <template #action="{ record }">
             <div class="flex gap-2.5">
-              <Link :href="benefitRules.edit(index + 1).url">
+              <Link :href="benefitRules.edit(record.id).url">
                 <Button class="px-2.5!">
                   <Pen class="h-4 w-4" />
                 </Button>
