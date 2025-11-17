@@ -7,7 +7,7 @@ class APIResponse {
     /**
      * Make success response
      */
-    public static function success($data, $statusCode = null)
+    public static function success($data = [], $statusCode = null)
     {
         return response([
             'success' => true,
@@ -19,12 +19,12 @@ class APIResponse {
     /**
      * Make error response
      */
-    public static function error($message, $statusCode)
+    public static function error($message, $description = '', $statusCode)
     {
         return response([
-            'message' => $message,
-            'code' => $statusCode,
             'succcess' => false,
+            'message' => $message,
+            'description' => $description,
         ], $statusCode);
     }
 }

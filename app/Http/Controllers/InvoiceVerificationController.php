@@ -97,6 +97,7 @@ class InvoiceVerificationController extends Controller
         $data = $this->validate($request);
 
         if (isset($data->error)) return APIResponse::error(
+            'Verification Failed',
             $data->error,
             $data->status,
         );
@@ -128,7 +129,10 @@ class InvoiceVerificationController extends Controller
 
         // TODO: Handle trigger notification
 
-        return APIResponse::success(['message' => 'Invoice has been accepted']);
+        return APIResponse::success([
+            'message' => 'Verification Success',
+            'description' => 'Invoice has been accepted',
+        ]);
     }
 
     public function reject(RejectRequest $request)
@@ -136,6 +140,7 @@ class InvoiceVerificationController extends Controller
         $data = $this->validate($request);
 
         if (isset($data->error)) return APIResponse::error(
+            'Verification Failed',
             $data->error,
             $data->status,
         );
@@ -168,6 +173,9 @@ class InvoiceVerificationController extends Controller
 
         // TODO: Handle trigger notification
         
-        return APIResponse::success(['message' => 'Invoice has been rejected']);
+        return APIResponse::success([
+            'message' => 'Verification Success',
+            'description' => 'Invoice has been rejected',
+        ]);
     }
 }

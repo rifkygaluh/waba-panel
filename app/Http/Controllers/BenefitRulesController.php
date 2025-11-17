@@ -59,7 +59,8 @@ class BenefitRulesController extends Controller
         });
 
         return APIResponse::success([
-            'message' => 'A benefit rule is successfully created'
+            'message' => 'Create Success',
+            'description' => 'A benefit rule is successfully created',
         ]);
     }
 
@@ -110,7 +111,8 @@ class BenefitRulesController extends Controller
         });
 
         return APIResponse::success([
-            'message' => 'Your benefit rule is successfully updated'
+            'message' => 'Edit Success',
+            'description' => 'Your benefit rule is successfully updated',
         ]);
     }
 }
