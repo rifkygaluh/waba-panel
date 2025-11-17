@@ -16,6 +16,11 @@ Route::get('/', [LandingPageController::class, 'home'])->name('home');
 Route::get('faq', [LandingPageController::class, 'faq']);
 Route::get('terms-n-conditions', [LandingPageController::class, 'terms']);
 Route::get('privacy-policy', [LandingPageController::class, 'privacy']);
+Route::get('blog', [LandingPageController::class, 'blog']);
+Route::get('blog/data', [LandingPageController::class, 'blogData']);
+Route::get('blog/detail/{id}', [LandingPageController::class, 'blogDetail']);
+Route::get('source', [LandingPageController::class, 'source']);
+Route::get('source/data', [LandingPageController::class, 'sourceData']);
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {

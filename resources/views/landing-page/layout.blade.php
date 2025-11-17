@@ -114,27 +114,28 @@
                 </div>
                 <div class="md:col-span-8">
                     <div class="grid md:grid-cols-4 grid-cols-1 md:grid-flow-col grid-flow-row gap-5">
-                        <div>
-                            <p class="text-[20px] font-bold mb-3">Product</p>
-                            <p><a href="#">Features</a></p>
+                        <div class="flex flex-col gap-3">
+                            <p class="text-[20px] font-bold">Product</p>
+                            <a href="{{ url('/#features') }}">Features</a>
+                            <a href="{{ url('blog') }}">Blog</a>
+                            <a href="{{ url('source') }}">Source</a>
                         </div>
-                        <div>
-                            <p class="text-[20px] font-bold mb-3">Company</p>
-                            {{-- <a href="{{ url('about-us') }}">About Us</a><br /> --}}
-                            <p class="mb-3"><a href="{{ url('faq') }}">FAQ</a></p>
-                            <p><a href="#">Contact</a></p>
+                        <div class="flex flex-col gap-3">
+                            <p class="text-[20px] font-bold">Company</p>
+                            <a href="{{ url('faq') }}">FAQ</a>
+                            <a href="#">Contact</a>
                         </div>
-                        <div>
-                            <p class="text-[20px] font-bold mb-3">Legal</p>
-                            <p class="mb-3"><a href="{{ url('terms-n-conditions') }}">Terms and Conditions</a></p>
-                            <p><a href="{{ url('privacy-policy') }}">Privacy Policy</a></p>
+                        <div class="flex flex-col gap-3">
+                            <p class="text-[20px] font-bold">Legal</p>
+                            <a href="{{ url('terms-n-conditions') }}">Terms and Conditions</a>
+                            <a href="{{ url('privacy-policy') }}">Privacy Policy</a>
                         </div>
                         <div>
                             <p class="text-[20px] font-bold mb-3">Language</p>
-                            <div class="flex items-center mb-3">
+                            {{-- <div class="flex items-center mb-3">
                                 <img class="h-[16px] mr-3" src="{{ asset('landing-page/images/emojione_flag-for-indonesia (1).png') }}" />
                                 <a href="#">Bahasa Indonesia</a>
-                            </div>
+                            </div> --}}
                             <div class="flex items-center justify-between w-[200px]">
                                 <div class="flex items-center">
                                     <img class="h-[16px] mr-3" src="{{ asset('landing-page/images/circle-flags_uk (1).png') }}" />
