@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { filterOption } from '@/lib/utils';
-import productOptions from '@/pages/product/api/Options';
+import productOptions from '@/pages/product/api/options';
 import { useRuleStore } from '@/stores/rule';
 import { Rule } from '@/types/rule';
 import {

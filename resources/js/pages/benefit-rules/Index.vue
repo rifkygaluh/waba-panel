@@ -8,7 +8,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import { Button } from 'ant-design-vue';
 import { Pen, PlusCircle, Trash2 } from 'lucide-vue-next';
 import { reactive } from 'vue';
-import { columns, queryData } from './api/Index';
+import { columns, queryData } from './api';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
