@@ -96,11 +96,10 @@ class InvoiceVerificationController extends Controller
     {
         $data = $this->validate($request);
 
-        if (isset($data->error)) return APIResponse::error(
-            'Verification Failed',
-            $data->error,
-            $data->status,
-        );
+        if (isset($data->error)) return APIResponse::error([
+            'message' => 'Verification Failed',
+            'description' => $data->error,
+        ], $data->status);
 
         DB::transaction(function () use ($data, $request) {
             DB::table('invoices')->where('id', $data->id)->update([
@@ -127,6 +126,7 @@ class InvoiceVerificationController extends Controller
             }
         });
 
+        // TODO: Handle generate benefit
         // TODO: Handle trigger notification
 
         return APIResponse::success([
@@ -139,11 +139,10 @@ class InvoiceVerificationController extends Controller
     {
         $data = $this->validate($request);
 
-        if (isset($data->error)) return APIResponse::error(
-            'Verification Failed',
-            $data->error,
-            $data->status,
-        );
+        if (isset($data->error)) return APIResponse::error([
+            'message' => 'Verification Failed',
+            'description' => $data->error,
+        ], $data->status);
 
         DB::transaction(function () use ($data, $request) {
             DB::table('invoices')->where('id', $data->id)->update([
