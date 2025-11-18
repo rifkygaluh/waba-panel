@@ -1,4 +1,4 @@
-import { currencyFormatter, numberFormatter } from '@/lib/utils';
+import { numberFormatter } from '@/lib/utils';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
@@ -34,6 +34,12 @@ const columns = [
     dataIndex: 'name',
   },
   {
+    title: 'Type',
+    dataIndex: 'type',
+    customRender: ({ text }: { text: string }) =>
+      `${text.charAt(0).toUpperCase() + text.slice(1)} Based`,
+  },
+  {
     title: 'Start Date',
     dataIndex: 'start_date',
     sorter: true,
@@ -55,7 +61,7 @@ const columns = [
     dataIndex: 'total_benefits',
     sorter: true,
     customRender: ({ text }: { text: number | string }) =>
-      currencyFormatter(text),
+      numberFormatter(text),
   },
   {
     title: 'Upload Date',
