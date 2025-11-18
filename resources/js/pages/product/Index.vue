@@ -6,9 +6,9 @@ import product from '@/routes/product';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
 import { Button, Modal } from 'ant-design-vue';
-import { Pen, PlusCircle, Trash2 } from 'lucide-vue-next';
+import { PencilLine, PlusCircle, Trash2 } from 'lucide-vue-next';
 import { reactive } from 'vue';
-import { columns, queryData } from './api/Index';
+import { columns, queryData } from './api';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -18,9 +18,9 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 const deleteModal = reactive({
-  record: null as { email: string } | null,
+  record: null as { name: string } | null,
   open: false,
-  setOpen: (data: { email: string }) => {
+  setOpen: (data: { name: string }) => {
     deleteModal.open = !deleteModal.open;
     deleteModal.record = deleteModal.open ? data : null;
   },
@@ -51,16 +51,16 @@ const deleteModal = reactive({
       </Card>
       <Card class="px-6">
         <TableFetcher :query-data="queryData" :columns="columns">
-          <template #action="{ index, record }">
+          <template #action="{ record }">
             <div class="flex gap-2.5">
-              <Link :href="product.edit(index + 1).url">
+              <Link :href="product.edit(record.id).url">
                 <Button class="px-2.5!">
-                  <Pen class="h-4 w-4" />
+                  <PencilLine class="h-4 w-4" />
                 </Button>
               </Link>
               <Button
                 class="px-2.5!"
-                @click="deleteModal.setOpen({ email: record.email })"
+                @click="deleteModal.setOpen({ name: record.name })"
                 danger
               >
                 <Trash2 class="h-4 w-4" />
@@ -75,7 +75,7 @@ const deleteModal = reactive({
           :ok-button-props="{ danger: true }"
           ok-text="Confirm"
         >
-          Are you sure to delete this data, {{ deleteModal.record?.email }}?
+          Are you sure to delete this data, {{ deleteModal.record?.name }}?
         </Modal>
       </Card>
     </div>

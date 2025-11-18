@@ -64,3 +64,18 @@ export function doubleViewersGuard(parentId: string) {
     viewers[1].remove();
   }
 }
+
+export function currencyFormatter(value: number | string) {
+  if (typeof value === 'number')
+    return value.toLocaleString('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      maximumFractionDigits: 0,
+    });
+  else if (typeof value === 'string')
+    return parseInt(value).toLocaleString('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      maximumFractionDigits: 0,
+    });
+}

@@ -1,17 +1,24 @@
 <script setup lang="ts">
 import TableInformation from '@/components/TableInformation.vue';
 import { useInvoiceStore } from '@/stores/invoice';
+import dayjs from 'dayjs';
 import { component as VViewer } from 'v-viewer';
 
 const invoice = useInvoiceStore();
 
 const dataSource = [
-  { title: 'Invoice ID', value: invoice.id },
-  { title: 'Store Name', value: invoice.storeName },
-  { title: 'Store Owner', value: invoice.storeOwner },
-  { title: 'Store Phone', value: invoice.storePhone },
-  { title: 'Store Address', value: invoice.storeAddress },
-  { title: 'Upload Date', value: invoice.uploadDate },
+  { title: 'Invoice Number', value: invoice.invoice_number },
+  { title: 'Store Name', value: invoice.store.name },
+  { title: 'Store Code', value: invoice.store.code },
+  { title: 'Store Area', value: invoice.store.area },
+  { title: 'User Name', value: invoice.user.name },
+  { title: 'User Email', value: invoice.user.email },
+  { title: 'User Phone', value: invoice.user.phone_number },
+  { title: 'User Address', value: invoice.user.address },
+  {
+    title: 'Upload Date',
+    value: dayjs(invoice.created_at).format('DD-MM-YYYY'),
+  },
 ];
 </script>
 

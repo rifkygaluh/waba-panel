@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { numberFormatter, numberParser } from '@/lib/utils';
 import { Product } from '@/types/product';
-import { Form, FormItem, Input, InputNumber } from 'ant-design-vue';
+import { Button, Form, FormItem, Input, InputNumber } from 'ant-design-vue';
 
 type Props = {
   product: Product;
+  submit: (data: Product) => Promise<void>;
 };
 
 defineProps<Props>();
@@ -29,8 +30,13 @@ defineProps<Props>();
         <Input.TextArea v-model:value="product.description" :rows="4" />
       </FormItem>
       <FormItem label="Unique Code">
-        <Input v-model:value="product.uniqueCode" />
+        <Input v-model:value="product.unique_code" />
       </FormItem>
+    </div>
+    <div class="mt-5 flex justify-end">
+      <Button type="primary" html-type="submit" @click="() => submit(product)">
+        Save
+      </Button>
     </div>
   </Form>
 </template>

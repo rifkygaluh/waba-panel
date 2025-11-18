@@ -4,6 +4,7 @@ import TableSimple from '@/components/TableSimple.vue';
 import { useInvoiceStore } from '@/stores/invoice';
 import { Button, Modal } from 'ant-design-vue';
 import { ColumnType } from 'ant-design-vue/es/table';
+import dayjs from 'dayjs';
 import { component as VViewer } from 'v-viewer';
 import { reactive } from 'vue';
 
@@ -21,18 +22,24 @@ defineProps<Props>();
 const invoice = useInvoiceStore();
 
 const invoiceInformation = [
-  { title: 'Invoice ID', value: invoice.id },
-  { title: 'Store Name', value: invoice.storeName },
-  { title: 'Store Owner', value: invoice.storeOwner },
-  { title: 'Store Phone', value: invoice.storePhone },
-  { title: 'Store Address', value: invoice.storeAddress },
-  { title: 'Upload Date', value: invoice.uploadDate },
+  { title: 'Invoice Number', value: invoice.invoice_number },
+  { title: 'Store Name', value: invoice.store.name },
+  { title: 'Store Code', value: invoice.store.code },
+  { title: 'Store Area', value: invoice.store.area },
+  { title: 'User Name', value: invoice.user.name },
+  { title: 'User Email', value: invoice.user.email },
+  { title: 'User Phone', value: invoice.user.phone_number },
+  { title: 'User Address', value: invoice.user.address },
+  {
+    title: 'Upload Date',
+    value: dayjs(invoice.created_at).format('DD-MM-YYYY'),
+  },
 ];
 
 const productSummary = reactive({
   dataSource: invoice.items.map((item, index) => ({
     key: `#${index + 1}`,
-    product: item.productId,
+    product: item.product_name,
     quantity: item.quantity?.toLocaleString('id-ID', {
       maximumFractionDigits: 0,
     }),
@@ -42,11 +49,11 @@ const productSummary = reactive({
       maximumFractionDigits: 0,
     }),
     discount: item.discount
-      ? item.discountType === 'percentage'
+      ? item.discount_type === 'percentage'
         ? `${item.discount}%`
         : `Rp ${item.discount}`
-      : null,
-    totalPrice: item.totalPrice?.toLocaleString('id-ID', {
+      : '-',
+    total_price: item.total_price?.toLocaleString('id-ID', {
       style: 'currency',
       currency: 'IDR',
       maximumFractionDigits: 0,
@@ -58,32 +65,32 @@ const productSummary = reactive({
     { title: 'Quantity', dataIndex: 'quantity', key: 'quantity' },
     { title: 'Price', dataIndex: 'price', key: 'price' },
     { title: 'Discount', dataIndex: 'discount', key: 'discount' },
-    { title: 'Total Price', dataIndex: 'totalPrice', key: 'totalPrice' },
+    { title: 'Total Price', dataIndex: 'total_price', key: 'total_price' },
   ] as ColumnType[],
 });
 
 const invoiceSummary = reactive({
   dataSource: [
     {
-      totalPieces: invoice.totalPieces?.toLocaleString('id-ID', {
+      total_pieces: invoice.total_pieces?.toLocaleString('id-ID', {
         maximumFractionDigits: 0,
       }),
-      totalPrice: invoice.totalPrice?.toLocaleString('id-ID', {
+      total_price: invoice.total_price?.toLocaleString('id-ID', {
         style: 'currency',
         currency: 'IDR',
         maximumFractionDigits: 0,
       }),
-      uploadDate: invoice.uploadDate,
+      uploadDate: dayjs(invoice.created_at).format('YYYY-MM-DD'),
       date: invoice.date,
       name: invoice.name,
     },
   ],
   columns: [
-    { title: 'Total Pieces', dataIndex: 'totalPieces' },
-    { title: 'Total Price', dataIndex: 'totalPrice' },
+    { title: 'Total Pieces', dataIndex: 'total_pieces' },
+    { title: 'Total Price', dataIndex: 'total_price' },
     { title: 'Upload Date', dataIndex: 'uploadDate' },
     { title: 'Invoice Date', dataIndex: 'date' },
-    { title: 'EU Name', dataIndex: 'name' },
+    // { title: 'EU Name', dataIndex: 'name' },
   ] as ColumnType[],
 });
 </script>
@@ -138,7 +145,7 @@ const invoiceSummary = reactive({
       </div>
     </div>
     <template #footer>
-      <div class="mt-5 flex">
+      <div class="mt-5 flex gap-5">
         <div class="flex items-center">
           Are you sure to accept this invoice?
         </div>

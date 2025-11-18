@@ -8,7 +8,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import { Button } from 'ant-design-vue';
 import { Pen, PlusCircle, Trash2 } from 'lucide-vue-next';
 import { reactive } from 'vue';
-import { columns, queryData } from './api/Index';
+import { columns, queryData } from './api';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -49,18 +49,14 @@ const createModal = reactive({
       </Card>
       <Card class="px-6">
         <TableFetcher :query-data="queryData" :columns="columns">
-          <template #action="{ index }">
+          <template #action="{ record }">
             <div class="flex gap-2.5">
-              <Link :href="benefitRules.edit(index + 1).url">
+              <Link :href="benefitRules.edit(record.id).url">
                 <Button class="px-2.5!">
                   <Pen class="h-4 w-4" />
                 </Button>
               </Link>
-              <Button
-                class="px-2.5!"
-                danger
-                disabled
-              >
+              <Button class="px-2.5!" danger disabled>
                 <Trash2 class="h-4 w-4" />
               </Button>
             </div>

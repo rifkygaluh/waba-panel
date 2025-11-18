@@ -5,7 +5,7 @@ import {
   TablePaginationConfig,
   TableProps,
 } from 'ant-design-vue/es/table';
-import { computed } from 'vue';
+import { computed, reactive } from 'vue';
 import { Service, usePagination } from 'vue-request';
 
 type Props = {
@@ -14,15 +14,30 @@ type Props = {
   pagination?: number;
 };
 
+type Result = {
+  total: number;
+  pageSize: number;
+  current: number;
+};
+
 const props = defineProps<Props>();
+
+const table = reactive<Result>({
+  total: 0,
+  pageSize: 1,
+  current: 1,
+});
 
 const {
   data: dataSource,
   run,
   loading,
-  current,
-  pageSize,
 } = usePagination(props.queryData, {
+  onSuccess: (data) => {
+    table.total = data.total;
+    table.pageSize = data.per_page;
+    table.current = data.current_page;
+  },
   pagination: {
     currentKey: 'page',
     pageSizeKey: 'results',
@@ -30,10 +45,10 @@ const {
 });
 
 const pagination = computed(() => ({
-  total: 50,
-  current: current.value,
+  total: table.total,
+  current: table.current,
   pageSize:
-    typeof props.pagination === 'number' ? props.pagination : pageSize.value,
+    typeof props.pagination === 'number' ? props.pagination : table.pageSize,
 }));
 
 const handleTableChange: TableProps['onChange'] = (
@@ -55,8 +70,8 @@ const handleTableChange: TableProps['onChange'] = (
   <Table
     :columns="columns"
     :pagination="pagination"
-    :data-source="dataSource"
-    :row-key="(record) => record.login.uuid"
+    :data-source="dataSource?.data || []"
+    :row-key="(record) => record.id || record.login.uuid"
     :loading="loading"
     @change="handleTableChange"
   >

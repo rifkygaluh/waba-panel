@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { filterOption } from '@/lib/utils';
+import productOptions from '@/pages/product/api/options';
 import { useRuleStore } from '@/stores/rule';
+import { Rule } from '@/types/rule';
 import {
   Button,
   Form,
@@ -10,8 +12,16 @@ import {
   Switch,
 } from 'ant-design-vue';
 import { Plus, Trash } from 'lucide-vue-next';
+import { ref } from 'vue';
+
+type Props = {
+  submit: (rule: Rule) => Promise<void>;
+};
+
+defineProps<Props>();
 
 const rule = useRuleStore();
+const products = ref(await productOptions());
 </script>
 
 <template>
@@ -21,15 +31,9 @@ const rule = useRuleStore();
         <FormItem class="grow" :label="index === 0 ? 'Product' : null">
           <Select
             class="w-80"
-            v-model:value="item.productId"
+            v-model:value="item.product_id"
             placeholder="Select a product"
-            :options="[
-              { label: 'Product A', value: 'Product A' },
-              { label: 'Product B', value: 'Product B' },
-              { label: 'Product C', value: 'Product C' },
-              { label: 'Product D', value: 'Product D' },
-              { label: 'Product E', value: 'Product E' },
-            ]"
+            :options="products"
             :filter-option="filterOption"
             show-search
             allow-clear
@@ -38,7 +42,7 @@ const rule = useRuleStore();
         <FormItem :label="index === 0 ? 'Minimum' : null">
           <InputNumber
             class="min-w-40!"
-            v-model:value="item.minimumValue"
+            v-model:value="item.min_value"
             :addon-before="rule.type === 'price' ? 'Rp' : undefined"
             pattern="[0-9]"
             placeholder="0"
@@ -53,7 +57,7 @@ const rule = useRuleStore();
         <FormItem :label="index === 0 ? 'Benefit' : null">
           <InputNumber
             class="min-w-40!"
-            v-model:value="item.benefitPoint"
+            v-model:value="item.benefit"
             pattern="[0-9]"
             placeholder="0"
             :min="0"
@@ -65,7 +69,7 @@ const rule = useRuleStore();
           />
         </FormItem>
         <FormItem :label="index === 0 ? 'Rollover' : null" class="w-14">
-          <Switch v-model:checked="item.balanceRollover" />
+          <Switch v-model:checked="item.is_rollover" />
         </FormItem>
         <FormItem :label="index === 0 ? ' ' : null">
           <Button
@@ -91,7 +95,13 @@ const rule = useRuleStore();
       </FormItem>
     </div>
     <div class="mt-5 flex justify-end">
-      <Button type="primary" :disabled="rule.disabledProcessing">Save</Button>
+      <Button
+        type="primary"
+        :disabled="rule.disabledProcessing"
+        @click="() => submit(rule)"
+      >
+        Save
+      </Button>
     </div>
   </Form>
 </template>

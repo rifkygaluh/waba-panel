@@ -6,7 +6,7 @@ import { useProductStore } from '@/stores/product';
 import { type BreadcrumbItem } from '@/types';
 import { Product } from '@/types/product';
 import { Head } from '@inertiajs/vue3';
-import { Button } from 'ant-design-vue';
+import { update } from './api/edit';
 import ProductForm from './components/ProductForm.vue';
 
 type Props = {
@@ -43,10 +43,7 @@ product.setProduct(props.product);
         <h1 class="text-xl">Edit anything about your product!</h1>
       </Card>
       <Card class="px-6">
-        <ProductForm :product="product" />
-        <div class="mt-5 flex justify-end">
-          <Button type="primary">Save</Button>
-        </div>
+        <ProductForm :product="product" :submit="update" />
       </Card>
     </div>
   </AppLayout>
