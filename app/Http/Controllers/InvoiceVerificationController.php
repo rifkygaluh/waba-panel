@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Helpers\APIResponse;
+use App\Helpers\APIResponse;
 use App\Http\Requests\Invoice\AcceptRequest;
 use App\Http\Requests\Invoice\RejectRequest;
 use Illuminate\Http\Request;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Helpers\APIResponse;
+use App\Helpers\APIResponse;
 use App\Http\Requests\BenefitRules\StoreRequest;
 use App\Http\Requests\BenefitRules\UpdateRequest;
 use Illuminate\Http\Request;
