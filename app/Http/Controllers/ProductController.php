@@ -16,7 +16,9 @@ class ProductController extends Controller
     {
         $perPage = $request->results ?? 10;
         
-        return DB::table('products')->paginate($perPage);
+        return DB::table('products')
+            ->orderByDesc('id')
+            ->paginate($perPage);
     }
 
     public function optionsApi()
