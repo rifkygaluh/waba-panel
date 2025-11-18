@@ -30,11 +30,6 @@ const queryData = async (params: APIParams) => {
 
 const columns = [
   {
-    title: 'ID',
-    dataIndex: 'id',
-    sorter: true,
-  },
-  {
     title: 'Name',
     dataIndex: 'name',
   },
@@ -45,6 +40,7 @@ const columns = [
   {
     title: 'Unique Code',
     dataIndex: 'unique_code',
+    width: '160px',
   },
   {
     title: 'Price',

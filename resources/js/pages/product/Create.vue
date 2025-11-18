@@ -5,7 +5,7 @@ import productRoute from '@/routes/product';
 import { useProductStore } from '@/stores/product';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
-import { Button } from 'ant-design-vue';
+import { store } from './api/create';
 import ProductForm from './components/ProductForm.vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -32,10 +32,7 @@ const product = useProductStore();
         <h1 class="text-xl">Insert your product here!</h1>
       </Card>
       <Card class="px-6">
-        <ProductForm :product="product" />
-        <div class="mt-5 flex justify-end">
-          <Button type="primary">Save</Button>
-        </div>
+        <ProductForm :product="product" :submit="store" />
       </Card>
     </div>
   </AppLayout>
