@@ -1,4 +1,4 @@
-import { notifyError, notifySuccess } from '@/lib/api';
+import { NotificationResponse, notifyError, notifySuccess } from '@/lib/api';
 import verification from '@/routes/invoice/verification';
 import { InvoiceItem } from '@/types/invoice';
 import { router } from '@inertiajs/vue3';
@@ -23,11 +23,11 @@ export async function reject(invoice: RejectInvoice) {
       amount: invoice.total_price,
       comments: invoice.comments,
     })
-    .then((res: AxiosResponse<{ message: string }>) => {
+    .then((res: AxiosResponse<NotificationResponse>) => {
       notifySuccess(res);
       router.visit(verification.index().url);
     })
-    .catch((err: AxiosError<{ message: string }>) => {
+    .catch((err: AxiosError<NotificationResponse>) => {
       notifyError(err);
     });
 }
@@ -49,11 +49,11 @@ export async function accept(invoice: AcceptInvoice) {
       total_pieces: invoice.total_pieces,
       amount: invoice.total_price,
     })
-    .then((res: AxiosResponse<{ message: string }>) => {
+    .then((res: AxiosResponse<NotificationResponse>) => {
       notifySuccess(res);
       router.visit(verification.index().url);
     })
-    .catch((err: AxiosError<{ message: string }>) => {
+    .catch((err: AxiosError<NotificationResponse>) => {
       notifyError(err);
     });
 }

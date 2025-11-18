@@ -1,7 +1,7 @@
 import { notification } from 'ant-design-vue';
 import { AxiosError, AxiosResponse } from 'axios';
 
-type NotificationResponse = {
+export type NotificationResponse = {
   message: string;
   description: string;
 };
