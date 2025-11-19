@@ -1,4 +1,4 @@
-import { notifyError, notifySuccess } from '@/lib/api';
+import { NotificationResponse, notifyError, notifySuccess } from '@/lib/api';
 import benefitRules from '@/routes/benefit-rules';
 import { Rule } from '@/types/rule';
 import { router } from '@inertiajs/vue3';
@@ -18,11 +18,11 @@ export async function update(rule: Rule): Promise<void> {
         is_rollover: item.is_rollover,
       })),
     })
-    .then((res: AxiosResponse<{ message: string }>) => {
+    .then((res: AxiosResponse<NotificationResponse>) => {
       notifySuccess(res);
       router.visit(benefitRules.index().url);
     })
-    .catch((err: AxiosError<{ message: string }>) => {
+    .catch((err: AxiosError<NotificationResponse>) => {
       notifyError(err);
     });
 }

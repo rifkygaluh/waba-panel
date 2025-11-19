@@ -5,7 +5,7 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import { history } from '@/routes/invoice';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
-import { columns, queryData } from './api/Index';
+import { columns, queryData } from './api';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {

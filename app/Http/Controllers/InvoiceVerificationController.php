@@ -96,10 +96,10 @@ class InvoiceVerificationController extends Controller
     {
         $data = $this->validate($request);
 
-        if (isset($data->error)) return APIResponse::error(
-            $data->error,
-            $data->status,
-        );
+        if (isset($data->error)) return APIResponse::error([
+            'message' => 'Verification Failed',
+            'description' => $data->error,
+        ], $data->status);
 
         DB::transaction(function () use ($data, $request) {
             DB::table('invoices')->where('id', $data->id)->update([
@@ -126,19 +126,23 @@ class InvoiceVerificationController extends Controller
             }
         });
 
+        // TODO: Handle generate benefit
         // TODO: Handle trigger notification
 
-        return APIResponse::success(['message' => 'Invoice has been accepted']);
+        return APIResponse::success([
+            'message' => 'Verification Success',
+            'description' => 'Invoice has been accepted',
+        ]);
     }
 
     public function reject(RejectRequest $request)
     {
         $data = $this->validate($request);
 
-        if (isset($data->error)) return APIResponse::error(
-            $data->error,
-            $data->status,
-        );
+        if (isset($data->error)) return APIResponse::error([
+            'message' => 'Verification Failed',
+            'description' => $data->error,
+        ], $data->status);
 
         DB::transaction(function () use ($data, $request) {
             DB::table('invoices')->where('id', $data->id)->update([
@@ -168,6 +172,9 @@ class InvoiceVerificationController extends Controller
 
         // TODO: Handle trigger notification
         
-        return APIResponse::success(['message' => 'Invoice has been rejected']);
+        return APIResponse::success([
+            'message' => 'Verification Success',
+            'description' => 'Invoice has been rejected',
+        ]);
     }
 }

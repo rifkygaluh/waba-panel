@@ -5,7 +5,7 @@ import benefitRules from '@/routes/benefit-rules';
 import { useRuleStore } from '@/stores/rule';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
-import { store } from './api/Create';
+import { store } from './api/create';
 import InformationForm from './components/InformationForm.vue';
 import ItemsForm from './components/ItemsForm.vue';
 

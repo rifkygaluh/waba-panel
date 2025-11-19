@@ -3,12 +3,12 @@ import TableFetcher from '@/components/TableFetcher.vue';
 import {
   columns,
   queryData,
-} from '@/pages/invoice/verification/api/CheckDuplicate';
+} from '@/pages/invoice/verification/api/check-duplicate';
 import { useInvoiceStore } from '@/stores/invoice';
 import { Button } from 'ant-design-vue';
 import { Eye } from 'lucide-vue-next';
 import { reactive } from 'vue';
-import { accept } from '../api/FormSubmission';
+import { accept } from '../api/form-submission';
 import ModalDuplicate from './modals/ModalDuplicate.vue';
 import ModalSummary from './modals/ModalSummary.vue';
 

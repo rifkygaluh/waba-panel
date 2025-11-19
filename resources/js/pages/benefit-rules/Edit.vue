@@ -6,7 +6,7 @@ import { useRuleStore } from '@/stores/rule';
 import { type BreadcrumbItem } from '@/types';
 import { Rule } from '@/types/rule';
 import { Head } from '@inertiajs/vue3';
-import { update } from './api/Edit';
+import { update } from './api/edit';
 import InformationForm from './components/InformationForm.vue';
 import ItemsForm from './components/ItemsForm.vue';
 

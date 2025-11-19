@@ -7,24 +7,31 @@ class APIResponse {
     /**
      * Make success response
      */
-    public static function success($data, $statusCode = null)
+    public static function success($data = [], $statusCode = null)
     {
-        return response([
-            'success' => true,
-            ...$data,
-        ], $statusCode ?? 200);
+        return response(
+            ['success' => true, ...$data],
+            $statusCode ?? 200
+        );
     }
 
 
     /**
      * Make error response
      */
-    public static function error($message, $statusCode)
+    public static function error($data, $statusCode)
     {
-        return response([
-            'message' => $message,
-            'code' => $statusCode,
-            'succcess' => false,
-        ], $statusCode);
+        if (gettype($data) === 'string') {
+            return response(
+                ['succcess' => false, 'message' => $data],
+                $statusCode
+            );
+        } else {
+            return response(
+                ['succcess' => false, ...$data],
+                $statusCode
+            );
+        }
+        
     }
 }

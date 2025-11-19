@@ -7,7 +7,7 @@ import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
 import { Button } from 'ant-design-vue';
 import { FileSearch2 } from 'lucide-vue-next';
-import { columns, queryData } from './api/Index';
+import { columns, queryData } from './api';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
