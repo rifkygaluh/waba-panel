@@ -9,21 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
-
-    <style>
-        html {
-            scroll-behavior: auto;
-        }
-
         :root {
             --waba-primary-color: #1FC36C;
             --waba-secondary-color: #D6F5E5;
             --waba-third-color: #F9FAFB;
             /* --waba-secondary-color: #E1F8E8; */
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
         }
 
         .button-waba {

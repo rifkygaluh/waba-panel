@@ -151,38 +151,38 @@ class LandingPageController extends Controller
 
     public function sourceData(Request $request){
         $dataSource = [
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => '#', 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
+            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
         ];
 
         $currentPage = $request->page;
@@ -193,5 +193,11 @@ class LandingPageController extends Controller
         $items = array_slice($dataSource, $start, $request->count);
 
         return response()->json(compact('totalItems', 'totalPage', 'start', 'items', 'currentPage'));
+    }
+
+    public function sourceDetail($id){
+        $data['id'] = $id;
+
+        return view('landing-page/source-detail', $data);
     }
 }

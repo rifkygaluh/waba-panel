@@ -21,6 +21,7 @@ Route::get('blog/data', [LandingPageController::class, 'blogData']);
 Route::get('blog/detail/{id}', [LandingPageController::class, 'blogDetail']);
 Route::get('source', [LandingPageController::class, 'source']);
 Route::get('source/data', [LandingPageController::class, 'sourceData']);
+Route::get('source/detail/{id}', [LandingPageController::class, 'sourceDetail']);
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {
