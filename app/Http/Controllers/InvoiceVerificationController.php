@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\APIResponse;
+use App\Helpers\BenefitCalculation;
 use App\Http\Requests\Invoice\AcceptRequest;
 use App\Http\Requests\Invoice\RejectRequest;
 use Illuminate\Http\Request;
@@ -127,6 +128,7 @@ class InvoiceVerificationController extends Controller
                 'discount' => $item['discount'] ?? NULL,
                 'discount_type' => $item['discount_type'],
                 'price' => $item['price'],
+                'total_price' => $item['total_price'],
             ]);
         }
     }
@@ -142,7 +144,7 @@ class InvoiceVerificationController extends Controller
 
         DB::transaction(function () use ($data, $request) {
             $this->verify('accept', $data->id, $request);
-            // TODO: Handle benefit calculation
+            BenefitCalculation::storeBenefit($data, $request);
         });
 
         // TODO: Handle trigger notification
