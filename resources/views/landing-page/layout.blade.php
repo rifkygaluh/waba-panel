@@ -111,12 +111,15 @@
                     Build Loyalty. Effortlessly
                 </div>
                 <div class="md:col-span-8">
-                    <div class="grid md:grid-cols-4 grid-cols-1 md:grid-flow-col grid-flow-row gap-5">
+                    <div class="grid md:grid-flow-col grid-flow-row gap-5">
                         <div class="flex flex-col gap-3">
                             <p class="text-[20px] font-bold">Product</p>
                             <a href="{{ url('/#features') }}">Features</a>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <p class="text-[20px] font-bold">Resource</p>
                             <a href="{{ url('blog') }}">Blog</a>
-                            <a href="{{ url('source') }}">Source</a>
+                            <a href="{{ url('source') }}">E-Book</a>
                         </div>
                         <div class="flex flex-col gap-3">
                             <p class="text-[20px] font-bold">Company</p>
@@ -134,7 +137,7 @@
                                 <img class="h-[16px] mr-3" src="{{ asset('landing-page/images/emojione_flag-for-indonesia (1).png') }}" />
                                 <a href="#">Bahasa Indonesia</a>
                             </div> --}}
-                            <div class="flex items-center justify-between w-[200px]">
+                            <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <img class="h-[16px] mr-3" src="{{ asset('landing-page/images/circle-flags_uk (1).png') }}" />
                                     <a href="#" class="text-[var(--waba-primary-color)]">English</a>
