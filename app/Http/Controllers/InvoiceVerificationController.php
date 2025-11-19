@@ -92,6 +92,45 @@ class InvoiceVerificationController extends Controller
         return $invoice;
     }
 
+    /**
+     * Handle verification process
+     * 
+     * @param enum-string $action 'accept'|'reject'
+     * @param int $invoiceId
+     * @param Request $request
+     * @return void
+     */
+    private function verify($action, $invoiceId, Request $request)
+    {
+        DB::table('invoices')->where('id', $invoiceId)->update([
+            'date' => $request->invoice_date,
+            'total_pieces' => $request->total_pieces,
+            'amount' => $request->amount,
+            'verified_at' => now()->toDateTimeString(),
+            'status' => $action === 'accept'
+                ? 'accepted'
+                : 'rejected',
+            'comments' => $action === 'reject'
+                ? $request->comments
+                : NULL,
+        ]);
+
+        DB::table('invoice_products')
+            ->where('invoice_id', $invoiceId)
+            ->delete();
+        
+        foreach ($request->items as $item) {
+            DB::table('invoice_products')->insert([
+                'invoice_id' => $invoiceId,
+                'product_id' => $item['product_id'],
+                'qty' => $item['quantity'],
+                'discount' => $item['discount'] ?? NULL,
+                'discount_type' => $item['discount_type'],
+                'price' => $item['price'],
+            ]);
+        }
+    }
+
     public function accept(AcceptRequest $request)
     {
         $data = $this->validate($request);
@@ -102,31 +141,10 @@ class InvoiceVerificationController extends Controller
         ], $data->status);
 
         DB::transaction(function () use ($data, $request) {
-            DB::table('invoices')->where('id', $data->id)->update([
-                'status' => 'accepted',
-                'date' => $request->invoice_date,
-                'total_pieces' => $request->total_pieces,
-                'amount' => $request->amount,
-                'verified_at' => now()->toDateTimeString(),
-            ]);
-
-            DB::table('invoice_products')
-                ->where('invoice_id', $data->id)
-                ->delete();
-            
-            foreach ($request->items as $item) {
-                DB::table('invoice_products')->insert([
-                    'invoice_id' => $data->id,
-                    'product_id' => $item['product_id'],
-                    'qty' => $item['quantity'],
-                    'discount' => $item['discount'] ?? NULL,
-                    'discount_type' => $item['discount_type'],
-                    'price' => $item['price'],
-                ]);
-            }
+            $this->verify('accept', $data->id, $request);
+            // TODO: Handle benefit calculation
         });
 
-        // TODO: Handle generate benefit
         // TODO: Handle trigger notification
 
         return APIResponse::success([
@@ -145,29 +163,7 @@ class InvoiceVerificationController extends Controller
         ], $data->status);
 
         DB::transaction(function () use ($data, $request) {
-            DB::table('invoices')->where('id', $data->id)->update([
-                'status' => 'rejected',
-                'comments' => $request->comments,
-                'date' => $request->invoice_date,
-                'total_pieces' => $request->total_pieces,
-                'amount' => $request->amount,
-                'verified_at' => now()->toDateTimeString(),
-            ]);
-
-            DB::table('invoice_products')
-                ->where('invoice_id', $data->id)
-                ->delete();
-            
-            foreach ($request->items as $item) {
-                DB::table('invoice_products')->insert([
-                    'invoice_id' => $data->id,
-                    'product_id' => $item['product_id'],
-                    'qty' => $item['quantity'],
-                    'discount' => $item['discount'] ?? NULL,
-                    'discount_type' => $item['discount_type'],
-                    'price' => $item['price'],
-                ]);
-            }
+            $this->verify('reject', $data->id, $request);
         });
 
         // TODO: Handle trigger notification
