@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ebook;
+use App\Models\EbookDownload;
 
 class LandingPageController extends Controller
 {
@@ -150,54 +152,58 @@ class LandingPageController extends Controller
     }
 
     public function sourceData(Request $request){
-        $dataSource = [
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41.png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (1).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (2).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (3).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (4).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (5).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (6).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-            ['link' => url('source/detail/1'), 'image' => asset('landing-page/images/source/image 41 (7).png'), 'title' => 'Sadhguru - Karma - Inner Engineering'],
-        ];
+        if($request->get('slug')){
+            $ebook = Ebook::where('slug', $request->slug)->first();
+
+            return response()->json($ebook);
+        }
 
         $currentPage = $request->page;
-        $totalItems = count($dataSource);
+        $totalItems = Ebook::count();
         $totalPage = (integer)($totalItems / $request->count) + ($totalItems % $request->count ? 1 : 0);
         $start = ($request->count * $currentPage) - $request->count;
-        // $end = $request->count * $currentPage;
-        $items = array_slice($dataSource, $start, $request->count);
+        $items = Ebook::offset($start)->limit($request->count)->get()->toArray();
 
         return response()->json(compact('totalItems', 'totalPage', 'start', 'items', 'currentPage'));
     }
 
-    public function sourceDetail($id){
-        $data['id'] = $id;
-
+    public function sourceDetail($slug){
+        $data['slug'] = $slug;
+        
         return view('landing-page/source-detail', $data);
+    }
+
+    public function downloadEbook(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'country' => 'required|in:indonesia,other',
+            'company' => 'required|string|max:255',
+            'job' => 'required|string',
+            'slug' => 'required|string'
+        ]);
+
+        $ebook = Ebook::where('slug', $request->slug)->first();
+
+        if(!$ebook){
+            return response()->json([
+                'message' => 'Data Not Found',
+                'errors' => ['Data Not Found'],
+            ], 404);
+        }
+
+        $ebookDownload = new EbookDownload;
+        $ebookDownload->ebook_id = $ebook->id;
+        $ebookDownload->name = $request->name;
+        $ebookDownload->email = $request->email;
+        $ebookDownload->country = $request->country;
+        $ebookDownload->company_name = $request->company;
+        $ebookDownload->job_title = $request->job;
+        $ebookDownload->downloaded_at = date('Y-m-d H:i:s');
+        $ebookDownload->save();
+
+        // DB::table('e    ')->insert($blogs);
+
+        return response()->json(['link_download' => asset($ebook->file_url)]);
     }
 }

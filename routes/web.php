@@ -22,6 +22,7 @@ Route::get('blog/detail/{id}', [LandingPageController::class, 'blogDetail']);
 Route::get('source', [LandingPageController::class, 'source']);
 Route::get('source/data', [LandingPageController::class, 'sourceData']);
 Route::get('source/detail/{id}', [LandingPageController::class, 'sourceDetail']);
+Route::post('ebook/download', [LandingPageController::class, 'downloadEbook']);
 
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {

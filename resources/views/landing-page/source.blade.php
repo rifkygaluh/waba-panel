@@ -69,11 +69,9 @@
             for (let item of data) {
                 let cardSource = $('<div class="grid gap-3 bg-white p-4 rounded-xl">');
                 let imageSource = $('<div class="flex justify-center h-[295px] rounded-xl overflow-auto bg-white">')
-                    .append($('<img class="max-h-[100%] max-w-[100%]" src="'+item.image+'" />'));
-                let textSource = $('<a href="'+item.link+'">')
-                    .append($('<p class="font-bold mb-1">').text(item.title))
-                    .append($('<p class="text-[14px]">').text(item.date));
-                let btnSource = $('<button onclick="window.open(`'+item.link+'`, `_blank`)" class="button-waba-outline !pt-[10px] !pb-[9px] !w-full text-center">')
+                    .append($('<img class="max-h-[100%] max-w-[100%]" src="{{asset('')}}'+item.cover_url+'" />'));
+                let textSource = $('<p class="font-bold mb-1">').text(item.title);
+                let btnSource = $('<button onclick="redirectToPage(`'+item.slug+'`)" class="button-waba-outline !pt-[10px] !pb-[9px] !w-full text-center">')
                     .text('Download E-Book');
                 
                 cardSource.append(imageSource, textSource, btnSource);
@@ -92,11 +90,11 @@
             $('#totalItems').text(Number(data.totalItems));
 
             if (totalPage > 1) {
-                const urlPrevious = "{{ url('source?category=') }}"+category+"&page="+(currentPage > 1 ? currentPage - 1 : "#");
+                const urlPrevious = "{{ url('source') }}"+"?page="+(currentPage > 1 ? currentPage - 1 : "#");
                 const previous = $('<a href="'+urlPrevious+'" class="relative inline-flex items-center rounded-md px-2 py-2 inset-ring inset-ring-[var(--waba-primary-color)] hover:bg-[var(--waba-primary-color)] focus:z-20 focus:outline-offset-0">')
                     .append($('<span class="sr-only">Previous</span>'))
                     .append($('<ion-icon class="" name="chevron-back-outline"></ion-icon>'));
-                const urlNext = "{{ url('source?category=') }}"+category+"&page="+(currentPage == totalPage ? "#" : currentPage + 1);
+                const urlNext = "{{ url('source') }}"+"?page="+(currentPage == totalPage ? "#" : currentPage + 1);
                 const next = $('<a href="'+urlNext+'" class="relative inline-flex items-center rounded-md px-2 py-2 inset-ring inset-ring-[var(--waba-primary-color)] hover:bg-[var(--waba-primary-color)] focus:z-20 focus:outline-offset-0">')
                     .append($('<span class="sr-only">Next</span>'))
                     .append($('<ion-icon class="" name="chevron-forward-outline"></ion-icon>'));
@@ -108,7 +106,6 @@
                 }else{
                     $('#mobilePrevious').removeAttr('href');
                     previous.removeAttr('href');
-                    console.log('haggu')
                 }
                 
                 if(currentPage == totalPage){
@@ -123,38 +120,42 @@
                 if (totalPage <= 5) {
                     // Tampilkan semua nomer halaman
                     for (let i = 1; i <= totalPage; i++) {
-                        paginationContainer.append($(pagesNumber).text(i).attr("href", "{{url('source?category=')}}"+category+"&page="+i).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
+                        paginationContainer.append($(pagesNumber).text(i).attr("href", "{{url('source')}}"+"?page="+i).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
                     }
                 } else {
                     if (currentPage <= 3) {
                         for (let i = 1; i <= (currentPage <= 2 ? 3 : 4); i++) {
-                            paginationContainer.append($(pagesNumber).text(i).attr("href", "{{url('source?category=')}}"+category+"&page="+i).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
+                            paginationContainer.append($(pagesNumber).text(i).attr("href", "{{url('source')}}"+"?page="+i).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
                         }
 
                         paginationContainer.append($(separator).text('...'));
-                        paginationContainer.append($(pagesNumber).text(totalPage).attr("href", "{{url('source?category=')}}"+category+"&page="+totalPage).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
+                        paginationContainer.append($(pagesNumber).text(totalPage).attr("href", "{{url('source')}}"+"?page="+totalPage).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
                     } else if (currentPage >= totalPage - 2) {
-                        paginationContainer.append($(pagesNumber).text(1).attr("href", "{{url('source?category=')}}"+category+"&page="+1).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
+                        paginationContainer.append($(pagesNumber).text(1).attr("href", "{{url('source')}}"+"?page="+1).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
                         paginationContainer.append($(separator).text('...'));
 
                         for (let i = (currentPage == totalPage - 2) ? (totalPage - 3) : (totalPage - 2); i <= totalPage; i++) {
-                            paginationContainer.append($(pagesNumber).text(i).attr("href", "{{url('source?category=')}}"+category+"&page="+i).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
+                            paginationContainer.append($(pagesNumber).text(i).attr("href", "{{url('source')}}"+"?page="+i).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
                         }
                     } else {
                         pages.push(1)
                         paginationContainer.append($(separator).text('...'));
 
                         for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-                            paginationContainer.append($(pagesNumber).text(i).attr("href", "{{url('source?category=')}}"+category+"&page="+i).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
+                            paginationContainer.append($(pagesNumber).text(i).attr("href", "{{url('source')}}"+"?page="+i).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
                         }
 
                         paginationContainer.append($(separator).text('...'));
-                        paginationContainer.append($(pagesNumber).text(totalPage).attr("href", "{{url('source?category=')}}"+category+"&page="+totalPage).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
+                        paginationContainer.append($(pagesNumber).text(totalPage).attr("href", "{{url('source')}}"+"?page="+totalPage).addClass(i == currentPage ? 'bg-[var(--waba-primary-color)]' : ''));
                     }
                 }
 
                 paginationContainer.append(next);
             }
+        }
+
+        function redirectToPage(urlEbook){
+            window.location.href = "{{url('source/detail')}}"+"/"+urlEbook;
         }
     </script>
 @endsection
