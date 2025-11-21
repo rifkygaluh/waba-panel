@@ -18,10 +18,10 @@ Route::get('terms-n-conditions', [LandingPageController::class, 'terms']);
 Route::get('privacy-policy', [LandingPageController::class, 'privacy']);
 Route::get('blog', [LandingPageController::class, 'blog']);
 Route::get('blog/data', [LandingPageController::class, 'blogData']);
-Route::get('blog/detail/{id}', [LandingPageController::class, 'blogDetail']);
+Route::get('blog/detail/{slug}', [LandingPageController::class, 'blogDetail']);
 Route::get('source', [LandingPageController::class, 'source']);
 Route::get('source/data', [LandingPageController::class, 'sourceData']);
-Route::get('source/detail/{id}', [LandingPageController::class, 'sourceDetail']);
+Route::get('source/detail/{slug}', [LandingPageController::class, 'sourceDetail']);
 Route::post('ebook/download', [LandingPageController::class, 'downloadEbook']);
 
 Route::middleware('auth')->group(function () {

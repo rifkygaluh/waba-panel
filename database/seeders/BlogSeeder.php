@@ -43,7 +43,8 @@ class BlogSeeder extends Seeder
                 'author_id' => rand(1, 10),
                 'image_url' => $data[rand(0, 3)]['image_url'],
                 'read_time' => rand(1, 5),
-                'related_ids' => json_encode([1, 2, 3])
+                'related_ids' => json_encode([1, 2, 3]),
+                'created_at' => date('Y-m-d H:i:s')
             ];
         }
 

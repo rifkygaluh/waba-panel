@@ -10,14 +10,14 @@
     {{-- <section class="container px-5 mx-auto pb-20 md:mt-[-20px] mt-[100px]"> --}}
     <section class="max-w-4xl md:px-10 px-5 mx-auto md:mt-[-20px] mt-[100px]">
         <div>
-            <img id="imageBlog" class="w-full max-h-[300px] rounded-4xl" src="{{ asset('landing-page/images/blog/Rectangle 60.png') }}" />
+            <img id="imageBlog" class="w-full max-h-[300px] rounded-4xl" src="" />
             <div id="titleBlog" class="font-bold text-[24px] mt-5 mb-3"></div>
             <div class="flex justify-between items-center text-[14px] mb-8">
                 <div class="flex items-center gap-3">
                     <img id="imageAuthorBlog" class="rounded-full w-[24px] h-[24px]" src="" />
                     <div>By <span id="authorBlog">-</span></div>
                     <div>30 mins ago</div>
-                    <div>2 min read</div>
+                    <div><span id="readTime">0</span> min read</div>
                 </div>
                 <div class="flex items-center gap-3">
                     <ion-icon name="chatbox-outline"></ion-icon>
@@ -35,7 +35,7 @@
 
 @section('script')
     <script>
-        const urlDetail = "{{ url('blog/data?category=detail&id='.$id) }}";
+        const urlDetail = "{{ url('blog/data?slug='.$slug) }}";
         fetch(urlDetail)
             .then(response => {
                 if (!response.ok) throw new Error('Network response was not ok');
@@ -43,31 +43,20 @@
                 return response.json();
             })
             .then(data => {
-                setDetail(data.item);
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-        
-        const urlSimiliarNews = "{{ url('blog/data?category=similiar-news') }}";
-        fetch(urlSimiliarNews)
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                return response.json();
-            })
-            .then(data => {
-                setSimiliarNews(data.items);
+                setDetail(data.blog);
+                setSimiliarNews(data.blogs);
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
         
         function setDetail(data){
-            $('#imageBlog').attr("src", data.image);
+            $('#imageBlog').attr("src", "{{asset('')}}"+data.image_url);
             $('#titleBlog').text(data.title);
-            $('#imageAuthorBlog').attr("src", data.image_author);
-            $('#authorBlog').text(data.author);
+            // $('#imageAuthorBlog').attr("src", data.author_id);
+            $('#imageAuthorBlog').attr("src", "{{asset('landing-page/images/blog/Ellipse 11.png')}}");
+            $('#authorBlog').text(data.author_id);
+            $('#readTime').text(data.read_time);
             $('#contentBlog').append($(data.content));
         }
 
@@ -75,11 +64,16 @@
             const similiarNewsContainer = $('#similiarNewsContainer');
 
             for (let item of data) {
+                const date = new Date(item.created_at);
+                const options = { month: 'long', day: 'numeric', year: 'numeric' };
+                const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+                const urlDetail = "{{url('blog/detail')}}" + "/" + item.slug
+
                 let cardBlog = $('<div class="grid gap-3">');
-                let imageBlod = $('<img class="w-full rounded-xl" src="'+item.images+'" />');
-                let textBlog = $('<a href="'+item.link+'">')
+                let imageBlod = $('<img class="w-full rounded-xl" src="{{asset('')}}'+item.image_url+'" />');
+                let textBlog = $('<a href="'+urlDetail+'">')
                     .append($('<p class="font-bold mb-1">').text(item.title))
-                    .append($('<p class="text-[14px]">').text(item.date));
+                    .append($('<p class="text-[14px]">').text(formattedDate));
                 
                 cardBlog.append(imageBlod, textBlog);
                 similiarNewsContainer.append(cardBlog);

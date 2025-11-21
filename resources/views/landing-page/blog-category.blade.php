@@ -67,12 +67,17 @@
             const blogContainer = $('#blogContainer');
 
             for (let item of data) {
+                const date = new Date(item.created_at);
+                const options = { month: 'long', day: 'numeric', year: 'numeric' };
+                const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+                const urlDetail = "{{url('blog/detail')}}" + "/" + item.slug
+
                 let cardBlog = $('<div class="grid gap-3">');
                 let imageBlod = $('<div class="flex justify-center h-[177px] rounded-xl overflow-auto bg-black">')
-                    .append($('<img class="max-h-[100%] max-w-[100%]" src="'+item.images+'" />'));
-                let textBlog = $('<a href="'+item.link+'">')
+                    .append($('<img class="max-h-[100%] max-w-[100%]" src="{{asset('')}}'+item.image_url+'" />'));
+                let textBlog = $('<a href="'+urlDetail+'">')
                     .append($('<p class="font-bold mb-1">').text(item.title))
-                    .append($('<p class="text-[14px]">').text(item.date));
+                    .append($('<p class="text-[14px]">').text(formattedDate));
                 
                 cardBlog.append(imageBlod, textBlog);
                 blogContainer.append(cardBlog);
@@ -106,7 +111,6 @@
                 }else{
                     $('#mobilePrevious').removeAttr('href');
                     previous.removeAttr('href');
-                    console.log('haggu')
                 }
                 
                 if(currentPage == totalPage){
