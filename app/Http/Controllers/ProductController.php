@@ -101,4 +101,46 @@ class ProductController extends Controller
             ], 500);
         }
     }
+    
+    private function checkUsage($id)
+    {
+        $benefitProduct = DB::table('benefit_rule_products')
+            ->where('product_id', $id)
+            ->first();
+
+        if ($benefitProduct) return (object)[
+            'message' => 'Product has been used on a benefit rule',
+        ];
+            
+        $invoiceProduct = DB::table('invoice_products')
+            ->where('product_id', $id)
+            ->first();
+
+        if ($invoiceProduct) return (object)[
+            'message' => 'Product has been used on verified invoices',
+        ];
+
+        return false;
+    }
+    
+    public function destroy($id)
+    {
+        $product = DB::table('products')
+            ->where('id', $id)
+            ->firstOrFail();
+
+        $used = $this->checkUsage($id);
+            
+        if ($used) return APIResponse::error([
+            'message' => 'Delete Failed',
+            'description' => $used->message,
+        ], 400);
+
+        DB::table('products')->delete($id);
+
+        return APIResponse::success([
+            'message' => 'Delete Success',
+            'description' => 'Your product is deleted successfully',
+        ]);
+    }
 }
