@@ -31,24 +31,18 @@ class LandingPageController extends Controller
 
     public function blog(Request $request){
         if($request->get('category')){
-            $category = ['latest-news', 'press-release'];
+            $category = ['news', 'press-release'];
 
             if(in_array($request->category, $category)){
-                $titles = ['latest-news' => 'Latest News', 'press-release' => 'Press Release'];
-                // $arrParams = [
-                //     'page' => $request->get('page') ? $request->page : 1,
-                //     'category' => $request->category
-                // ];
+                $titles = ['news' => 'Latest News', 'press-release' => 'Press Release'];
 
                 $data = [
                     'title' => $titles[$request->category],
                     'page' => $request->get('page') ? $request->page : 1,
                     'category' => $request->category,
-                    // 'params' => '?'.http_build_query($arrParams)
                 ];
 
                 if($request->get('page')){
-                    // dd((int)$request->page);
                     if((int)$request->page < 1) {
                         return redirect(url('blog?category='.$data['category']));
                     }
@@ -71,21 +65,25 @@ class LandingPageController extends Controller
 
 
         if($request->get('category')){
-            $categories = ['latest-news', 'press-release'];
+            $categories = ['news', 'press-release'];
 
             if(in_array($request->category, $categories)){
                 $category = $request->category;
                 $currentPage = $request->page;
-                $totalItems = Blog::count();
+                $totalItems = Blog::where('category', $request->category)->count();
                 $totalPage = (integer)($totalItems / $request->count) + ($totalItems % $request->count ? 1 : 0);
                 $start = ($request->count * $currentPage) - $request->count;
-                $items = Blog::offset($start)->limit($request->count)->get()->toArray();
+                $items = Blog::where('category', $request->category)->offset($start)->limit($request->count)->get()->toArray();
 
                 return response()->json(compact('totalItems', 'totalPage', 'start', 'items', 'currentPage', 'category'));
             }
         }
 
-        abort(404);
+        $latestBlogs = Blog::limit(3)->orderBy('id', 'desc')->get();
+        $latestNews = Blog::where('category', 'news')->limit(4)->orderBy('id', 'desc')->get();
+        $pressRelease = Blog::where('category', 'press-release')->limit(4)->orderBy('id', 'desc')->get();
+
+        return response()->json(compact('latestBlogs', 'latestNews', 'pressRelease'));
     }
 
     public function blogDetail($slug){

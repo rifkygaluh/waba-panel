@@ -33,6 +33,8 @@ class BlogSeeder extends Seeder
             ['title' => 'How to Turn Idle Domains into Steady Revenue Streams', 'slug' => 'how-to-turn-idle', 'image_url' => 'landing-page/images/blog/image 42.png']
         ];
 
+        $categories = ['news', 'press-release'];
+
         $blogs = [];
         for($i=1;$i<=24;$i++){
             $no = rand(0,3);
@@ -40,6 +42,7 @@ class BlogSeeder extends Seeder
                 'title' => $data[$no]['title'],
                 'slug' => $data[$no]['slug'].'-'.$i,
                 'content' => $content,
+                'category' => $categories[rand(0,1)],
                 'author_id' => rand(1, 10),
                 'image_url' => $data[rand(0, 3)]['image_url'],
                 'read_time' => rand(1, 5),

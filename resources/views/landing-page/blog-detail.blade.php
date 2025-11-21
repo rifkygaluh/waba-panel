@@ -28,7 +28,7 @@
             <div id="contentBlog" class="grid gap-3"></div>
 
             <div class="font-bold text-[20px] mt-8 mb-5">Similiar News</div>
-            <div id="similiarNewsContainer" class="grid md:grid-cols-3 grid-cols-1 md:grid-flow-col grid-flow-row gap-5 items-center mb-[100px]"></div>
+            <div id="similiarNewsContainer" class="grid md:grid-cols-3 grid-cols-1 md:grid-flow-col grid-flow-row gap-5 items-start mb-[100px]"></div>
         </div>
     </section>  
 @endsection
@@ -70,7 +70,9 @@
                 const urlDetail = "{{url('blog/detail')}}" + "/" + item.slug
 
                 let cardBlog = $('<div class="grid gap-3">');
-                let imageBlod = $('<img class="w-full rounded-xl" src="{{asset('')}}'+item.image_url+'" />');
+                // let imageBlod = $('<img class="w-full rounded-xl" src="{{asset('')}}'+item.image_url+'" />');
+                let imageBlod = $('<div class="flex justify-center md:w-auto w-[250px] h-[150px] max-h-[204px] rounded-xl overflow-auto bg-black">')
+                    .append($('<img class="max-h-[100%] max-w-[100%]" src="{{asset('')}}'+item.image_url+'" />'));
                 let textBlog = $('<a href="'+urlDetail+'">')
                     .append($('<p class="font-bold mb-1">').text(item.title))
                     .append($('<p class="text-[14px]">').text(formattedDate));
