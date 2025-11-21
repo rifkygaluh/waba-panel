@@ -9,6 +9,7 @@ import { Button, Modal } from 'ant-design-vue';
 import { PencilLine, PlusCircle, Trash2 } from 'lucide-vue-next';
 import { reactive } from 'vue';
 import { columns, queryData } from './api';
+import { destroy } from './api/delete';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -18,12 +19,14 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 const deleteModal = reactive({
-  record: null as { name: string } | null,
+  record: null as { id: number; name: string } | null,
   open: false,
-  setOpen: (data: { name: string }) => {
+  setOpen: (data: { id: number; name: string }) => {
     deleteModal.open = !deleteModal.open;
     deleteModal.record = deleteModal.open ? data : null;
   },
+  submit: async () =>
+    deleteModal.record && (await destroy(deleteModal.record.id)),
 });
 </script>
 
@@ -51,16 +54,16 @@ const deleteModal = reactive({
       </Card>
       <Card class="px-6">
         <TableFetcher :query-data="queryData" :columns="columns">
-          <template #action="{ record }">
+          <template #action="{ record: { id, name } }">
             <div class="flex gap-2.5">
-              <Link :href="product.edit(record.id).url">
+              <Link :href="product.edit(id).url">
                 <Button class="px-2.5!">
                   <PencilLine class="h-4 w-4" />
                 </Button>
               </Link>
               <Button
                 class="px-2.5!"
-                @click="deleteModal.setOpen({ name: record.name })"
+                @click="deleteModal.setOpen({ id, name })"
                 danger
               >
                 <Trash2 class="h-4 w-4" />
@@ -74,6 +77,7 @@ const deleteModal = reactive({
           :closable="false"
           :ok-button-props="{ danger: true }"
           ok-text="Confirm"
+          @ok="deleteModal.submit"
         >
           Are you sure to delete this data, {{ deleteModal.record?.name }}?
         </Modal>
