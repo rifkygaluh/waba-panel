@@ -120,9 +120,14 @@ class BenefitCalculation
         $invoice->date = $request->invoice_date;
         $invoiceItems = self::getInvoiceItems($invoice);
         
+        $totalPoints = 0;
+        
         foreach ($invoiceItems as $item) {
             $calculated = self::calculatePoint($item);
             self::saveCalculatedPoints($item, $calculated);
+            $totalPoints += $calculated->benefit;
         }
+
+        return $totalPoints;
     }
 }
