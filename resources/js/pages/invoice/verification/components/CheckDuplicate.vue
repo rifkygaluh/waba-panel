@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import TableFetcher from '@/components/TableFetcher.vue';
+import { fetchImage } from '@/lib/api';
 import {
   columns,
   queryData,
@@ -18,9 +19,10 @@ const duplicateModal = reactive({
   record: null,
   open: false,
   loading: false,
-  setOpen: (record: any) => {
+  setOpen: async (record: any) => {
+    const data = { ...record, image: await fetchImage(record.image) };
     duplicateModal.open = !duplicateModal.open;
-    duplicateModal.record = duplicateModal.open ? record : null;
+    duplicateModal.record = !duplicateModal.open ? null : data;
   },
 });
 

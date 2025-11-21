@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { component as VViewer } from 'v-viewer';
 
 const invoice = useInvoiceStore();
+await invoice.fetchImage();
 
 const dataSource = [
   { title: 'Invoice Number', value: invoice.invoice_number },

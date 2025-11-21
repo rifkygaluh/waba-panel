@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\APIResponse;
 use App\Helpers\BenefitCalculation;
+use App\Helpers\Invoice;
 use App\Http\Requests\Invoice\AcceptRequest;
 use App\Http\Requests\Invoice\RejectRequest;
 use Illuminate\Http\Request;
@@ -48,11 +49,12 @@ class InvoiceVerificationController extends Controller
     public function checkDuplicateApi(Request $request)
     {
         $perPage = $request->results ?? 5;
+        $imageDir = Invoice::imageBaseUrl();
                 
         return $this->queryData($request, [
                 'i.amount', 'i.total_pieces', DB::raw('DATE(i.created_at) AS date'),
-                'i.media_url AS image', 's.area AS store_area', 'u.email AS user_email',
-                'u.phone_number AS user_phone_number', 'u.address AS user_address',
+                DB::raw("'$imageDir' || i.media_url AS image"), 's.area AS store_area',
+                'u.email AS user_email', 'u.phone_number AS user_phone_number', 'u.address AS user_address',
             ])
             ->where('i.id', '<>', $request->id)
             ->where('i.status', 'accepted')
@@ -64,8 +66,10 @@ class InvoiceVerificationController extends Controller
 
     public function show(string $id)
     {
+        $imageDir = Invoice::imageBaseUrl();
+        
         $invoice = DB::table('invoices', 'i')
-            ->select('i.*', 'i.media_url AS image')
+            ->selectRaw("i.*, '$imageDir' || i.media_url AS image")
             ->where('i.id', $id)
             ->firstOrFail();
 

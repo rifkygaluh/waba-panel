@@ -1,3 +1,4 @@
+import { fetchImage } from '@/lib/api';
 import { Invoice, InvoiceItem } from '@/types/invoice';
 import { defineStore } from 'pinia';
 
@@ -77,6 +78,9 @@ export const useInvoiceStore = defineStore('invoice', {
         });
         this.calculate();
       }
+    },
+    async fetchImage() {
+      this.image = await fetchImage(this.image);
     },
     addNewItem() {
       this.items.push({ ...itemTemplate });
