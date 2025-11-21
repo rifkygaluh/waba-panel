@@ -23,3 +23,17 @@ export function notifyError(err: AxiosError<NotificationResponse>) {
     console.log(err); // TODO: Testing only, remove on production
   }
 }
+
+export async function fetchImage(url: string | undefined) {
+  if (url) {
+    const response = await fetch(url, {
+      headers: {
+        'X-Api-Key': import.meta.env.VITE_API_KEY,
+        'X-Api-Secret': import.meta.env.VITE_API_SECRET,
+      },
+    });
+    const blob = await response.blob();
+    return URL.createObjectURL(blob);
+  }
+  return undefined;
+}

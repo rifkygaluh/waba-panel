@@ -24,8 +24,9 @@ class Client
             ->withHeaders([
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
+                'X-Api-Key' => env('API_KEY'),
+                'X-Api-Secret' => env('API_SECRET'),
             ])
-            ->withToken($this->getToken())
             ->retry(3, 100)
             ->timeout(30);
     }
