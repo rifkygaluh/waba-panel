@@ -115,4 +115,45 @@ class BenefitRulesController extends Controller
             'description' => 'Your benefit rule is successfully updated',
         ]);
     }
+    
+    private function checkUsage($id)
+    {
+        $benefitLogs = DB::table('benefit_logs');
+        
+        $usedBenefits = DB::table('benefit_rule_products', 'brp')
+            ->selectRaw('COUNT(bl.id) AS total')
+            ->joinSub($benefitLogs, 'bl', 'bl.benefit_product_id', 'brp.product_id')
+            ->where('rule_id', $id)
+            ->first();
+
+        if ($usedBenefits) {
+            $wording = $usedBenefits->total > 1
+                ? 'some verified invoices'
+                : 'a verified invoice';
+            return (object)['message' => "This rule has been used on $wording"];
+        }
+
+        return false;
+    }
+    
+    public function destroy($id)
+    {
+        DB::table('benefit_rules')
+            ->where('id', $id)
+            ->firstOrFail();
+
+        $used = $this->checkUsage($id);
+            
+        if ($used) return APIResponse::error([
+            'message' => 'Delete Failed',
+            'description' => $used->message,
+        ], 400);
+
+        DB::table('benefit_rules')->delete($id);
+
+        return APIResponse::success([
+            'message' => 'Delete Success',
+            'description' => 'Your benefit rule is deleted successfully',
+        ]);
+    }
 }
